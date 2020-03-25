@@ -27,12 +27,12 @@
     "dev": "nodemon --exec \"electron ./src/main.js\" -w ./src",
     "prepackage": "rimraf release",
     "package": "build",
-    "package:mac": "yarn run package --mac",
-    "package:linux": "yarn run package --linux",
+    "package:mac": "npm run package --mac",
+    "package:linux": "npm run package --linux",
     "package:win": "npm run package --win --x64",
-    "package:all": "yarn run package -mwl",
-    "package:test": "yarn run package --linux",
-    "release": "yarn run package:all --publish always"
+    "package:all": "npm run package -mwl",
+    "package:test": "npm run package --linux",
+    "release": "npm run package:all --publish always"
   },
   "build": {
     "productName": "iLiveMyLife",
