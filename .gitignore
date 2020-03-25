@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/desktop/release
 
 # testing
 /coverage
