@@ -1,26 +1,27 @@
 import React, { Component } from "react";
-import {PageHeader, Tag, Typography, Descriptions, Row, Icon} from "antd";
-import RemoveTodoItem from "./RemoveTodoItem";
+import {PageHeader, Tag, Typography, Descriptions, Row } from "antd";
+import RemoveItem from "./RemoveItem";
+import EditItem from "./EditItem";
 const { Paragraph } = Typography;
 
 export default class ItemTitle extends Component {
-    showEditItemDialog = () => {
-        this.props.showEditItemDialog(this.props.item);
+    editItem = () => {
+        this.props.editItem(this.props.item);
     };
 
     removeItem = () => {
         this.props.removeItem(this.props.item);
     };
+
     render() {
         return (
             <div>
                 <PageHeader
-                    onBack={() => window.history.back()}
-                    className="site-page-header"
                     title={this.props.item.title}
                     extra={[
-                        <Icon key="1" type="edit" theme="filled" onClick={this.showEditItemDialog} />,
-                        <RemoveTodoItem key="2" onRemove={this.removeItem}/>
+                        <EditItem key="1" onEdit={this.editItem} />,
+                        "  |",
+                        <RemoveItem key="2" onRemove={this.removeItem} />
                     ]}
                 >
                     <Row>
@@ -28,15 +29,11 @@ export default class ItemTitle extends Component {
                     </Row>
 
                     <Row>
-                        <Descriptions size="small" column={3}>
-
+                        <Descriptions size="small" column={2}>
                             <Descriptions.Item label="Status">
                                 <Tag color="blue">Active</Tag>
                             </Descriptions.Item>
                             <Descriptions.Item label="Created">Ilya Sorokin</Descriptions.Item>
-                            <Descriptions.Item label="Parent item">
-                                <a>421421</a>
-                            </Descriptions.Item>
                             <Descriptions.Item label="Creation Time">2017-01-10</Descriptions.Item>
                             <Descriptions.Item label="Due Date">2017-10-10</Descriptions.Item>
                         </Descriptions>

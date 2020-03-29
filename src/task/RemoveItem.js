@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Modal, Icon } from "antd";
-import { ExclamationCircleOutlined } from '@ant-design/icons';
+import { Modal } from "antd";
+import { ExclamationCircleOutlined, CloseCircleFilled } from '@ant-design/icons';
 
 const { confirm } = Modal;
 
-export default class RemoveTodoItem extends Component {
+export default class RemoveItem extends Component {
     remove = () => {
         this.props.onRemove();
     };
@@ -28,7 +28,7 @@ export default class RemoveTodoItem extends Component {
 
     render() {
         return (
-            <Icon type="close-circle" theme="filled" onClick={() => this.showDeleteConfirm(() => this.remove())} />
+            <CloseCircleFilled onClick={() => this.showDeleteConfirm(() => this.remove())} />
         );
     }
 }
