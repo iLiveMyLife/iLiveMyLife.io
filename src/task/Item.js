@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { Input, List, Breadcrumb } from "antd";
+import { Input, List } from "antd";
 import SubItem from './SubItem';
 import ItemTitle from './ItemTitle';
 
 import './Item.css';
 import EditItemPopup from "./EditItemPopup";
+import ItemBreadcrumb from "./ItemBreadcrumb";
 
 export default class Item extends Component {
     constructor(props) {
@@ -19,19 +20,11 @@ export default class Item extends Component {
             dueDate: '2020-01-01',
             createdBy: 'Ilya Sorokin',
             createdAt: '2017-01-10',
-            breadcrumbs: [
-                {
-                    path: 'index',
-                    breadcrumbName: 'First-level task title'
-                },
-                {
-                    path: 'first',
-                    breadcrumbName: 'Second-level task title'
-                },
-                {
-                    path: 'second',
-                    breadcrumbName: 'Third-level task title'
-                }
+            path: [
+                { id: 99, title: 'My Life' },
+                { id: 100, title: 'First-level task title' },
+                { id: 101, title: 'Second-level task title' },
+                { id: 102, title: 'Third-level task title' }
             ]
         };
 
@@ -40,9 +33,9 @@ export default class Item extends Component {
             itemToEdit: item,
             inputValue: "",
             items: [
-                { index: 0, id:1, title: "Bird's Nest", tags: [] },
-                { index: 1, id:2, title: "Eagle's Nest", tags: [] },
-                { index: 2, id:3, title: "Trading", tags: [] }
+                { index: 0, id:1, title: "Bird's Nest", tags: [], path:[{ id: 99, title: 'My Life' },] },
+                { index: 1, id:2, title: "Eagle's Nest", tags: [], path:[{ id: 99, title: 'My Life' },] },
+                { index: 2, id:3, title: "Trading", tags: [], path:[{ id: 99, title: 'My Life' },] }
             ],
             item: item
         };
@@ -116,8 +109,7 @@ export default class Item extends Component {
     render() {
         return (
             <div className="itemContainer">
-                <Breadcrumb routes={this.state.item.breadcrumbs} />
-
+                <ItemBreadcrumb paths={this.state.item.path}/>
                 <ItemTitle item={this.state.item} editItem={this.editItem} removeItem={this.removeItem}/>
 
                 <Input
