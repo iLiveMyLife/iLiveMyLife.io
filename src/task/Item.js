@@ -1,16 +1,24 @@
 import React, { Component } from "react";
-import { Drawer, Input, List, Breadcrumb, Button } from "antd";
+import { Input, List, Breadcrumb } from "antd";
 import SubItem from './SubItem';
 import ItemTitle from './ItemTitle';
+
 import './Item.css';
+import EditItemPopup from "./EditItemPopup";
 
 export default class Item extends Component {
     constructor(props) {
         super(props);
 
         const item = {
-            title: 'Let us brainstorm',
-            description : 'This is a long desciption, and i am not sure this is the right place for it',
+            id:0,
+            title: "Let's brainstorm",
+            description : 'This is a long description, and i am not sure this is the right place for it',
+            isActive: true,
+            tags: ['tag1', 'tag2'],
+            dueDate: '2020-01-01',
+            createdBy: 'Ilya Sorokin',
+            createdAt: '2017-01-10',
             breadcrumbs: [
                 {
                     path: 'index',
@@ -29,11 +37,12 @@ export default class Item extends Component {
 
         this.state = {
             isEditFormVisible: false,
+            itemToEdit: item,
             inputValue: "",
             items: [
-                {index: 0, title: "Bird's Nest", date: null, dateString: ""},
-                {index: 1, title: "Eagle's Nest", date: null, dateString: ""},
-                {index: 2, title: "Trading", date: null, dateString: ""}
+                { index: 0, id:1, title: "Bird's Nest", tags: [] },
+                { index: 1, id:2, title: "Eagle's Nest", tags: [] },
+                { index: 2, id:3, title: "Trading", tags: [] }
             ],
             item: item
         };
@@ -54,7 +63,8 @@ export default class Item extends Component {
         // as well as an empty date
         const item = {
             index: this.state.items.length,
-            title: e.target.value
+            title: e.target.value,
+            tags: []
         };
 
         // Add the new todo to our array
@@ -69,9 +79,13 @@ export default class Item extends Component {
     };
 
     editItem = item => {
-        console.log(item);
-        this.setState({isEditFormVisible: true})
 
+        this.setState({itemToEdit: item, isEditFormVisible: true})
+        //console.log(this.state.itemToEdit);
+    };
+
+    onEditItem = (item) => {
+        this.setState( {item: item, isEditFormVisible: false});
     };
 
     onCloseEditItem = () => {
@@ -107,10 +121,11 @@ export default class Item extends Component {
                 <ItemTitle item={this.state.item} editItem={this.editItem} removeItem={this.removeItem}/>
 
                 <Input
+                    maxLength={150}
                     placeholder="What is in your mind? What needs to be done? Any idea to research? Some task to share?"
                     onPressEnter={this.handlePressEnter}
                     onChange={this.handleChange}
-                value={this.state.inputValue}/>
+                    value={this.state.inputValue}/>
 
                 <List
                     size="small"
@@ -125,20 +140,12 @@ export default class Item extends Component {
                     )}
                 />
 
-                <Drawer
-                    title="Edit your thought here"
+                <EditItemPopup
+                    key={this.state.itemToEdit.id}
+                    item={this.state.itemToEdit}
                     onClose={this.onCloseEditItem}
-                    visible={this.state.isEditFormVisible}
-                    bodyStyle={{ paddingBottom: 80 }}
-                    footer={
-                        <div style={{ textAlign: 'right' }}>
-                            <Button onClick={this.onClose} style={{ marginRight: 8 }}>Cancel</Button>
-                            <Button onClick={this.onClose} type="primary">Submit</Button>
-                        </div>
-                    }
-                >
-                    Here you go
-                </Drawer>
+                    onSubmit={item => this.onEditItem(item)}
+                    visible={this.state.isEditFormVisible} />
             </div>
         );
     }

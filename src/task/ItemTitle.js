@@ -31,19 +31,18 @@ export default class ItemTitle extends Component {
                     <Row>
                         <Descriptions size="small" column={2}>
                             <Descriptions.Item label="Status">
-                                <Tag color="blue">Active</Tag>
+                                {this.props.item.isActive ? (<Tag color="blue">Active</Tag>) : (<Tag color="grey">Inactive</Tag>)}
                             </Descriptions.Item>
-                            <Descriptions.Item label="Created">Ilya Sorokin</Descriptions.Item>
-                            <Descriptions.Item label="Creation Time">2017-01-10</Descriptions.Item>
-                            <Descriptions.Item label="Due Date">2017-10-10</Descriptions.Item>
+                            <Descriptions.Item label="Created">{this.props.item.createdBy}</Descriptions.Item>
+                            <Descriptions.Item label="Creation Time">{this.props.item.createdAt}</Descriptions.Item>
+                            <Descriptions.Item label="Due Date">{this.props.item.dueDate}</Descriptions.Item>
                         </Descriptions>
                     </Row>
 
                     <Row>
                         <Descriptions size="small" column={1}>
                             <Descriptions.Item label="Tags">
-                                <Tag color="cyan">tag 1</Tag>
-                                <Tag color="cyan">tag 2</Tag>
+                                {this.props.item.tags.map(tag => (<Tag key={tag} color="cyan">{tag}</Tag>))}
                             </Descriptions.Item>
                         </Descriptions>
                     </Row>
