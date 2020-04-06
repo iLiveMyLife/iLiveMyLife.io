@@ -6,6 +6,8 @@ import ItemTitle from './ItemTitle';
 import './Item.css';
 import EditItemPopup from "./EditItemPopup";
 import ItemBreadcrumb from "./ItemBreadcrumb";
+import Messanger from "./Messanger";
+import Sender from "./Sender";
 
 export default class Item extends Component {
     constructor(props) {
@@ -138,6 +140,8 @@ export default class Item extends Component {
                     onClose={this.onCloseEditItem}
                     onSubmit={item => this.onEditItem(item)}
                     visible={this.state.isEditFormVisible} />
+
+                <Messanger item={this.state.item}/>
             </div>
         );
     }
