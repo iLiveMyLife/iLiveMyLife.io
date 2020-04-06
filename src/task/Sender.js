@@ -44,7 +44,9 @@ class Sender extends React.Component {
             isSubmitting: false,
             value: ''
         });
-    }
+
+        this.element.focus();
+    };
 
     render() {
         return (
@@ -52,6 +54,10 @@ class Sender extends React.Component {
                 {
                     (mutate, { client }) => (
                         <Input
+                            ref={(element) => {
+                                this.element = element;
+                            }}
+                            autoFocus={true}
                             onPressEnter={async () => this.handleSubmit(mutate)}
                             onChange={this.handleChange}
                             name="message"
