@@ -4,6 +4,7 @@ import {Mutation, Query} from 'react-apollo';
 import { Input, List, Comment, Tooltip } from "antd";
 import moment from "moment";
 import Sender from "./Sender";
+import './Messanger.css';
 
 const GET_MESSAGES = gql`
   query($itemId: Int!, $cursor: String) {
@@ -78,8 +79,7 @@ class Messages extends React.Component {
     }
 
     componentWillReceiveProps({messages, itemId }) {
-        console.log("scroller:");
-        console.log(this.scroller.scrollTop);
+
         if (this.props.itemId !== itemId) {
             if (this.unsubscribe) {
                 this.unsubscribe();
@@ -106,37 +106,29 @@ class Messages extends React.Component {
     }
 
     handleScroll = () => {
-        console.log("handleScroll");
-        console.log(this.props);
         const { messages, fetchMore, itemId } = this.props;
-        console.log(messages)
-        console.log(this.scroller);
+
         if (
             this.scroller &&
             this.scroller.scrollTop < 100 &&
             this.state.hasMoreItems &&
-            messages.length >= 5
+            messages.length >= 35
         ) {
-            console.log("het");
-
-
             fetchMore({
                 variables: {
                     itemId,
                     cursor: messages[0].createdAt,
                 },
                 updateQuery: (previousResult, { fetchMoreResult }) => {
-                    console.log('fetcher');
+
                     if (!fetchMoreResult) {
                         return previousResult;
                     }
 
-                    if (fetchMoreResult.messages.length < 5) {
+                    if (fetchMoreResult.messages.length < 35) {
                         this.setState({ hasMoreItems: false });
                     }
-                    console.log("hi: ");
-                    console.log(previousResult);
-                    console.log(fetchMoreResult.messages);
+
                     return {
                         ...previousResult,
                         messages: [...fetchMoreResult.messages, ...previousResult.messages],
@@ -154,7 +146,7 @@ class Messages extends React.Component {
             },
             updateQuery: (prev, { subscriptionData }) => {
                 if (!subscriptionData.data) return prev;
-                console.log(subscriptionData.data.messageCreated);
+
                 return {
                     messages: [
                         ...prev.messages,

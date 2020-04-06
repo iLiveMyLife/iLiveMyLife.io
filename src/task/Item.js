@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Input, List } from "antd";
 import SubItem from './SubItem';
 import ItemTitle from './ItemTitle';
@@ -7,9 +7,8 @@ import './Item.css';
 import EditItemPopup from "./EditItemPopup";
 import ItemBreadcrumb from "./ItemBreadcrumb";
 import Messanger from "./Messanger";
-import Sender from "./Sender";
 
-export default class Item extends Component {
+export default class Item extends React.Component {
     constructor(props) {
         super(props);
 
