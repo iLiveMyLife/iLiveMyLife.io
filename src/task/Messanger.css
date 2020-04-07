@@ -3,6 +3,19 @@
 }
 
 .messengerContainer {
-    margin-top: 10px;
+    height: 100%;
+    margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.messagesContainer {
+}
+
+.messagesContainer ul {
+    height: 380px;
+    padding-left: 0px;
+    padding-right: 0px;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: auto;
 }

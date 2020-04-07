@@ -1,9 +1,7 @@
 import React from 'react';
 import gql from 'graphql-tag';
-import { Query} from 'react-apollo';
 import { Comment, Tooltip } from "antd";
 import moment from "moment";
-import Sender from "./Sender";
 import { MESSAGES_PER_LOAD } from '../constants';
 import './Messanger.css';
 
@@ -119,16 +117,8 @@ class Messages extends React.Component {
 
     render() {
         return (
-            <div>
-                <ul style={{
-                        height: '380px',
-                        paddingLeft: '0px',
-                        paddingRight: '20px',
-                        display: 'flex',
-                        flexDirection: 'column-reverse',
-                        overflowY: 'auto',
-                    }}
-                    onScroll={this.handleScroll}
+            <div className="messagesContainer">
+                <ul onScroll={this.handleScroll}
                     ref={(scroller) => {
                         this.scroller = scroller;
                     }}
