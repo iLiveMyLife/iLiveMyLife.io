@@ -57,7 +57,6 @@ class Sender extends React.Component {
                             ref={(element) => {
                                 this.element = element;
                             }}
-                            autoFocus={true}
                             onPressEnter={async () => this.handleSubmit(mutate)}
                             onChange={this.handleChange}
                             name="message"
