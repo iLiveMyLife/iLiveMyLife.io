@@ -6,15 +6,16 @@ import {Link} from "react-router-dom";
 
 export default class SubItem extends Component {
     remove = () => {
-        this.props.removeItem(this.props.item);
+        this.props.removeItem(this.props.indexedItem);
     };
 
     edit = () => {
-        this.props.editItem(this.props.item);
+        this.props.editItem(this.props.indexedItem);
     };
 
     render() {
-        let url = "/item/" + this.props.item.id;
+        const item = this.props.indexedItem.item;
+        let url = "/item/" + item.id;
         return (
             <List.Item
                 className="sub-item"
@@ -23,7 +24,7 @@ export default class SubItem extends Component {
                     <RemoveItem onRemove={this.remove} />
                 ]}
             >
-                <Link to={url}>{this.props.item.title}</Link>
+                <Link to={url}>{item.title}</Link>
             </List.Item>
         );
     }

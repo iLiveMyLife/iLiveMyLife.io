@@ -7,11 +7,11 @@ import { MESSAGES_PER_LOAD } from '../constants';
 import './Messanger.css';
 
 const GET_MESSAGES = gql`
-  query($itemId: Int!, $cursor: String, $messagesPerLoad: Int!) {
+  query($itemId: String!, $cursor: String, $messagesPerLoad: Int!) {
     messages(itemId: $itemId, cursor: $cursor, messagesPerLoad: $messagesPerLoad) {
       id
       content
-      author
+      createdBy
       createdAt  
       itemId
       typeId

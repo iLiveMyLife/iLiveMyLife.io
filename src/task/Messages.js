@@ -6,11 +6,11 @@ import { MESSAGES_PER_LOAD } from '../constants';
 import './Messanger.css';
 
 const MESSAGE_CREATED = gql`
-  subscription($itemId: Int!) {
+  subscription($itemId: String!) {
     messageCreated(itemId: $itemId) {
       id
-      content  
-      author
+      content
+      createdBy
       createdAt  
       itemId
       typeId  
@@ -132,7 +132,7 @@ class Messages extends React.Component {
                                     padding: '0px'
                                 }}
                                 key={item.id}
-                                author={item.author}
+                                author={item.createdBy}
                                 avatar='https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'
                                 content={item.content}
                                 datetime={

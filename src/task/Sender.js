@@ -4,7 +4,7 @@ import { Mutation } from 'react-apollo';
 import { Input } from "antd";
 
 const ADD_MESSAGE = gql`
-    mutation Add($itemId: Int!, $message: String!, $typeId: String!) {
+    mutation Add($itemId: String!, $message: String!, $typeId: String!) {
         addMessage(itemId: $itemId, message: $message, typeId: $typeId) {
             id,
             content

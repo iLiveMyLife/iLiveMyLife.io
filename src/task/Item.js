@@ -12,34 +12,25 @@ export default class Item extends React.Component {
     constructor(props) {
         super(props);
 
-        const item = {
-            id:0,
-            title: "Let's brainstorm",
-            description : 'This is a long description, and i am not sure this is the right place for it',
-            isActive: true,
-            tags: ['tag1', 'tag2'],
-            dueDate: '2020-01-01',
-            createdBy: 'Ilya Sorokin',
-            createdAt: '2017-01-10',
-            path: [
-                { id: 99, title: 'My Life' },
-                { id: 100, title: 'First-level task title' },
-                { id: 101, title: 'Second-level task title' },
-                { id: 102, title: 'Third-level task title' }
-            ]
-        };
+        const [indexedItem, ...indexedItems] = this.props.items;
+        const item = indexedItem.item;
+        const path = [
+            { id: 99, title: 'My Life' },
+            { id: 100, title: 'First-level task title' },
+            { id: 101, title: 'Second-level task title' },
+            { id: 102, title: 'Third-level task title' }
+        ];
 
         this.state = {
-            isEditFormVisible: false,
+            itemId: item.id,
             itemToEdit: item,
+            indexedItems: indexedItems,
+            item: item,
+            path: path,
             inputValue: "",
-            items: [
-                { index: 0, id:1, title: "Bird's Nest", tags: [], path:[{ id: 99, title: 'My Life' },] },
-                { index: 1, id:2, title: "Eagle's Nest", tags: [], path:[{ id: 99, title: 'My Life' },] },
-                { index: 2, id:3, title: "Trading", tags: [], path:[{ id: 99, title: 'My Life' },] }
-            ],
-            item: item
+            isEditFormVisible: false
         };
+        console.log(this.state.indexedItems)
     }
 
     handleChange = e => {
@@ -53,29 +44,25 @@ export default class Item extends React.Component {
             return;
         }
 
-        // Create a todo object containing its index, content,
-        // as well as an empty date
-        const item = {
-            index: this.state.items.length,
-            title: e.target.value,
-            tags: []
+        // Create a item object containing its index and content
+        const indexedItem = {
+            index: this.state.indexedItems.length + 1,
+            item: {title: e.target.value, tags:[]}
         };
 
-        // Add the new todo to our array
-        const newItems = this.state.items.concat(item);
+        // Add the new item to our array
+        const newIndexedItems = this.state.indexedItems.concat(indexedItem);
 
         this.setState({
-            items: newItems
+            indexedItems: newIndexedItems
         });
 
         // Clear input
         this.setState({inputValue: ""})
     };
 
-    editItem = item => {
-
-        this.setState({itemToEdit: item, isEditFormVisible: true})
-        //console.log(this.state.itemToEdit);
+    editItem = indexedItem => {
+        this.setState({itemToEdit: indexedItem.item, isEditFormVisible: true})
     };
 
     onEditItem = (item) => {
@@ -86,31 +73,31 @@ export default class Item extends React.Component {
         this.setState({ isEditFormVisible: false });
     };
 
-    removeItem = item => {
-        console.log(item);
+    removeItem = indexedItem => {
+        console.log(indexedItem);
     };
 
-    removeTodo = item => {
-        let newItems = [...this.state.items];
-        let index = item.index;
+    removeTodo = indexedItem => {
+        let newIndexedItems = [...this.state.indexedItems];
+        let index = indexedItem.index;
 
-        // Remove element
-        newItems.splice(index, 1);
+        // Remove element, slice at 1 before since the array starts with index 1 (main item is at 0)
+        newIndexedItems.splice(index-1, 1);
 
         // Decrement greater indexes
-        for (let i = index; i < newItems.length; i++) {
-            newItems[i].index -= 1;
+        for (let i = index; i < newIndexedItems.length; i++) {
+            newIndexedItems[i].index -= 1;
         }
 
         this.setState({
-            items: newItems
+            indexedItems: newIndexedItems
         });
     };
 
     render() {
         return (
             <div className="itemContainer">
-                <ItemBreadcrumb paths={this.state.item.path}/>
+                <ItemBreadcrumb paths={this.state.path}/>
                 <ItemTitle item={this.state.item} editItem={this.editItem} removeItem={this.removeItem}/>
 
                 <Input
@@ -122,13 +109,13 @@ export default class Item extends React.Component {
 
                 <List
                     size="small"
-                    locale={{ emptyText: "No items yet. Don't be wait to get started. Start mining your thoughts." }}
-                    dataSource={this.state.items}
-                    renderItem={item => (
+                    locale={{emptyText: "No items yet. Don't wait to get started. Start mining your thoughts."}}
+                    dataSource={this.state.indexedItems}
+                    renderItem={indexedItem => (
                         <SubItem
-                            item={item}
-                            removeItem={this.removeTodo}
+                            indexedItem={indexedItem}
                             editItem={this.editItem}
+                            removeItem={this.removeTodo}
                         />
                     )}
                 />
