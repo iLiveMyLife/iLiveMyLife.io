@@ -1,65 +1,94 @@
 import React from "react";
-import { Input, List } from "antd";
-import SubItem from './SubItem';
+import ItemList from './ItemList';
 import ItemTitle from './ItemTitle';
-
-import './Item.css';
+import ItemSender from './ItemSender';
 import EditItemPopup from "./EditItemPopup";
 import ItemBreadcrumb from "./ItemBreadcrumb";
 import Messanger from "./Messanger";
 
+import './Item.css';
+import gql from "graphql-tag";
+
+const ITEM_CREATED = gql`
+    subscription($itemId: String!) {
+        itemCreated(itemId: $itemId) {
+            index,
+            item {
+                id
+                itemId
+                title
+                description
+                isActive
+                dueDate
+                tags
+                createdBy
+                createdAt
+            }
+        }
+    }
+`;
+
 export default class Item extends React.Component {
     constructor(props) {
         super(props);
-
-        const [indexedItem, ...indexedItems] = this.props.items;
+        const [indexedItem, ...indexedItems] = this.props.indexedItems;
         const item = indexedItem.item;
+
         const path = [
-            { id: 99, title: 'My Life' },
+            { id: "0", title: 'My Life' },
             { id: 100, title: 'First-level task title' },
             { id: 101, title: 'Second-level task title' },
             { id: 102, title: 'Third-level task title' }
         ];
 
         this.state = {
-            itemId: item.id,
+            itemId: this.props.itemId,
             itemToEdit: item,
+            indexedItem: indexedItem,
             indexedItems: indexedItems,
             item: item,
             path: path,
-            inputValue: "",
             isEditFormVisible: false
         };
-        console.log(this.state.indexedItems)
     }
 
-    handleChange = e => {
-        this.setState({
-            inputValue: e.target.value
-        });
-    }
-
-    handlePressEnter = e => {
-        if (e.target.value === ''){
-            return;
+    componentWillUnmount() {
+        if (this.unsubscribe) {
+            this.unsubscribe();
         }
+    }
 
-        // Create a item object containing its index and content
-        const indexedItem = {
-            index: this.state.indexedItems.length + 1,
-            item: {title: e.target.value, tags:[]}
-        };
+    componentDidMount() {
+        this.unsubscribe = this.subscribe(this.props.itemId);
+    }
 
-        // Add the new item to our array
-        const newIndexedItems = this.state.indexedItems.concat(indexedItem);
+    componentWillReceiveProps({indexedItems, itemId }) {
+        if (this.props.itemId !== itemId) {
+            if (this.unsubscribe) {
+                this.unsubscribe();
+            }
 
-        this.setState({
-            indexedItems: newIndexedItems
+            this.unsubscribe = this.subscribe(itemId);
+        }
+    }
+
+    subscribe = itemId =>
+        this.props.subscribeToMore({
+            document: ITEM_CREATED,
+            variables: {
+                itemId,
+            },
+            updateQuery: (prev, { subscriptionData }) => {
+                if (!subscriptionData.data) return prev;
+
+                return {
+                    indexedItems: [
+                        ...prev.indexedItems,
+                        subscriptionData.data.itemCreated,
+                    ],
+                };
+            },
         });
-
-        // Clear input
-        this.setState({inputValue: ""})
-    };
 
     editItem = indexedItem => {
         this.setState({itemToEdit: indexedItem.item, isEditFormVisible: true})
@@ -98,27 +127,10 @@ export default class Item extends React.Component {
         return (
             <div className="itemContainer">
                 <ItemBreadcrumb paths={this.state.path}/>
-                <ItemTitle item={this.state.item} editItem={this.editItem} removeItem={this.removeItem}/>
+                <ItemTitle indexedItem={this.state.indexedItem} editItem={this.editItem} removeItem={this.removeItem}/>
 
-                <Input
-                    maxLength={150}
-                    placeholder="What is in your mind? What needs to be done? Any idea to research? Some task to share?"
-                    onPressEnter={this.handlePressEnter}
-                    onChange={this.handleChange}
-                    value={this.state.inputValue}/>
-
-                <List
-                    size="small"
-                    locale={{emptyText: "No items yet. Don't wait to get started. Start mining your thoughts."}}
-                    dataSource={this.state.indexedItems}
-                    renderItem={indexedItem => (
-                        <SubItem
-                            indexedItem={indexedItem}
-                            editItem={this.editItem}
-                            removeItem={this.removeTodo}
-                        />
-                    )}
-                />
+                <ItemSender itemId={this.state.itemId} />
+                <ItemList indexedItems={this.props.indexedItems} editItem={this.editItem} removeItem={this.removeTodo}/>
 
                 <EditItemPopup
                     key={this.state.itemToEdit.id}

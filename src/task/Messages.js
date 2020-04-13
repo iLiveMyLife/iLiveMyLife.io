@@ -1,9 +1,9 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import { Comment, Tooltip } from "antd";
-import moment from "moment";
 import { MESSAGES_PER_LOAD } from '../constants';
 import './Messanger.css';
+import {datetimeFromUnixTimestamp, fromNow} from "../util/Helpers";
 
 const MESSAGE_CREATED = gql`
   subscription($itemId: String!) {
@@ -136,8 +136,8 @@ class Messages extends React.Component {
                                 avatar='https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'
                                 content={item.content}
                                 datetime={
-                                    <Tooltip title={moment.unix(parseInt(item.createdAt, 10)/1000).utc().format('YYYY-MM-DD HH:mm:ss')}>
-                                        <span>{moment.unix(parseInt(item.createdAt, 10)/1000).utc().fromNow()}</span>
+                                    <Tooltip title={datetimeFromUnixTimestamp(item.createdAt)}>
+                                        <span>{fromNow(item.createdAt)}</span>
                                     </Tooltip>
                                 }
                             />)

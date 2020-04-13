@@ -22,6 +22,8 @@ const GET_MESSAGES = gql`
 const Messanger = ( {item} ) => (
     <Query query={GET_MESSAGES} fetchPolicy={'network-only'} variables={{ itemId:item.id, messagesPerLoad: MESSAGES_PER_LOAD }}>
         {({ data, error, loading, fetchMore, subscribeToMore }) => {
+            console.log("Mess")
+            console.log(item)
             if (!data) {
                 return null;
             }

@@ -2,10 +2,11 @@ import React from 'react';
 import gql from 'graphql-tag';
 import { Query} from 'react-apollo';
 import Item from "./Item";
+import NotFound from "../common/NotFound";
 
 const GET_ITEMS = gql`
   query($id: String!) {
-    items(id: $id) {
+    indexedItems(id: $id) {
       index,
       item {
         id
@@ -22,11 +23,11 @@ const GET_ITEMS = gql`
   }
 `;
 
-const ItemContainer = ( {itemId} ) => (
+const ItemContainer = ( {itemId, props} ) => (
     <Query query={GET_ITEMS} fetchPolicy={'network-only'} variables={{ id:itemId }}>
         {({ data, error, loading, subscribeToMore }) => {
-            if (!data) {
-                return null;
+          if (!data || error) {
+                return <NotFound />;
             }
 
             if (loading) {
@@ -35,7 +36,8 @@ const ItemContainer = ( {itemId} ) => (
 
             return (
                 <Item
-                    items={data.items}
+                    itemId={itemId}
+                    indexedItems={data.indexedItems}
                     subscribeToMore={subscribeToMore}
                 />
             );
