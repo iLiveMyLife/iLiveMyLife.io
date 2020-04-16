@@ -14,11 +14,10 @@ export default class ItemList extends React.Component{
     };
 
     render(){
-        const [, ...indexedItems] = this.props.indexedItems;
         return <List
             size="small"
             locale={{emptyText: "No items yet. Don't wait to get started. Start mining your thoughts."}}
-            dataSource={indexedItems}
+            dataSource={this.props.indexedItems}
             renderItem={indexedItem => (
                 <SubItem
                     indexedItem={indexedItem}

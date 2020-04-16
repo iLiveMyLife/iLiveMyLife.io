@@ -43,7 +43,7 @@ export default class Item extends React.Component {
 
         this.state = {
             itemId: this.props.itemId,
-            itemToEdit: item,
+            indexedItemToEdit: indexedItem,
             indexedItem: indexedItem,
             indexedItems: indexedItems,
             item: item,
@@ -70,6 +70,8 @@ export default class Item extends React.Component {
 
             this.unsubscribe = this.subscribe(itemId);
         }
+
+        return null;
     }
 
     subscribe = itemId =>
@@ -81,6 +83,11 @@ export default class Item extends React.Component {
             updateQuery: (prev, { subscriptionData }) => {
                 if (!subscriptionData.data) return prev;
 
+                const index = prev.indexedItems.findIndex((e) => e.item.id === subscriptionData.data.itemCreated.item.id);
+                if (index !== -1){
+                    return prev;
+                }
+
                 return {
                     indexedItems: [
                         ...prev.indexedItems,
@@ -88,14 +95,10 @@ export default class Item extends React.Component {
                     ],
                 };
             },
-        });
+       });
 
     editItem = indexedItem => {
-        this.setState({itemToEdit: indexedItem.item, isEditFormVisible: true})
-    };
-
-    onEditItem = (item) => {
-        this.setState( {item: item, isEditFormVisible: false});
+        this.setState({indexedItemToEdit: indexedItem, isEditFormVisible: true})
     };
 
     onCloseEditItem = () => {
@@ -124,19 +127,20 @@ export default class Item extends React.Component {
     };
 
     render() {
+        const [indexedItem, ...indexedItems] = this.props.indexedItems;
         return (
             <div className="itemContainer">
                 <ItemBreadcrumb paths={this.state.path}/>
-                <ItemTitle indexedItem={this.state.indexedItem} editItem={this.editItem} removeItem={this.removeItem}/>
+                <ItemTitle indexedItem={indexedItem} editItem={this.editItem} removeItem={this.removeItem}/>
 
                 <ItemSender itemId={this.state.itemId} />
-                <ItemList indexedItems={this.props.indexedItems} editItem={this.editItem} removeItem={this.removeTodo}/>
+                <ItemList indexedItems={indexedItems} editItem={this.editItem} removeItem={this.removeTodo}/>
 
                 <EditItemPopup
-                    key={this.state.itemToEdit.id}
-                    item={this.state.itemToEdit}
+                    key={this.state.indexedItemToEdit.item.id}
+                    index={this.state.indexedItemToEdit.index}
+                    item={this.state.indexedItemToEdit.item}
                     onClose={this.onCloseEditItem}
-                    onSubmit={item => this.onEditItem(item)}
                     visible={this.state.isEditFormVisible} />
 
                 <Messanger item={this.state.item}/>

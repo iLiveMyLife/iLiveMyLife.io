@@ -23,7 +23,7 @@ const GET_ITEMS = gql`
   }
 `;
 
-const ItemContainer = ( {itemId, props} ) => (
+const ItemContainer = ({ itemId }) => (
     <Query query={GET_ITEMS} fetchPolicy={'network-only'} variables={{ id:itemId }}>
         {({ data, error, loading, subscribeToMore }) => {
           if (!data || error) {
