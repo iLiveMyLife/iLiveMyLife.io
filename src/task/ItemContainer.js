@@ -1,27 +1,8 @@
 import React from 'react';
-import gql from 'graphql-tag';
 import { Query} from 'react-apollo';
 import Item from "./Item";
 import NotFound from "../common/NotFound";
-
-const GET_ITEMS = gql`
-  query($id: String!) {
-    indexedItems(id: $id) {
-      index,
-      item {
-        id
-        itemId
-        title
-        description
-        isActive
-        dueDate
-        tags
-        createdBy
-        createdAt
-      }
-    }
-  }
-`;
+import {GET_ITEMS} from "../graphql/item";
 
 const ItemContainer = ({ itemId }) => (
     <Query query={GET_ITEMS} fetchPolicy={'network-only'} variables={{ id:itemId }}>

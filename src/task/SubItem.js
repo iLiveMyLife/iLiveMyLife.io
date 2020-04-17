@@ -5,8 +5,8 @@ import EditItem from "./EditItem";
 import {Link} from "react-router-dom";
 
 export default class SubItem extends Component {
-    remove = () => {
-        this.props.removeItem(this.props.indexedItem);
+    remove = (mutate) => {
+        this.props.removeItem(this.props.indexedItem, mutate);
     };
 
     edit = () => {
@@ -21,7 +21,7 @@ export default class SubItem extends Component {
                 className="sub-item"
                 actions={[
                     <EditItem onEdit={this.edit} />,
-                    <RemoveItem onRemove={this.remove} />
+                    <RemoveItem item={item} onRemove={this.remove} />
                 ]}
             >
                 <Link to={url}>{item.title}</Link>

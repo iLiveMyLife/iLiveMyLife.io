@@ -5,25 +5,11 @@ import Sender from "./Sender";
 import Messages from "./Messages";
 import { MESSAGES_PER_LOAD } from '../constants';
 import './Messanger.css';
-
-const GET_MESSAGES = gql`
-  query($itemId: String!, $cursor: String, $messagesPerLoad: Int!) {
-    messages(itemId: $itemId, cursor: $cursor, messagesPerLoad: $messagesPerLoad) {
-      id
-      content
-      createdBy
-      createdAt  
-      itemId
-      typeId
-    }
-  }
-`;
+import {GET_MESSAGES} from "../graphql/message";
 
 const Messanger = ( {item} ) => (
     <Query query={GET_MESSAGES} fetchPolicy={'network-only'} variables={{ itemId:item.id, messagesPerLoad: MESSAGES_PER_LOAD }}>
         {({ data, error, loading, fetchMore, subscribeToMore }) => {
-            console.log("Mess")
-            console.log(item)
             if (!data) {
                 return null;
             }

@@ -1,22 +1,9 @@
 import React from 'react';
-import gql from 'graphql-tag';
 import { Comment, Tooltip } from "antd";
 import { MESSAGES_PER_LOAD } from '../constants';
 import './Messanger.css';
 import {datetimeFromUnixTimestamp, fromNow} from "../util/Helpers";
-
-const MESSAGE_CREATED = gql`
-  subscription($itemId: String!) {
-    messageCreated(itemId: $itemId) {
-      id
-      content
-      createdBy
-      createdAt  
-      itemId
-      typeId  
-    }
-  }
-`;
+import {MESSAGE_CREATED} from "../graphql/message";
 
 class Messages extends React.Component {
     constructor(props) {

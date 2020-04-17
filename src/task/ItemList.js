@@ -9,8 +9,8 @@ export default class ItemList extends React.Component{
         this.props.editItem(indexedItem);
     };
 
-    removeItem = (indexedItem) => {
-        this.props.removeItem(indexedItem);
+    removeItem = (indexedItem, mutate) => {
+        this.props.removeItem(indexedItem, mutate);
     };
 
     render(){

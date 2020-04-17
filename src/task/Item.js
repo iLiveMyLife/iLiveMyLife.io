@@ -1,4 +1,5 @@
 import React from "react";
+import update from 'react-addons-update';
 import ItemList from './ItemList';
 import ItemTitle from './ItemTitle';
 import ItemSender from './ItemSender';
@@ -7,26 +8,7 @@ import ItemBreadcrumb from "./ItemBreadcrumb";
 import Messanger from "./Messanger";
 
 import './Item.css';
-import gql from "graphql-tag";
-
-const ITEM_CREATED = gql`
-    subscription($itemId: String!) {
-        itemCreated(itemId: $itemId) {
-            index,
-            item {
-                id
-                itemId
-                title
-                description
-                isActive
-                dueDate
-                tags
-                createdBy
-                createdAt
-            }
-        }
-    }
-`;
+import {ITEM_CREATED} from "../graphql/item";
 
 export default class Item extends React.Component {
     constructor(props) {
@@ -83,11 +65,22 @@ export default class Item extends React.Component {
             updateQuery: (prev, { subscriptionData }) => {
                 if (!subscriptionData.data) return prev;
 
+                // If item is deleted
+                if (subscriptionData.data.itemCreated.index === -1){
+                    return {
+                        indexedItems: update(prev.indexedItems, {
+                            $splice: [[prev.indexedItems.findIndex(e => e.item.id === subscriptionData.data.itemCreated.item.id), 1]]
+                        })
+                    };
+                }
+
+                // if subscription notifies for item updates then we don't need to change anything, since cache updated automatically based on id
                 const index = prev.indexedItems.findIndex((e) => e.item.id === subscriptionData.data.itemCreated.item.id);
                 if (index !== -1){
                     return prev;
                 }
 
+                // If item is added
                 return {
                     indexedItems: [
                         ...prev.indexedItems,
@@ -105,24 +98,9 @@ export default class Item extends React.Component {
         this.setState({ isEditFormVisible: false });
     };
 
-    removeItem = indexedItem => {
-        console.log(indexedItem);
-    };
-
-    removeTodo = indexedItem => {
-        let newIndexedItems = [...this.state.indexedItems];
-        let index = indexedItem.index;
-
-        // Remove element, slice at 1 before since the array starts with index 1 (main item is at 0)
-        newIndexedItems.splice(index-1, 1);
-
-        // Decrement greater indexes
-        for (let i = index; i < newIndexedItems.length; i++) {
-            newIndexedItems[i].index -= 1;
-        }
-
-        this.setState({
-            indexedItems: newIndexedItems
+    removeItem = async (indexedItem, mutate) => {
+        const response = await mutate({
+            variables: { id: indexedItem.item.id }
         });
     };
 
@@ -134,7 +112,7 @@ export default class Item extends React.Component {
                 <ItemTitle indexedItem={indexedItem} editItem={this.editItem} removeItem={this.removeItem}/>
 
                 <ItemSender itemId={this.state.itemId} />
-                <ItemList indexedItems={indexedItems} editItem={this.editItem} removeItem={this.removeTodo}/>
+                <ItemList indexedItems={indexedItems} editItem={this.editItem} removeItem={this.removeItem}/>
 
                 <EditItemPopup
                     key={this.state.indexedItemToEdit.item.id}
@@ -143,7 +121,7 @@ export default class Item extends React.Component {
                     onClose={this.onCloseEditItem}
                     visible={this.state.isEditFormVisible} />
 
-                <Messanger item={this.state.item}/>
+                <Messanger item={indexedItem.item}/>
             </div>
         );
     }

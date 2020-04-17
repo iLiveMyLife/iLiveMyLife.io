@@ -1,26 +1,7 @@
 import React from 'react';
-import gql from 'graphql-tag';
 import { Mutation } from 'react-apollo';
 import { Input } from "antd";
-
-const ADD_ITEM = gql`
-    mutation AddItem($itemId: String!, $title: String!) {
-        addItem(itemId: $itemId, title: $title) {
-            index,
-            item {
-                id
-                itemId
-                title
-                description
-                isActive
-                dueDate
-                tags
-                createdBy
-                createdAt
-            }
-        }
-    }
-`;
+import {ADD_ITEM} from "../graphql/item";
 
 class ItemSender extends React.Component {
     constructor(props) {
@@ -48,7 +29,6 @@ class ItemSender extends React.Component {
         });
 
         const response = await mutate({ variables: { itemId: this.props.itemId, title: this.state.value } });
-        console.log(response);
 
         this.setState({
             isSubmitting: false,

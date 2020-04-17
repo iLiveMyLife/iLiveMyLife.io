@@ -1,19 +1,29 @@
 import React, { Component } from "react";
 import { Modal } from "antd";
 import { ExclamationCircleOutlined, CloseCircleFilled } from '@ant-design/icons';
+import {Mutation} from "react-apollo";
+import {REMOVE_ITEM} from "../graphql/item";
 
 const { confirm } = Modal;
 
 export default class RemoveItem extends Component {
-    remove = () => {
-        this.props.onRemove();
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isSubmitting: false
+        };
+    }
+
+    remove = async (mutate) => {
+        this.props.onRemove(mutate);
     };
 
-    showDeleteConfirm =(onConfirm) => {
+    showDeleteConfirm = async (onConfirm) => {
         confirm({
-            title: 'Are you sure delete this item?',
+            title: `Are you sure want to archive: ${this.props.item.title}?`,
             icon: <ExclamationCircleOutlined />,
-            content: 'This item will be deleted for everyone your share it with with all it\'s sub items.',
+            content: 'It is going to be deleted for everyone you share it with together with all it\'s sub items.',
             okText: 'Yes',
             okType: 'danger',
             cancelText: 'No',
@@ -21,14 +31,21 @@ export default class RemoveItem extends Component {
                 onConfirm();
             },
             onCancel() {
-                console.log('Cancel');
+                console.log('Cancel removal');
             },
         });
     }
 
     render() {
         return (
-            <CloseCircleFilled onClick={() => this.showDeleteConfirm(() => this.remove())} />
+            <Mutation
+                mutation={REMOVE_ITEM}>
+                {
+                    (mutate, { client }) => (
+                        <CloseCircleFilled onClick={() => this.showDeleteConfirm(async () => this.remove(mutate))} />
+                    )
+                }
+            </Mutation>
         );
     }
 }

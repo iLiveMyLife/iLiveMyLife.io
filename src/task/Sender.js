@@ -1,16 +1,7 @@
 import React from 'react';
-import gql from 'graphql-tag';
 import { Mutation } from 'react-apollo';
 import { Input } from "antd";
-
-const ADD_MESSAGE = gql`
-    mutation Add($itemId: String!, $message: String!, $typeId: String!) {
-        addMessage(itemId: $itemId, message: $message, typeId: $typeId) {
-            id,
-            content
-        }
-    }
-`;
+import {ADD_MESSAGE} from "../graphql/message";
 
 class Sender extends React.Component {
     constructor(props) {
@@ -38,7 +29,6 @@ class Sender extends React.Component {
         });
 
         const response = await mutate({ variables: { itemId: this.props.item.id, message: this.state.value, typeId: "0" } });
-        console.log(response);
 
         this.setState({
             isSubmitting: false,

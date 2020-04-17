@@ -4,23 +4,7 @@ import EditableTagGroup from "./EditableTagGroup";
 import moment from "moment";
 import { DATE_FORMAT } from '../constants';
 import {Mutation} from "react-apollo";
-import gql from "graphql-tag";
-
-const EDIT_ITEM = gql`
-    mutation EditItem($index: Int!, $itemInput: ItemInput!) {
-        editItem(index: $index, itemInput: $itemInput) {
-            id
-            itemId
-            title
-            description
-            isActive
-            dueDate
-            tags
-            createdBy
-            createdAt
-        }
-    }
-`;
+import {EDIT_ITEM} from "../graphql/item";
 
 export default class EditItemPopup extends Component{
     constructor(props) {
@@ -63,7 +47,6 @@ export default class EditItemPopup extends Component{
         });
 
         this.onClose();
-
     };
 
     onTagsListChange = (tags) => {

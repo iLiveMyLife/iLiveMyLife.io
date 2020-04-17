@@ -11,8 +11,8 @@ export default class ItemTitle extends Component {
         this.props.editItem(this.props.indexedItem);
     };
 
-    removeItem = () => {
-        this.props.removeItem(this.props.indexedItem);
+    removeItem = (mutate) => {
+        this.props.removeItem(this.props.indexedItem, mutate);
     };
 
     render() {
@@ -20,6 +20,7 @@ export default class ItemTitle extends Component {
         return (
             <div>
                 <PageHeader
+                    onBack={() => window.history.back()}
                     title={
                         <Popover placement="bottomLeft" content={
                             <div className="itemHeaderPopover">
@@ -54,7 +55,7 @@ export default class ItemTitle extends Component {
                     extra={[
                         <EditItem key="1" onEdit={this.editItem} />,
                         "  |",
-                        <RemoveItem key="2" onRemove={this.removeItem} />
+                        <RemoveItem item={item} key="2" onRemove={this.removeItem} />
                     ]}
                 >
                 </PageHeader>
