@@ -44,16 +44,14 @@ export default class Item extends React.Component {
         this.unsubscribe = this.subscribe(this.props.itemId);
     }
 
-    componentWillReceiveProps({indexedItems, itemId }) {
-        if (this.props.itemId !== itemId) {
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.itemId !== this.props.itemId) {
             if (this.unsubscribe) {
                 this.unsubscribe();
             }
 
-            this.unsubscribe = this.subscribe(itemId);
+            this.unsubscribe = this.subscribe(this.props.itemId);
         }
-
-        return null;
     }
 
     subscribe = itemId =>
@@ -99,7 +97,7 @@ export default class Item extends React.Component {
     };
 
     removeItem = async (indexedItem, mutate) => {
-        const response = await mutate({
+        await mutate({
             variables: { id: indexedItem.item.id }
         });
     };

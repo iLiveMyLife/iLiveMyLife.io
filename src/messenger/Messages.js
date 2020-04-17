@@ -24,20 +24,20 @@ class Messages extends React.Component {
         this.unsubscribe = this.subscribe(this.props.itemId);
     }
 
-    componentWillReceiveProps({messages, itemId }) {
-        if (this.props.itemId !== itemId) {
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.itemId !== this.props.itemId) {
             if (this.unsubscribe) {
                 this.unsubscribe();
             }
-            this.unsubscribe = this.subscribe(itemId);
+
+            this.unsubscribe = this.subscribe(this.props.itemId);
         }
 
-        if (
-            this.scroller &&
-            this.scroller.scrollTop < 100 &&
-            this.props.messages &&
-            messages &&
-            this.props.messages.length !== messages.length
+        if (this.scroller
+            && this.scroller.scrollTop < 100
+            && prevProps.messages
+            && this.props.messages
+            && prevProps.messages.length !== this.props.messages.length
         ) {
             // 35 items
             const heightBeforeRender = this.scroller.scrollHeight;

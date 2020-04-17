@@ -28,7 +28,7 @@ class MessageSender extends React.Component {
             isSubmitting: true,
         });
 
-        const response = await mutate({ variables: { itemId: this.props.item.id, message: this.state.value, typeId: "0" } });
+        await mutate({ variables: { itemId: this.props.item.id, message: this.state.value, typeId: "0" } });
 
         this.setState({
             isSubmitting: false,

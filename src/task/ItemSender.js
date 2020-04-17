@@ -28,7 +28,7 @@ class ItemSender extends React.Component {
             isSubmitting: true,
         });
 
-        const response = await mutate({ variables: { itemId: this.props.itemId, title: this.state.value } });
+        await mutate({ variables: { itemId: this.props.itemId, title: this.state.value } });
 
         this.setState({
             isSubmitting: false,

@@ -28,7 +28,7 @@ export default class EditItemPopup extends Component{
             isSubmitting: true,
         });
 
-        const item = await mutate({
+        await mutate({
             variables: {
                 index: this.props.index,
                 itemInput: {
