@@ -23,7 +23,7 @@ export default class RemoveItem extends Component {
         confirm({
             title: `Are you sure want to archive: ${this.props.item.title}?`,
             icon: <ExclamationCircleOutlined />,
-            content: 'It is going to be deleted for everyone you share it with together with all it\'s sub items.',
+            content: 'It is going to be archived for everyone you share it with together with all it\'s sub items.',
             okText: 'Yes',
             okType: 'danger',
             cancelText: 'No',
