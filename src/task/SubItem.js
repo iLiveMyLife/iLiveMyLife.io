@@ -3,7 +3,7 @@ import { List } from "antd";
 import RemoveItem from "./RemoveItem";
 import EditItem from "./EditItem";
 import {Link} from "react-router-dom";
-
+import ItemDetailsPopover from "./ItemDetailsPopover";
 export default class SubItem extends Component {
     remove = (mutate) => {
         this.props.removeItem(this.props.indexedItem, mutate);
@@ -24,7 +24,7 @@ export default class SubItem extends Component {
                     <RemoveItem item={item} onRemove={this.remove} />
                 ]}
             >
-                <Link to={url}>{item.title}</Link>
+                <ItemDetailsPopover item={item} title={<Link to={url}>{item.title}</Link>}/>
             </List.Item>
         );
     }
