@@ -5,7 +5,7 @@ import ItemTitle from './ItemTitle';
 import ItemSender from './ItemSender';
 import EditItemPopup from "./EditItemPopup";
 import ItemBreadcrumb from "./ItemBreadcrumb";
-import Messanger from "./Messanger";
+import Messenger from "../messenger/Messenger";
 
 import './Item.css';
 import {ITEM_CREATED} from "../graphql/item";
@@ -110,9 +110,9 @@ export default class Item extends React.Component {
             <div className="itemContainer">
                 <ItemBreadcrumb paths={this.state.path}/>
                 <ItemTitle indexedItem={indexedItem} editItem={this.editItem} removeItem={this.removeItem}/>
-
                 <ItemSender itemId={this.state.itemId} />
                 <ItemList indexedItems={indexedItems} editItem={this.editItem} removeItem={this.removeItem}/>
+                <Messenger item={indexedItem.item}/>
 
                 <EditItemPopup
                     key={this.state.indexedItemToEdit.item.id}
@@ -120,8 +120,6 @@ export default class Item extends React.Component {
                     item={this.state.indexedItemToEdit.item}
                     onClose={this.onCloseEditItem}
                     visible={this.state.isEditFormVisible} />
-
-                <Messanger item={indexedItem.item}/>
             </div>
         );
     }

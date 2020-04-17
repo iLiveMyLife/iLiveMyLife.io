@@ -3,7 +3,7 @@ import { Mutation } from 'react-apollo';
 import { Input } from "antd";
 import {ADD_MESSAGE} from "../graphql/message";
 
-class Sender extends React.Component {
+class MessageSender extends React.Component {
     constructor(props) {
         super(props);
 
@@ -47,6 +47,7 @@ class Sender extends React.Component {
                             ref={(element) => {
                                 this.element = element;
                             }}
+                            autoComplete={"off"}
                             onPressEnter={async () => this.handleSubmit(mutate)}
                             onChange={this.handleChange}
                             name="message"
@@ -60,4 +61,4 @@ class Sender extends React.Component {
     }
 }
 
-export default Sender;
+export default MessageSender;

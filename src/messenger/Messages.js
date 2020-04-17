@@ -25,7 +25,6 @@ class Messages extends React.Component {
     }
 
     componentWillReceiveProps({messages, itemId }) {
-
         if (this.props.itemId !== itemId) {
             if (this.unsubscribe) {
                 this.unsubscribe();
@@ -66,7 +65,6 @@ class Messages extends React.Component {
                     cursor: messages[0].createdAt,
                 },
                 updateQuery: (previousResult, { fetchMoreResult }) => {
-
                     if (!fetchMoreResult) {
                         return previousResult;
                     }
@@ -113,18 +111,18 @@ class Messages extends React.Component {
                     {this.props.messages
                         .slice()
                         .reverse()
-                        .map(item => (
+                        .map(message => (
                             <Comment
                                 style={{
                                     padding: '0px'
                                 }}
-                                key={item.id}
-                                author={item.createdBy}
+                                key={message.id}
+                                author={message.createdBy}
                                 avatar='https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'
-                                content={item.content}
+                                content={message.content}
                                 datetime={
-                                    <Tooltip title={datetimeFromUnixTimestamp(item.createdAt)}>
-                                        <span>{fromNow(item.createdAt)}</span>
+                                    <Tooltip title={datetimeFromUnixTimestamp(message.createdAt)}>
+                                        <span>{fromNow(message.createdAt)}</span>
                                     </Tooltip>
                                 }
                             />)

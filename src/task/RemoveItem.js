@@ -34,7 +34,7 @@ export default class RemoveItem extends Component {
                 console.log('Cancel removal');
             },
         });
-    }
+    };
 
     render() {
         return (
