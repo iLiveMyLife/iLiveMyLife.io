@@ -73,6 +73,11 @@ class Messages extends React.Component {
                         this.setState({ hasMoreItems: false });
                     }
 
+                    // Hack: sometimes where is a one request to server by fetch invoked twice
+                    if (previousResult.messages[0].id === fetchMoreResult.messages[0].id) {
+                        return previousResult;
+                    }
+
                     return {
                         ...previousResult,
                         messages: [...fetchMoreResult.messages, ...previousResult.messages],
