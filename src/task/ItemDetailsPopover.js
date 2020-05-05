@@ -16,7 +16,7 @@ export default class ItemDetailsPopover extends Component {
                     <Row>
                         <Descriptions size="small" column={2}>
                             <Descriptions.Item label="Status">
-                                {item.isActive ? (<Tag color="blue">Active</Tag>) : (<Tag color="grey">Inactive</Tag>)}
+                                {item.isActive ? (<Tag color="blue">Active</Tag>) : (<Tag color="grey">Archived</Tag>)}
                             </Descriptions.Item>
                             <Descriptions.Item label="Created">{item.createdBy}</Descriptions.Item>
                             <Descriptions.Item label="Creation Time">{dateFromUnixTimestamp(item.createdAt)}</Descriptions.Item>

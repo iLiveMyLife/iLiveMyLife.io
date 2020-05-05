@@ -1,6 +1,6 @@
 import React from 'react';
 import { Mutation } from 'react-apollo';
-import { Input } from "antd";
+import {Input, notification} from "antd";
 import {ADD_ITEM} from "../graphql/item";
 
 class ItemSender extends React.Component {
@@ -28,7 +28,16 @@ class ItemSender extends React.Component {
             isSubmitting: true,
         });
 
-        await mutate({ variables: { itemId: this.props.itemId, title: this.state.value } });
+        let response = await mutate({ variables: { itemId: this.props.itemId, title: this.state.value } });
+        const { data: { addItem } } = response;
+        const {ok} = addItem;
+
+        if(!ok) {
+            notification.error({
+                message: 'iLiveMyLife App',
+                description: 'Some error happened. Refresh to check if it was saved successfully.'
+            });
+        }
 
         this.setState({
             isSubmitting: false,

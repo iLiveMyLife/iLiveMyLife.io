@@ -136,7 +136,7 @@ export default class EditItemPopup extends Component{
                                     <Input.TextArea value={this.state.item.description} onChange={this.handleDescriptionChange}/>
                                 </Form.Item>
                                 <Form.Item label="Status:">
-                                    <Switch  checkedChildren="Active" unCheckedChildren="Inactive" checked={this.state.item.isActive} onChange={this.handleStatusChange}/>
+                                    <Switch  checkedChildren="Active" unCheckedChildren="Archived" checked={this.state.item.isActive} onChange={this.handleStatusChange}/>
                                 </Form.Item>
                                 <Form.Item label="Due Date:">
                                     <DatePicker defaultValue={this.state.defaultDueDate}
