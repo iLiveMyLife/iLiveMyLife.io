@@ -30,7 +30,7 @@ class MessageSender extends React.Component {
 
         let response = await mutate({ variables: { itemId: this.props.item.id, message: this.state.value, typeId: "0" } });
         const { data: { addMessage } } = response;
-        const {ok} = addMessage;
+        const { ok } = addMessage;
 
         if(!ok) {
             notification.error({

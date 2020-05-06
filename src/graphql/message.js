@@ -17,7 +17,7 @@ export const ADD_MESSAGE = gql`
     mutation Add($itemId: String!, $message: String!, $typeId: String!) {
         addMessage(itemId: $itemId, message: $message, typeId: $typeId) {
             ok
-            message {
+            messageResponse {
                 id,
                 content
             }

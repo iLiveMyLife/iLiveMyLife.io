@@ -22,8 +22,8 @@ export const GET_ITEMS = gql`
 export const ADD_ITEM = gql`
     mutation AddItem($itemId: String!, $title: String!) {
         addItem(itemId: $itemId, title: $title) {
-            index,
-            item {
+            ok,
+            itemResponse {
                 id
                 itemId
                 title
