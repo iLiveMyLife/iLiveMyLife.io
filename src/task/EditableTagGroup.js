@@ -13,6 +13,13 @@ export default class EditableTagGroup extends Component {
         };
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.tags !== this.props.tags) {
+            let { tags } = this.props;
+            this.setState({ tags });
+        }
+    }
+
     handleTagsListChange = (tags) => {
         this.props.onTagsListChange(tags);
     };

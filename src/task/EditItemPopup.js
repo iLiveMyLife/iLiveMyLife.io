@@ -1,24 +1,55 @@
 import React, { Component } from "react";
-import { Drawer, Input, Button, Form, DatePicker, Switch } from "antd";
+import {Drawer, Input, Button, Form, DatePicker, Switch, notification} from "antd";
 import EditableTagGroup from "./EditableTagGroup";
-import moment from "moment";
-import { DATE_FORMAT } from '../constants';
 import {Mutation} from "react-apollo";
 import {EDIT_ITEM} from "../graphql/item";
+import {momentFromUnixTimestamp} from "../util/Helpers";
 
 export default class EditItemPopup extends Component{
     constructor(props) {
         super(props);
         this.state = {
             isSubmitting: false,
-            index:this.props.index,
+            index: this.props.index,
             item: this.props.item,
-            defaultDueDate: !this.props.item.dueDate ? null : moment(this.props.item.dueDate, DATE_FORMAT)
+            defaultDueDate: this.getDueDateStringFromTimestamp(this.props.item.dueDate)
         }
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.item.id == this.props.item.id && prevProps.item.updatedAt !== this.props.item.updatedAt && !this.state.isSubmitting) {
+            if (!this.props.visible) {
+                this.setState(prevState => ({
+                    isSubmitting: false,
+                    index: this.props.index,
+                    item: this.props.item,
+                    defaultDueDate: this.getDueDateStringFromTimestamp(this.props.item.dueDate)
+                }));
+            }
+            else {
+                notification.warn({
+                    message: 'iLiveMyLife App',
+                    description: `Details were just updated by: ${this.props.item.updatedBy}.`
+                });
+            }
+        }
+    }
+
+    getDueDateStringFromTimestamp(timestamp) {
+        return !timestamp ? null : momentFromUnixTimestamp(timestamp);
     }
 
     onClose = () => {
         this.props.onClose();
+
+        // the state was not updated when edit window is opened to prevent re-writing fields while editing,
+        // so needs to be updated when user close the window without editing
+        this.setState(prevState => ({
+            isSubmitting: false,
+            index: this.props.index,
+            item: this.props.item,
+            defaultDueDate: this.getDueDateStringFromTimestamp(this.props.item.dueDate)
+        }));
     };
 
     onSubmit = async (e, mutate) => {
@@ -28,7 +59,7 @@ export default class EditItemPopup extends Component{
             isSubmitting: true,
         });
 
-        await mutate({
+        let response = await mutate({
             variables: {
                 index: this.props.index,
                 itemInput: {
@@ -37,10 +68,24 @@ export default class EditItemPopup extends Component{
                     description: this.state.item.description,
                     isActive: this.state.item.isActive,
                     dueDate: this.state.item.dueDate,
-                    tags: this.state.item.tags
+                    tags: this.state.item.tags,
+                    createdAt: this.state.item.createdAt,
+                    createdBy: this.state.item.createdBy,
+                    updatedAt: this.state.item.updatedAt,
+                    updatedBy: this.state.item.updatedBy,
                 }
             }
         });
+
+        const { data: { editItem } } = response;
+        const {ok} = editItem;
+
+        if(!ok) {
+            notification.error({
+                message: 'iLiveMyLife App',
+                description: 'Some error happened. Refresh to check if it was saved successfully.'
+            });
+        }
 
         this.setState({
             isSubmitting: false
@@ -69,11 +114,6 @@ export default class EditItemPopup extends Component{
 
     handleTitleChange = (e) => {
         let value = e.target.value;
-
-        if (value === ''){
-            return;
-        }
-
         this.setState(prevState => ({
             item: {
                 ...prevState.item,
@@ -84,11 +124,6 @@ export default class EditItemPopup extends Component{
 
     handleDescriptionChange = (e) => {
         let value = e.target.value;
-
-        if (value === ''){
-            return;
-        }
-
         this.setState(prevState => ({
             item: {
                 ...prevState.item,
@@ -101,7 +136,7 @@ export default class EditItemPopup extends Component{
         this.setState(prevState => ({
             item: {
                 ...prevState.item,
-                dueDate: dateString
+                dueDate: !date ? null : date.valueOf().toString()
             }
         }));
     };
@@ -119,7 +154,7 @@ export default class EditItemPopup extends Component{
                             footer={
                                 <div style={{ textAlign: 'right' }}>
                                     <Button onClick={this.onClose} style={{ marginRight: 8 }}>Cancel</Button>
-                                    <Button disabled={this.state.isSubmitting} onClick={async (e) => this.onSubmit(e, mutate)} type="primary">Submit</Button>
+                                    <Button disabled={this.state.isSubmitting} onClick={async (e) => this.onSubmit(e, mutate)} htmlType="submit" type="primary">Submit</Button>
                                 </div>
                             }
                         >
@@ -133,14 +168,15 @@ export default class EditItemPopup extends Component{
                                     <Input maxLength={150} value={this.state.item.title} onChange={this.handleTitleChange}/>
                                 </Form.Item>
                                 <Form.Item label="Description:">
-                                    <Input.TextArea value={this.state.item.description} onChange={this.handleDescriptionChange}/>
+                                    <Input.TextArea required={false} value={this.state.item.description} onChange={this.handleDescriptionChange}/>
                                 </Form.Item>
                                 <Form.Item label="Status:">
                                     <Switch  checkedChildren="Active" unCheckedChildren="Archived" checked={this.state.item.isActive} onChange={this.handleStatusChange}/>
                                 </Form.Item>
                                 <Form.Item label="Due Date:">
                                     <DatePicker defaultValue={this.state.defaultDueDate}
-                                                onChange={this.handleDueDateChange}   />
+                                                value={this.getDueDateStringFromTimestamp(this.state.item.dueDate)}
+                                                onChange={this.handleDueDateChange} />
                                 </Form.Item>
                                 <Form.Item label="Tags:">
                                     <EditableTagGroup tags={this.state.item.tags} onTagsListChange={this.onTagsListChange}/>
