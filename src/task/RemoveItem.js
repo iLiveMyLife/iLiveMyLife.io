@@ -21,7 +21,7 @@ export default class RemoveItem extends Component {
 
     showDeleteConfirm = async (onConfirm) => {
         confirm({
-            title: `Are you sure want to archive: ${this.props.item.title}?`,
+            title: `Are you sure you want to archive: ${this.props.item.title}?`,
             icon: <ExclamationCircleOutlined />,
             content: 'It is going to be archived for everyone you share it with together with all it\'s sub items.',
             okText: 'Yes',
