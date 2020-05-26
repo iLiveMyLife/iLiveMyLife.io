@@ -104,10 +104,6 @@ export default class Item extends React.Component {
 
     render() {
         const [indexedItem, ...indexedItems] = this.props.indexedItems;
-        const index = this.props.indexedItems.findIndex((e) => e.item.id === this.state.indexedItemToEdit.item.id);
-        let indexedItemToEdit = (index !== -1) ? this.props.indexedItems[index] : null;
-        console.log(indexedItemToEdit);
-        console.log(this.props.indexedItems[index]);
 
         return (
             <div className="itemContainer">
@@ -118,9 +114,9 @@ export default class Item extends React.Component {
                 <Messenger item={indexedItem.item}/>
 
                 <EditItemPopup
-                    key={indexedItemToEdit.item.id}
-                    index={indexedItemToEdit.index}
-                    item={indexedItemToEdit.item}
+                    key={this.state.indexedItemToEdit.item.id}
+                    index={this.state.indexedItemToEdit.index}
+                    item={this.state.indexedItemToEdit.item}
                     onClose={this.onCloseEditItem}
                     visible={this.state.isEditFormVisible} />
             </div>
