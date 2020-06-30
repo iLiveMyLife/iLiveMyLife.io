@@ -1,9 +1,0 @@
-{
-  "name": "iLiveMyLive app",
-  "short_name": "iLiveMyLive",
-  "display": "standalone",
-  "start_url": "/",
-  "icons": [
-  ],
-  "splash_pages": null
-}
