@@ -107,7 +107,7 @@ export default class Item extends React.Component {
 
         return (
             <div className="itemContainer">
-                <ItemBreadcrumb paths={this.state.path}/>
+                {/*<ItemBreadcrumb paths={this.state.path}/> */}
                 <ItemTitle indexedItem={indexedItem} editItem={this.editItem} removeItem={this.removeItem}/>
                 <ItemSender itemId={this.state.itemId} />
                 <ItemList indexedItems={indexedItems} editItem={this.editItem} removeItem={this.removeItem}/>
