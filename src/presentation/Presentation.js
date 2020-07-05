@@ -13,7 +13,7 @@ class Presentation extends Component {
                 }}
                 description={
                     <span>
-                        Congratulations! You've finally found your future self.
+                        Congratulations! You've finally found your future self!
                         <br />
                         You are one step closer to create your new Life (the other way)
                     </span>
