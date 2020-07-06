@@ -19,7 +19,7 @@ class Presentation extends Component {
                     </span>
                 }
             >
-                <Button type="primary"><a href={APP_URL + "/login"}>Create</a></Button>
+                <Button type="primary"><a href={APP_URL + "/signup"}>Create</a></Button>
             </Empty>
         );
     }
