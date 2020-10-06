@@ -15,7 +15,7 @@ class Presentation extends Component {
                     <span>
                         Congratulations! You've finally found your future self!
                         <br />
-                        You are one step closer to create your new Life (the other way)
+                        You are one step closer to create your new Life
                     </span>
                 }
             >
