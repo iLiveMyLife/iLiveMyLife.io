@@ -13,7 +13,7 @@ export default class Presentation extends Component {
                 }}
                 description={
                     <span>
-                        Congratulations! You've finally found your future self!
+                        Congrats! You've finally found your future self!
                         <br />
                         You are one step closer to create your new Life
                     </span>
