@@ -3,7 +3,7 @@ import {Empty, Button } from 'antd';
 import './Presentation.css';
 import { APP_URL } from '../constants';
 
-class Presentation extends Component {
+export default class Presentation extends Component {
     render() {
         return (
             <Empty
