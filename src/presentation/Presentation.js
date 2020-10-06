@@ -24,5 +24,3 @@ class Presentation extends Component {
         );
     }
 }
-
-export default Presentation;
