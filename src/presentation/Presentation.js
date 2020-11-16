@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import {Empty, Button } from 'antd';
 import './Presentation.css';
-import { APP_URL } from '../constants';
 
-export default class Presentation extends Component {
+class Presentation extends Component {
     render() {
         return (
             <Empty
@@ -13,14 +12,16 @@ export default class Presentation extends Component {
                 }}
                 description={
                     <span>
-                        Congrats! You've finally found your future self!
-                        <br />
-                        You are one step closer to create your new Life
+                        <h3>Congratulations!</h3>
+                        <h2>You are one step closer to create your new Life.</h2>
+                        <h1>Organically in synergy with computers.</h1>
                     </span>
                 }
             >
-                <Button type="primary"><a href={APP_URL + "/signup"}>Create</a></Button>
+                <Button type="primary">Create Now</Button>
             </Empty>
         );
     }
 }
+
+export default Presentation;
