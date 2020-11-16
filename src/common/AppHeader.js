@@ -44,6 +44,9 @@ class AppHeader extends Component {
           ];
         } else {
           menuItems = [
+            <Menu.Item key="/graph">
+              <a href="https://app.ilivemylife.io/graph/000001736056c2cb-2655b2cf545d0001">Project's Graph</a>
+            </Menu.Item>,
             <Menu.Item key="/login">
               <a href="https://app.ilivemylife.io/login">Login</a>
             </Menu.Item>,

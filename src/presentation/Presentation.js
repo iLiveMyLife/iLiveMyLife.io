@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Typography, Button } from 'antd';
+import {Button} from 'antd';
 import './Presentation.css';
 
 class Presentation extends Component {
