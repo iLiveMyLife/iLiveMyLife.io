@@ -45,10 +45,10 @@ class AppHeader extends Component {
         } else {
           menuItems = [
             <Menu.Item key="/login">
-              <Link to="/login">Login</Link>
+              <a href="https://app.ilivemylife.io/login">Login</a>
             </Menu.Item>,
             <Menu.Item key="/signup">
-              <Link to="/signup">Signup</Link>
+                <a href="https://app.ilivemylife.io/signup">Signup</a>
             </Menu.Item>
           ];
         }
