@@ -18,7 +18,9 @@ class Presentation extends Component {
                     </span>
                 }
             >
-                <Button type="primary">Create Now</Button>
+                <Button type="primary">
+                    <a href="https://app.ilivemylife.io/signup">Create Now</a>
+                </Button>
             </Empty>
         );
     }
