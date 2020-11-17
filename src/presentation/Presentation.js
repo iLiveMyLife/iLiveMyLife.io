@@ -7,9 +7,11 @@ class Presentation extends Component {
         return (
             <div className={"presentaion-center"}>
                 <h2>Congratulations,</h2>
-                <h3>You are a step closer to merging your Life with the Graph-mind!</h3>
+                <h3>You are a step closer to merging your Life into the Graph-mind.</h3>
+                <br />
+                <h4>Start collaborating with others on common projects by merging into your new Life!</h4>
                 <Button type="primary">
-                    <a href="https://app.ilivemylife.io/signup">Create Now</a>
+                    <a href="https://app.ilivemylife.io/signup">Merge Now</a>
                 </Button>
             </div>
         );
