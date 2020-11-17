@@ -6,9 +6,8 @@ class Presentation extends Component {
     render() {
         return (
             <div className={"presentaion-center"}>
-                <h4>Hey, Congratulations!</h4>
-                <h3>You are one step closer to creating your new Life.</h3>
-                <h1>Organically, in synergy with the Hive-mind.</h1>
+                <h1>Congratulations,</h1>
+                <h2>You are one step closer to merging your Life with the Hive-mind!</h2>
                 <Button type="primary">
                     <a href="https://app.ilivemylife.io/signup">Create Now</a>
                 </Button>
