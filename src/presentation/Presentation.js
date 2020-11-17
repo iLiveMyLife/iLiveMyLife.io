@@ -7,7 +7,7 @@ class Presentation extends Component {
         return (
             <div className={"presentaion-center"}>
                 <h4>Hey, Congratulations!</h4>
-                <h3>You are one step closer to create your new Life.</h3>
+                <h3>You are one step closer to creating your new Life.</h3>
                 <h1>Organically in synergy with computers.</h1>
                 <Button type="primary">
                     <a href="https://app.ilivemylife.io/signup">Create Now</a>
