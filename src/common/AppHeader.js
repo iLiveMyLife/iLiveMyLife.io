@@ -44,11 +44,14 @@ class AppHeader extends Component {
           ];
         } else {
           menuItems = [
+            <Menu.Item key="/graph">
+              <a href="https://app.ilivemylife.io/graph/000001736056c2cb-2655b2cf545d0001">Project's Graph</a>
+            </Menu.Item>,
             <Menu.Item key="/login">
-              <Link to="/login">Login</Link>
+              <a href="https://app.ilivemylife.io/login">Login</a>
             </Menu.Item>,
             <Menu.Item key="/signup">
-              <Link to="/signup">Signup</Link>
+                <a href="https://app.ilivemylife.io/signup">Signup</a>
             </Menu.Item>
           ];
         }
@@ -57,7 +60,7 @@ class AppHeader extends Component {
             <Header className="app-header">
             <div className="container">
               <div className="app-title" >
-                <Link to="/">iLiveMyLife, and so are you!</Link>
+                <Link to="/">iLiveMyLife ...and so do you</Link>
               </div>
               <Menu
                 className="app-menu"
