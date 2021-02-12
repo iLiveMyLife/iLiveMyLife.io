@@ -1,5 +1,5 @@
 import React from 'react';
-import './Footer.css';
+import './AppFooter.css';
 import { MailOutlined } from '@ant-design/icons';
 
 const AppFooter =()=> {
