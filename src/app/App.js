@@ -11,9 +11,10 @@ import Presentation from '../presentation/Presentation';
 import AppHeader from '../common/AppHeader';
 import NotFound from '../common/NotFound';
 import LoadingIndicator from '../common/LoadingIndicator';
+import AppFooter from '../common/AppFooter';
 
 import { Layout, notification } from 'antd';
-const { Content } = Layout;
+const { Content, Footer } = Layout;
 
 class App extends Component {
   constructor(props) {
@@ -82,6 +83,9 @@ class App extends Component {
               </Switch>
             </div>
           </Content>
+          <Footer className="footer-style">
+              <AppFooter />
+          </Footer>
         </Layout>
     );
   }
