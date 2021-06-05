@@ -1,82 +1,135 @@
-.app-title {
-    float: left;
-  }
+/* .app-title {
+	float: left;
+} */
+/* * DISPLAY HEADER AS FLEX INSISTED OF FLOATING THE ELEMENTS */
+.app-header .container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
+}
 
-  .app-title a {
-    text-decoration: none;
-    line-height: 64px;
-    font-size: 21px;
-    display: inline-block;
-  }
-
-  .app-title a:hover {
-    text-decoration: none;
-  }
-
-  .app-header {
-    position: fixed;
-    width: 100%;
-    box-shadow: 0 2px 8px #f0f1f2;
-    z-index: 10;
-    padding: 0;
-  }
-
-  .app-menu {
-    float: right;
-  }
-
-  .app-menu > li {
-    padding: 0 20px;
-  }
-
-  .app-menu > li > a {
-    padding: 0 20px;
-    margin: 0 -20px;
-  }
-
-  .app-menu > li > a > i {
-    margin-right: 0 !important;
-  }
-
-  .profile-dropdown-menu {
-    min-width: 180px;
-  }
-
-  .profile-menu .user-full-name-info {
-    font-size: 13px;
-    font-weight: 600;
-    color: rgba(0,0,0,0.85);
-  }
-
-  .profile-menu .username-info {
-    font-size: 14px;
-    color: rgba(0,0,0,0.65);
-  }
-
-  .dropdown-item {
-    padding: 10px 12px;
-  }
-
-  .dropdown-item a {
-    padding: 10px 12px;
-    margin: -10px -12px;
-  }
-
-  .nav-icon {
-    font-size: 20px;
-  }
+.container .hamburger-menu {
+	cursor: pointer;
+	display: none;
+}
+.container .hamburger-menu span {
+	display: block;
+	width: 30px;
+	height: 2px;
+	/* background-color: white; */
+	background-color: rgb(64, 169, 255);
+	margin-bottom: 5px;
+}
 
 @media (max-width: 768px) {
-  .app-title a {
-    font-size: 20px;
-  }
+	/* !=====OLD CODE========= */
+	/* .app-title a {
+		font-size: 20px;
+	}
 
-  .app-menu > li {
-    padding: 0 15px;
-  }
+	.app-menu > li {
+		padding: 0 15px;
+	}
 
-  .app-menu > li > a {
-    padding: 0 15px;
-    margin: 0 -15px;
-  }
+	.app-menu > li > a {
+		padding: 0 15px;
+		margin: 0 -15px;
+	} */
+
+	/* !OLD CODE END */
+
+	/* ! ======= NEW CODE ====== */
+	.container {
+		padding: 0 2rem;
+		position: relative;
+	}
+	.app-header .container .app-menu {
+		position: absolute;
+		top: 65px;
+		left: 0;
+		width: 100%;
+		text-align: center;
+		transition: all 0.4s linear;
+		display: none;
+	}
+
+	.container .hamburger-menu {
+		display: block;
+	}
+
+	/* * HIDE AND SHOW MENU CLASS */
+	#show {
+		transition: all 0.4s linear;
+		display: block;
+	}
+
+	#hide {
+		transition: all 0.4s linear;
+		display: none;
+	}
+}
+
+.app-title a {
+	text-decoration: none;
+	line-height: 64px;
+	font-size: 21px;
+	display: inline-block;
+}
+
+.app-title a:hover {
+	text-decoration: none;
+}
+
+.app-header {
+	position: fixed;
+	width: 100%;
+	box-shadow: 0 2px 8px #f0f1f2;
+	z-index: 10;
+	padding: 0;
+}
+
+/* .app-menu {
+	float: right;
+} */
+
+.app-menu > li {
+	padding: 0 20px;
+}
+
+.app-menu > li > a {
+	padding: 0 20px;
+	margin: 0 -20px;
+}
+
+.app-menu > li > a > i {
+	margin-right: 0 !important;
+}
+
+.profile-dropdown-menu {
+	min-width: 180px;
+}
+
+.profile-menu .user-full-name-info {
+	font-size: 13px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.85);
+}
+
+.profile-menu .username-info {
+	font-size: 14px;
+	color: rgba(0, 0, 0, 0.65);
+}
+
+.dropdown-item {
+	padding: 10px 12px;
+}
+
+.dropdown-item a {
+	padding: 10px 12px;
+	margin: -10px -12px;
+}
+
+.nav-icon {
+	font-size: 20px;
 }
