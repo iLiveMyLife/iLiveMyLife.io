@@ -1,5 +1,10 @@
+body{
+  background-color: #e7e9ef;
+}
 .app-content {
-  margin-top: 64px;   
+  margin-top: 64px; 
+  text-align: center;
+  background-color: #d9dde2;
 }
 
 .footer-style {
@@ -7,5 +12,13 @@
   text-align: center;
   bottom: 0;
   width: 100%;
+  background-color: #d9dde2;
 }
 
+.content-style {
+  margin-top: 64px;
+  height: 160px;
+  color: #fff;
+  text-align: center;
+  background-color: #d9dde2;
+}
