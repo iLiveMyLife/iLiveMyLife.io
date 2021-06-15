@@ -1,10 +1,10 @@
 body{
-  background-color: #B0C4DE;
+  background-color: #e7e9ef;
 }
 .app-content {
   margin-top: 64px; 
   text-align: center;
-  background-color: #B0C4DE;
+  background-color: #d9dde2;
 }
 
 .footer-style {
@@ -12,7 +12,7 @@ body{
   text-align: center;
   bottom: 0;
   width: 100%;
-  background-color: #B0C4DE;
+  background-color: #d9dde2;
 }
 
 .content-style {
@@ -20,5 +20,5 @@ body{
   height: 160px;
   color: #fff;
   text-align: center;
-  background-color: #B0C4DE;
+  background-color: #d9dde2;
 }
