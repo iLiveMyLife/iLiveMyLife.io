@@ -88,13 +88,19 @@ class App extends Component {
                       </Switch>
                     </div>
                     <div className="content-style">
-                        <h3>Is it a dead cat or alife? Let's just handshake that it is a Cat?!!</h3>
+                        <h3>Collaboration tool on a chain</h3>
+                    </div>
+                    <div className="content-style">
+                        <h3>Distributed Computational Graph</h3>
+                    </div>
+                    <div className="content-style">
+                        <h3>Collective database and Knowledge Graph</h3>
+                    </div>
+                    <div className="content-style">
+                        <h3>Cloud programming interface</h3>
                     </div>
                     <div className="content-style">
                       <h3>Yes, you!! Become a symbiose of machine learning and your creativity</h3>
-                    </div>
-                    <div className="content-style">
-                      <h3>The tool to live on the beach</h3>
                     </div>
                     <div className="content-style">
                       <h3>Multi-dimensional todo list? Here you go!</h3>
@@ -131,6 +137,12 @@ class App extends Component {
                     </div>
                     <div className="content-style">
                       <h3>We are a global suppliers of webhook links - supplier publishes an event and everyone else listens (including machines who are themselves are data structures)</h3>
+                    </div>
+                    <div className="content-style">
+                        <h3>Is it a dead cat or alife? Let's just handshake that it is a Cat?!!</h3>
+                    </div>
+                    <div className="content-style">
+                        <h3>We can program our cultures on the network and watch it changing online and gradually vote for changes</h3>
                     </div>
                 </Carousel>
             </Content>
