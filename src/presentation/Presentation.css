@@ -4,3 +4,10 @@
     padding: 40px;
     text-align: center;
 }
+.content-style {
+  margin-top: 64px;
+  height: 160px;
+  color: #fff;
+  text-align: center;
+  background-color: #B0C4DE;
+}
