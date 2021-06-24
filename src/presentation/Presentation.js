@@ -22,6 +22,7 @@ class Presentation extends Component {
             <div className="content-style">
       <h3>Yes, you!! Become an symbiose of machine learning and your creativity
 </h3>
+<h4>Possible work for drug addicts?</h4>
     </div>
     <div className="content-style">
       <h3>The tool to live on the beach
