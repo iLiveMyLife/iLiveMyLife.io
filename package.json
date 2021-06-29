@@ -17,12 +17,12 @@
     "graphql-tag": "^2.10.0",
     "moment": "^2.24.0",
     "react": "^16.13.1",
-    "react-addons-update": "^15.6.2",
+    "react-addons-update": "^15.6.3",
     "react-apollo": "^2.2.4",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
-    "subscriptions-transport-ws": "^0.9.15"
+    "subscriptions-transport-ws": "^0.10.0"
   },
   "scripts": {
     "start": "react-app-rewired start",
