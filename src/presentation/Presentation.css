@@ -5,10 +5,15 @@
     text-align: center;
 }
 
-.content-style {
+.carousel-style {
     margin-top: 64px;
     height: 160px;
     color: #fff;
     text-align: center;
     background-color: #d9dde2;
   }
+  .slogan-pic{
+    border-radius: 8px;
+    width: 150px;
+    margin-left: 400px;
+ }
