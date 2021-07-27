@@ -24,7 +24,7 @@ class Presentation extends Component {
               <div className={"carousel-style"}>
                 <h3>{item.title}</h3>
                 <h4>{item.description}</h4>
-                {item.image ? <img className="slogan-pic"src={item.image} /> : null}
+                {item.image ? <img className="slogan-pic" src={item.image} /> : null}
                 </div>
               ))}
                 </Carousel>
