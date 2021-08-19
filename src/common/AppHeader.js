@@ -5,13 +5,32 @@ import {
 } from 'react-router-dom';
 import './AppHeader.css';
 import { Layout, Menu, Dropdown } from 'antd';
+import ResponsiveAntMenu from 'responsive-ant-menu'
 import { HomeOutlined, UserOutlined, DownOutlined } from '@ant-design/icons';
+import { CloseOutlined, MenuOutlined } from '@ant-design/icons';
 const Header = Layout.Header;
+const LIGHT = 'light';
+   // const DARK = 'dark';
+   // const VERTICAL = 'vertical';
+    const HORIZONTAL = 'horizontal';
+    const BOTTOM = 'bottom';
+ //   const RIGHT = 'right';
 
+    
+    
 class AppHeader extends Component {
+
     constructor(props) {
         super(props);
         this.handleMenuClick = this.handleMenuClick.bind(this);
+        this.state = {
+            desktopTheme : LIGHT,
+            mobileTheme : LIGHT,
+            closeOnClick : true,
+            mobileBreakpoint : 575,
+            viewMode : HORIZONTAL,
+            menuPosition : BOTTOM
+        }
     }
 
     handleMenuClick({ key }) {
@@ -19,16 +38,16 @@ class AppHeader extends Component {
         this.props.onLogout();
       }
     }
-
-    render() {
-        let menuItems;
+  
+    render() {     
+        let menuItems;  
         if(this.props.currentUser) {
           menuItems = [
             <Menu.Item key="/">
               <Link to="/">
                   <HomeOutlined className="nav-icon"/>
               </Link>
-            </Menu.Item>,
+            </Menu.Item>
               /*
             <Menu.Item key="/poll/new">
                 <Link to="/poll/new">
@@ -36,11 +55,7 @@ class AppHeader extends Component {
                 </Link>
             </Menu.Item>,
             */
-            <Menu.Item key="/profile" className="profile-menu">
-                <ProfileDropdownMenu
-                  currentUser={this.props.currentUser}
-                  handleMenuClick={this.handleMenuClick}/>
-            </Menu.Item>
+            
           ];
         } else {
           menuItems = [
@@ -56,25 +71,37 @@ class AppHeader extends Component {
           ];
         }
 
-        return (
+        return ( 
             <Header className="app-header">
             <div className="container">
               <div className="app-title" >
                 <Link to="/">iLiveMyLife ...and so do you</Link>
               </div>
-              <Menu
-                className="app-menu"
-                mode="horizontal"
-                selectedKeys={[this.props.location.pathname]}
-                style={{ lineHeight: '64px' }} >
-                  {menuItems}
-              </Menu>
+            
+              <ResponsiveAntMenu
+              
+                activeLinkKey={'this.props.location.pathname'}
+                mobileMenuContent={isMenuShown => isMenuShown ? <a><CloseOutlined /></a> : <a><MenuOutlined /></a>}
+                mobileBreakPoint={this.state.mobileBreakpoint}
+                mode={isMenuShown => isMenuShown ? 'vertical' :  'horizontal'}
+                menuClassName={'app-menu'}
+                closeOnClick={this.state.closeOnClick}
+                popoverTrigger='click'
+                theme={isMobile => isMobile ? this.state.mobileTheme : this.state.desktopTheme}   
+                placement={this.state.menuPosition} 
+               >
+                {(onLinkClick) =>
+                    <Menu>
+                        {menuItems}
+                    </Menu>
+                }            
+            </ResponsiveAntMenu> 
             </div>
           </Header>
         );
-    }
+  }
 }
-
+/*
 function ProfileDropdownMenu(props) {
   const dropdownMenu = (
     <Menu onClick={props.handleMenuClick} className="profile-dropdown-menu">
@@ -91,7 +118,8 @@ function ProfileDropdownMenu(props) {
       <Menu.Item key="profile" className="dropdown-item">
         <Link to={`/users/${props.currentUser.username}`}>Profile</Link>
       </Menu.Item>
-      */}
+      } */
+      /*
       <Menu.Item key="logout" className="dropdown-item">
            Logout
       </Menu.Item>
@@ -110,5 +138,6 @@ function ProfileDropdownMenu(props) {
     </Dropdown>
   );
 }
+*/
 
 export default withRouter(AppHeader);
