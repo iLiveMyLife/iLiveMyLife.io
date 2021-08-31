@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {Button,Carousel} from 'antd';
 import './Presentation.css';
 import slideData from './data.json';
-import sloganPicture from '../../public/slogans/ComputerBrain.jpg';
 
 class Presentation extends Component {
   state={

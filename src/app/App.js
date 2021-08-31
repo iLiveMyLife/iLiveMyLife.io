@@ -13,7 +13,7 @@ import NotFound from '../common/NotFound';
 import LoadingIndicator from '../common/LoadingIndicator';
 import AppFooter from '../common/AppFooter';
 
-import { Layout, notification,Carousel } from 'antd';
+import { Layout, notification } from 'antd';
 const { Content, Footer } = Layout;
 
 class App extends Component {
