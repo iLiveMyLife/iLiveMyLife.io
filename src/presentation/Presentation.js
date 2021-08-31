@@ -10,7 +10,7 @@ class Presentation extends Component {
   }
     render() {
         return (
-          <Carousel>
+          <Carousel>co
             <div className={"presentaion-center"}>
                 <h2>Congratulations,</h2>
                 <h3>You are a step closer to merging your Life into the Graph-mind.</h3>
@@ -24,7 +24,7 @@ class Presentation extends Component {
               <div className={"carousel-style"}>
                 <h3>{item.title}</h3>
                 <h4>{item.description}</h4>
-                {item.image ? <img className="slogan-pic" src={item.image} /> : null}
+                {item.image ? <img className="slogan-pic" src={item.image}  alt={item.description}/> : null}
                 </div>
               ))}
                 </Carousel>
