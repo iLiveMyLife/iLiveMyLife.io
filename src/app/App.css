@@ -2,7 +2,9 @@ body{
   background-color: #ffffff;
 }
 .app-content {
-  margin-top: 64px; 
+  margin-top: 64px;
+  margin-bottom: 64px;
+  height: 100%;
   text-align: center;
   background-color: #ffffff;
 }
