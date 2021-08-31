@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button,Carousel} from 'antd';
+import {Carousel} from 'antd';
 import './Presentation.css';
 import slideData from './data.json';
 
@@ -9,25 +9,18 @@ class Presentation extends Component {
   }
     render() {
         return (
-            <Carousel>
-                <div className={"presentaion-center"}>
-                    <h2>Congratulations,</h2>
-                    <h3>You are a step closer to merging your Life into the Graph-mind.</h3>
-                    <br />
-                    <h4>Start collaborating with others on common projects by merging into your new Life!</h4>
-                    <Button type="primary">
-                        <a href="https://app.ilivemylife.io/signup">Merge Now</a>
-                    </Button>
-                </div>
-                {
-                    this.state.data.map((item,index) => (
-                    <div className={"carousel-style"} key={index}>
-                        <h3>{item.title}</h3>
-                        <h4>{item.description}</h4>
-                        {item.image ? <img className="slogan-pic" src={item.image}  alt={item.description}/> : null}
-                    </div>
-                ))}
-            </Carousel>
+            <div className="container">
+                <Carousel>
+                    {
+                        this.state.data.map((item,index) => (
+                        <div className={"carousel-style"} key={index}>
+                            <h3>{item.title}</h3>
+                            {item.image ? <img height={"600px"} className="slogan-pic" src={item.image} alt={item.description}/> : null}
+                            <h4>{item.description}</h4>
+                        </div>
+                    ))}
+                </Carousel>
+            </div>
         );
     }
 }

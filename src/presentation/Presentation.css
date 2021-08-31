@@ -5,15 +5,28 @@
     text-align: center;
 }
 
+.ant-carousel .slick-dots li button {
+    background: #532c2c;
+}
+
+.ant-carousel .slick-dots li.slick-active button {
+    background-color: #225e96;
+}
+
 .carousel-style {
-    margin-top: 64px;
-    height: 160px;
-    color: #fff;
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    height: 100%;
     text-align: center;
-    background-color: #d9dde2;
-  }
-  .slogan-pic{
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.slogan-pic{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
     border-radius: 8px;
-    width: 150px;
-    margin-left: 400px;
  }

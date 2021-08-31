@@ -16,50 +16,47 @@ import { Layout, notification } from 'antd';
 const { Content, Footer } = Layout;
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentUser: null,
-      isAuthenticated: false,
-      isLoading: false
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentUser: null,
+            isAuthenticated: false,
+            isLoading: false
+        };
 
-    notification.config({
-      placement: 'topRight',
-      top: 70,
-      duration: 3,
-    });
-  }
-
-  render() {
-    if(this.state.isLoading) {
-      return <LoadingIndicator />
+        notification.config({
+            placement: 'topRight',
+            top: 70,
+            duration: 3,
+        });
     }
+
+    render() {
+        if(this.state.isLoading) {
+            return <LoadingIndicator />
+        }
 
     return (
         <Layout className="app-container">
-            <AppHeader
-              isAuthenticated={this.state.isAuthenticated}
-              currentUser={this.state.currentUser} />
+            <AppHeader isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} />
 
             <Content className="app-content">
-                    <div className="container">
-                      <Switch>
-                        <Route exact path="/" render={(props) => <Presentation currentUser={this.state.currentUser} />}>
-                        </Route>
+                <div className="container">
+                    <Switch>
+                        <Route exact path="/" render={(props) => <Presentation currentUser={this.state.currentUser} />} />
                         <Route path="/demo"
-                          render={(props) => <Presentation currentUser={this.state.currentUser} />}>
+                               render={(props) => <Presentation currentUser={this.state.currentUser} />}>
                         </Route>
                         <Route component={NotFound} />
-                      </Switch>
-                    </div>
+                    </Switch>
+                </div>
             </Content>
-          <Footer className="footer-style">
-            <AppFooter />
-          </Footer>
+            <Footer className="footer-style">
+                <AppFooter />
+            </Footer>
         </Layout>
     );
-  }
+    }
 }
 
 export default withRouter(App);

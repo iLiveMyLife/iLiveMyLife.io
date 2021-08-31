@@ -1,5 +1,11 @@
 [
   {
+    "id":"0",
+    "title":"",
+    "description":"",
+    "image":"./slogans/Screenshot_Announcements.jpg"
+  },
+  {
     "id":"1",
     "title":"Collaboration tool on a chain"
   },
