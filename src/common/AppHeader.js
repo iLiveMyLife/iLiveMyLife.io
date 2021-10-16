@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import {
-    Link,
-    withRouter
-} from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import './AppHeader.css';
 import { Layout, Menu, Dropdown } from 'antd';
 import { HomeOutlined, UserOutlined, DownOutlined } from '@ant-design/icons';
+import Nav from "./Navbar";
 const Header = Layout.Header;
 
 class AppHeader extends Component {
@@ -57,20 +55,8 @@ class AppHeader extends Component {
         }
 
         return (
-            <Header className="app-header">
-            <div className="container">
-              <div className="app-title" >
-                <Link to="/">iLiveMyLife ...and so do you</Link>
-              </div>
-              <Menu
-                className="app-menu"
-                mode="horizontal"
-                selectedKeys={[this.props.location.pathname]}
-                style={{ lineHeight: '64px' }} >
-                  {menuItems}
-              </Menu>
-            </div>
-          </Header>
+          <Nav Items={menuItems} location="this.props.location.pathname" />
+
         );
     }
 }
