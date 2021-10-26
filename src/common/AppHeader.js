@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import './AppHeader.css';
 import { Layout, Menu, Dropdown } from 'antd';
 import { HomeOutlined, UserOutlined, DownOutlined } from '@ant-design/icons';
-import Nav from "./Navbar";
+import Navbar from "./Navbar";
 const Header = Layout.Header;
 
 class AppHeader extends Component {
@@ -55,8 +55,14 @@ class AppHeader extends Component {
         }
 
         return (
-          <Nav Items={menuItems} location="this.props.location.pathname" />
-
+          <Header className="app-header">
+            <div className="container">
+              <div className="app-title" >
+                <Link to="/">iLiveMyLife ...and so do you</Link>
+              </div>
+              <Navbar items={menuItems} location="this.props.location.pathname"/>
+            </div>
+          </Header>
         );
     }
 }
