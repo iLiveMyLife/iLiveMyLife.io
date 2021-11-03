@@ -9,7 +9,7 @@ const Navbar = (props) => (
                 mobileMenuContent={isMenuShown => isMenuShown ? <a><CloseOutlined /></a> : <a><MenuOutlined /></a>}
                 mode={isMenuShown => isMenuShown ? 'vertical' : 'horizontal'}
                 menuClassName={'app-menu'}
-                popoverTrigger="hover"
+                popoverTrigger="click"
             >
                 {(onLinkClick) =>
                     <Menu>
