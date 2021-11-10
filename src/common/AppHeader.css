@@ -23,8 +23,14 @@
 
   }
 
+  .ant-menu-overflow {
+    max-height: 0;
+  }
+
   .app-menu {
-    float: right;
+    display:block;
+    text-align: right;
+    font-size: calc(12px + .2vw);
   }
 
   .app-menu > li {
