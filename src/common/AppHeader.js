@@ -42,8 +42,20 @@ class AppHeader extends Component {
           ];
         } else {
           menuItems = [
+              <Menu.Item key="/project">
+                  <a href="https://app.ilivemylife.io/item/000001736056c2cb-2655b2cf545d0001">Project</a>
+              </Menu.Item>,
+              <Menu.Item key="/how_to_videos">
+                  <a href="https://www.youtube.com/playlist?list=PLYkUZvRwI3MhnNJGQ12lqXUageAX0sxtt">How-to</a>
+              </Menu.Item>,
+              <Menu.Item key="/whitepaper">
+                  <a href="https://app.ilivemylife.io/document/0000017af0ef0397-22abe99233a90000">Whitepaper</a>
+              </Menu.Item>,
+              <Menu.Item key="/deck">
+                  <a href="https://app.ilivemylife.io/item/0000017c75eb8baa-260630ac320d0000">Deck</a>
+              </Menu.Item>,
             <Menu.Item key="/graph">
-              <a href="https://app.ilivemylife.io/graph/000001736056c2cb-2655b2cf545d0001">Project's Graph</a>
+              <a href="https://app.ilivemylife.io/graph/000001736056c2cb-2655b2cf545d0001">Graph</a>
             </Menu.Item>,
             <Menu.Item key="/login">
               <a href="https://app.ilivemylife.io/login">Login</a>
