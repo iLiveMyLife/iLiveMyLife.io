@@ -10,14 +10,14 @@ module.exports = override(
         style: true,
     }),
     addLessLoader({
-       javascriptEnabled: true,
-       importLoaders: true,
-       modifyVars: {
-           //'@primary-color': '#1DA57A',
-           "@layout-body-background": "#FFFFFF",
-           "@layout-header-background": "#FFFFFF",
-           "@layout-footer-background": "#FFFFFF"
-       },
+        javascriptEnabled: true,
+        importLoaders: true,
+        modifyVars: {
+            //'@primary-color': '#1DA57A',
+            "@layout-body-background": "#FFFFFF",
+            "@layout-header-background": "#FFFFFF",
+            "@layout-footer-background": "#FFFFFF"
+        },
     }),
     disableChunk(),
     removeModuleScopePlugin(),
