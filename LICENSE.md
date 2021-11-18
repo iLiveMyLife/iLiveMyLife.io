@@ -1,4 +1,4 @@
-Copyright (C) 2019-2020 0998012 BC LTD. <ilya.sorokin@gmail.com>
+Copyright (C) 2019-2021 0998012 BC LTD. <ilya.sorokin@gmail.com>
 
 This file is part of the iLiveMyLife project.
 
