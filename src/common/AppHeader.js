@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import './AppHeader.css';
 import { Layout, Menu, Dropdown } from 'antd';
-import { HomeOutlined, UserOutlined, DownOutlined } from '@ant-design/icons';
+import { HomeOutlined, UserOutlined, DownOutlined, GithubOutlined } from '@ant-design/icons';
 import Navbar from "./Navbar";
 const Header = Layout.Header;
 
@@ -57,6 +57,10 @@ class AppHeader extends Component {
             <Menu.Item key="/graph">
               <a href="https://app.ilivemylife.io/graph/000001736056c2cb-2655b2cf545d0001">Graph</a>
             </Menu.Item>,
+            <Menu.Item key="/github">
+              <a href="https://github.com/iLiveMyLife" target="_blank"><GithubOutlined style={{ fontSize: '21px' }} /></a>
+            </Menu.Item>,
+
             <Menu.Item key="/login">
               <a href="https://app.ilivemylife.io/login">Login</a>
             </Menu.Item>,

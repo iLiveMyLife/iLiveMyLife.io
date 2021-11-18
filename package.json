@@ -1,5 +1,11 @@
 {
-  "name": "iLiveMyLife-client",
+  "name": "i-live-my-life-landing-client",
+  "description": "Your Life management platform for the future.",
+  "homepage": "https://iLiveMyLife.io",
+  "author": {
+    "name": "0998012 BC LTD.",
+    "email": "info@iLiveMyLife.io"
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
