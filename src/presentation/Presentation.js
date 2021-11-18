@@ -14,7 +14,11 @@ class Presentation extends Component {
                     {
                         this.state.data.map((item,index) => (
                         <div className={"carousel-style"} key={index}>
-                            {item.image ? <img height={"750px"} className="slogan-pic" src={item.image} alt={item.description}/> : null}
+                            {item.image
+                                ? item.url
+                                    ? <a href={item.url} title={item.title}><img height={"750px"} className="slogan-pic" src={item.image} alt={item.description}/></a>
+                                    : <img height={"750px"} className="slogan-pic" src={item.image} alt={item.description}/>
+                                : null}
                             <h3>{item.title}</h3>
                             <h4>{item.description}</h4>
                         </div>

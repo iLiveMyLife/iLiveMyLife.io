@@ -1,9 +1,38 @@
 [
   {
-    "id":"0",
-    "title":"",
+    "id":"1",
+    "title":"My Life",
     "description":"",
-    "image":"./slogans/Screenshot_Announcements.png"
+    "image":"./slogans/MyLife.png",
+    "url": "https://app.ilivemylife.io/signup"
+  },
+  {
+    "id":"00000179df7437df-26063c7fa1190000",
+    "title":"Crypto Communism and NASDAQ of Ideas",
+    "description":"",
+    "image":"./slogans/Announcements2.png",
+    "url": "https://app.ilivemylife.io/item/00000179df7437df-26063c7fa1190000"
+  },
+  {
+    "id":"0000017b9330b848-fa2501232f820000&0000017b93325f73-fa2501232f820000",
+    "title":"Collaboration On The Context",
+    "description":"",
+    "image":"./slogans/CollaborationOnTheContext.png",
+    "url": "https://app.ilivemylife.io/item/000001736056c2cb-2655b2cf545d0001/column#0000017b9330b848-fa2501232f820000&0000017b93325f73-fa2501232f820000"
+  },
+  {
+    "id":"0000017b9330b848-fa2501232f820000&0000017b93325f73-fa2501232f820000",
+    "title":"Metaverse Of Formats",
+    "description":"",
+    "image":"./slogans/MetaverseOfFormats.png",
+    "url": "https://app.ilivemylife.io/item/000001736056c2cb-2655b2cf545d0001/column#0000017b9330b848-fa2501232f820000&0000017b93325f73-fa2501232f820000"
+  },
+  {
+    "id":"000001755176ed23-2e335ae7fd300001",
+    "title":"3d Graph for scanomatiq.com",
+    "description":"",
+    "image":"./slogans/3dGraphFroScanomatic.png",
+    "url": "https://app.ilivemylife.io/graph/000001755176ed23-2e335ae7fd300001"
   },
   {
     "id":"1",
