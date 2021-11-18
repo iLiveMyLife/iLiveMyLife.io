@@ -10,7 +10,7 @@ class Presentation extends Component {
     render() {
         return (
             <div className="container">
-                <Carousel>
+                <Carousel autoplay dotPosition={"bottom"}>
                     {
                         this.state.data.map((item,index) => (
                         <div className={"carousel-style"} key={index}>
