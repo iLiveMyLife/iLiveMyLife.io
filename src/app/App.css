@@ -1,4 +1,4 @@
-body{
+body {
   background-color: #ffffff;
 }
 .app-content {
@@ -10,11 +10,18 @@ body{
 }
 
 .footer-style {
-  position: absolute;
+  position: relative;
   text-align: center;
   bottom: 0;
   width: 100%;
   background-color: #ffffff;
+  transition-property: font-size;
+  transition-delay: 0.2s;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in;
+}
+.footer-style:hover {
+  font-size: 20px;
 }
 
 .content-style {
