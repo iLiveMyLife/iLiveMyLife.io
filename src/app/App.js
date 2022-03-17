@@ -13,6 +13,7 @@ import LoadingIndicator from '../common/LoadingIndicator';
 import AppFooter from '../common/AppFooter';
 
 import { Layout, notification } from 'antd';
+import Payment from '../common/Payment';
 const { Content, Footer } = Layout;
 
 class App extends Component {
@@ -47,6 +48,7 @@ class App extends Component {
                         <Route path="/demo"
                                render={(props) => <Presentation currentUser={this.state.currentUser} />}>
                         </Route>
+                        <Route path="/payment" component={Payment}></Route>
                         <Route component={NotFound} />
                     </Switch>
                 </div>
