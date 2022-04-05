@@ -1,5 +1,5 @@
 body {
-  background-color: #ffffff;
+  background-color: #2697ff!important;
 }
 .app-content {
   margin-top: 64px;
@@ -14,14 +14,8 @@ body {
   text-align: center;
   bottom: 0;
   width: 100%;
-  background-color: #ffffff;
-  transition-property: font-size;
-  transition-delay: 0.2s;
-  transition-duration: 0.5s;
-  transition-timing-function: ease-in;
-}
-.footer-style:hover {
-  font-size: 20px;
+  background-color: #2697ff!important;
+  box-shadow: 0 -8px 16px #878585ad;
 }
 
 .content-style {

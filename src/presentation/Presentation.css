@@ -13,9 +13,15 @@
     background-color: #225e96;
 }
 
+.control-buttons {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
 .carousel-style {
     padding: 0;
     margin-top: 10px;
+    width: 100%;
     height: 100%;
     text-align: center;
     background-color: #ffffff;
@@ -23,9 +29,32 @@
 }
 
 .slogan-pic{
+    height: 750px;
+    width: 100%;
+    object-fit: contain;
     display: block;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     border-radius: 8px;
  }
+@media (max-width: 1024px) {
+    .slogan-pic{
+        height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .slogan-pic{
+        height: 350px;
+    }
+}
+
+@media (max-width: 425px) {
+    .slogan-pic{
+        height: 200px;
+    }
+    .description {
+        font-size: 12px;
+    }
+}

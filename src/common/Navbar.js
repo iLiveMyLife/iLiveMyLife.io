@@ -6,7 +6,8 @@ import { CloseOutlined, MenuOutlined } from '@ant-design/icons';
 const Navbar = (props) => (
             <ResponsiveAntMenu
                 activeLinkKey={props.location}
-                mobileMenuContent={isMenuShown => isMenuShown ? <a><CloseOutlined /></a> : <a><MenuOutlined /></a>}
+                mobileBreakPoint={1028}
+                mobileMenuContent={isMenuShown => isMenuShown ? <CloseOutlined /> : <MenuOutlined />}
                 mode={isMenuShown => isMenuShown ? 'vertical' : 'horizontal'}
                 menuClassName={'app-menu'}
                 popoverTrigger="click"
@@ -14,7 +15,7 @@ const Navbar = (props) => (
                 {(onLinkClick) =>
                     <Menu>
                         {props.items}
-                    </Menu> 
+                    </Menu>
                 }
             </ResponsiveAntMenu>
 );
