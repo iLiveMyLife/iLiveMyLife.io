@@ -2,15 +2,25 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import './AppHeader.css';
 import { Layout, Menu, Dropdown } from 'antd';
-import { HomeOutlined, UserOutlined, DownOutlined, GithubOutlined } from '@ant-design/icons';
+import {
+    HomeOutlined,
+    UserOutlined,
+    DownOutlined,
+    GithubOutlined
+} from '@ant-design/icons';
 import Navbar from "./Navbar";
 const Header = Layout.Header;
+const { SubMenu } = Menu;
+
 
 class AppHeader extends Component {
     constructor(props) {
         super(props);
         this.handleMenuClick = this.handleMenuClick.bind(this);
     }
+    handleClick = e => {
+        console.log('click ', e);
+    };
 
     handleMenuClick({ key }) {
       if(key === "logout") {
@@ -45,18 +55,20 @@ class AppHeader extends Component {
               <Menu.Item key="/project">
                   <a href="https://app.ilivemylife.io/item/000001736056c2cb-2655b2cf545d0001" rel="noopener noreferrer" target="_blank">Project</a>
               </Menu.Item>,
+              <SubMenu key="about" title="About">
+                      <Menu.Item key="/whitepaper">
+                          <a href="https://app.ilivemylife.io/document/0000017af0ef0397-22abe99233a90000" rel="noopener noreferrer" target="_blank">Whitepaper</a>
+                      </Menu.Item>
+                      <Menu.Item key="/deck">
+                          <a href="https://app.ilivemylife.io/item/0000017c75eb8baa-260630ac320d0000" rel="noopener noreferrer" target="_blank">Deck</a>
+                      </Menu.Item>
+                      <Menu.Item key="/graph">
+                          <a href="https://app.ilivemylife.io/graph/000001736056c2cb-2655b2cf545d0001" rel="noopener noreferrer" target="_blank">Graph</a>
+                      </Menu.Item>
+              </SubMenu>,
               <Menu.Item key="/how_to_videos">
                   <a href="https://www.youtube.com/playlist?list=PLYkUZvRwI3MhnNJGQ12lqXUageAX0sxtt" rel="noopener noreferrer" target="_blank">How-to</a>
               </Menu.Item>,
-              <Menu.Item key="/whitepaper">
-                  <a href="https://app.ilivemylife.io/document/0000017af0ef0397-22abe99233a90000" rel="noopener noreferrer" target="_blank">Whitepaper</a>
-              </Menu.Item>,
-              <Menu.Item key="/deck">
-                  <a href="https://app.ilivemylife.io/item/0000017c75eb8baa-260630ac320d0000" rel="noopener noreferrer" target="_blank">Deck</a>
-              </Menu.Item>,
-            <Menu.Item key="/graph">
-              <a href="https://app.ilivemylife.io/graph/000001736056c2cb-2655b2cf545d0001" rel="noopener noreferrer" target="_blank">Graph</a>
-            </Menu.Item>,
             <Menu.Item key="payment">
             <Link to={"./payment"}>Payment</Link>
             </Menu.Item>,
