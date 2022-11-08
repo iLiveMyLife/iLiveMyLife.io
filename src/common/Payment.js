@@ -37,41 +37,33 @@ const Payment = () => {
         <div>
             <h1>Choose the right plan for you...</h1>
             <div className = "payment-container">
-                <PaymentItem 
+                <PaymentItem
                     styleLabel = {{background: "#00B7FF"}}
                     styleBtn = {{color: "#00B7FF", border: "1px solid #00B7FF", "--hover-background":"#00B7FF"}}
                     styleFeature = {{"--hover-colorFeature": "#00B7FF"}}
-                    label={categories[0].label}
-                    features ={categories[0].features}
-                    button={categories[0].button}
-                /> 
-                <PaymentItem 
+                    {...categories[0]}
+                />
+                <PaymentItem
                     styleLabel = {{background: "#61BD9E"}}
                     styleBtn = {{color: "#61BD9E", border: "1px solid #61BD9E", "--hover-background":"#61BD9E"}}
                     styleFeature = {{"--hover-colorFeature": "#61BD9E"}}
-                    label={categories[1].label}
-                    features ={categories[1].features}
-                    button={categories[1].button}
-                /> 
+                    {...categories[1]}
+                />
                 <div className = "line-break"></div>
-                <PaymentItem 
+                <PaymentItem
                     styleLabel = {{background: "#E09200"}}
                     styleBtn = {{color: "#E09200", border: "1px solid #E09200", "--hover-background":"#E09200"}}
                     styleFeature = {{"--hover-colorFeature": "#E09200"}}
-                    label={categories[2].label}
-                    features ={categories[2].features}
-                    button={categories[2].button}
-                /> 
-                <PaymentItem 
+                    {...categories[2]}
+                />
+                <PaymentItem
                     styleLabel = {{background: "#AE2012"}}
                     styleBtn = {{color: "#AE2012", border: "1px solid #AE2012", "--hover-background":"#AE2012"}}
                     styleFeature = {{"--hover-colorFeature": "#AE2012"}}
-                    label={categories[3].label}
-                    features ={categories[3].features}
-                    button={categories[3].button}
-                /> 
+                    {...categories[3]}
+                />
             </div>
-            
+
         </div>
     )
 }
