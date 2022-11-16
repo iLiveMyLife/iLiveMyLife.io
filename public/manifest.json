@@ -1,6 +1,7 @@
 {
-  "short_name": "iLiveMyLife app",
-  "name": "iLiveMyLife app - your life management platform.",
+  "short_name": "iLiveMyLife",
+  "name": "iLiveMyLife app",
+  "description": "iLiveMyLife - your life management platform",
   "icons": [
     {
       "src": "favicon.ico",
