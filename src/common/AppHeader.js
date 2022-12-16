@@ -71,12 +71,6 @@ class AppHeader extends Component {
               </Menu.Item>,
             <Menu.Item key="payment">
             <Link to={"./payment"}>Participate</Link>
-            </Menu.Item>,
-            <Menu.Item key="/login">
-              <a href="https://app.ilivemylife.io/login" rel="noopener noreferrer" target="_blank">Login</a>
-            </Menu.Item>,
-            <Menu.Item key="/signup">
-                <a href="https://app.ilivemylife.io/signup" rel="noopener noreferrer" target="_blank">Signup</a>
             </Menu.Item>
           ];
         }
