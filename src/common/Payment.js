@@ -27,7 +27,7 @@ const Payment = () => {
         {
             id: '3',
             label: 'Investor',
-            features: ['I am in individual', 'I am a partner', 'I am a leader'],
+            features: ['I am an individual', 'I am a partner', 'I am a leader'],
             button: 'Subscribe'
         }
     ]
