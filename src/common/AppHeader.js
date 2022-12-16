@@ -52,10 +52,10 @@ class AppHeader extends Component {
           ];
         } else {
           menuItems = [
-              <Menu.Item key="/project">
-                  <a href="https://app.ilivemylife.io/item/000001736056c2cb-2655b2cf545d0001" rel="noopener noreferrer" target="_blank">Project</a>
+              <Menu.Item key="my-life" title="My Life">
+                  <Link to="/">My Life</Link>
               </Menu.Item>,
-              <SubMenu key="about" title="About">
+              <SubMenu key="us" title="About us">
                       <Menu.Item key="/whitepaper">
                           <a href="https://app.ilivemylife.io/document/0000017af0ef0397-22abe99233a90000" rel="noopener noreferrer" target="_blank">Whitepaper</a>
                       </Menu.Item>
@@ -65,9 +65,12 @@ class AppHeader extends Component {
                       <Menu.Item key="/graph">
                           <a href="https://app.ilivemylife.io/graph/000001736056c2cb-2655b2cf545d0001" rel="noopener noreferrer" target="_blank">Graph</a>
                       </Menu.Item>
+                      <Menu.Item key="/project">
+                          <a href="https://app.ilivemylife.io/item/000001736056c2cb-2655b2cf545d0001" rel="noopener noreferrer" target="_blank">All the Project</a>
+                      </Menu.Item>
               </SubMenu>,
               <Menu.Item key="/how_to_videos">
-                  <a href="https://www.youtube.com/playlist?list=PLYkUZvRwI3MhnNJGQ12lqXUageAX0sxtt" rel="noopener noreferrer" target="_blank">How-to</a>
+                  <a href="https://www.youtube.com/playlist?list=PLYkUZvRwI3MhnNJGQ12lqXUageAX0sxtt" rel="noopener noreferrer" target="_blank">First steps & How-to</a>
               </Menu.Item>,
             <Menu.Item key="payment">
             <Link to={"./payment"}>Participate</Link>
