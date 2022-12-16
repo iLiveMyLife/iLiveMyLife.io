@@ -35,7 +35,7 @@ const Payment = () => {
 
     return (
         <div>
-            <h1>Choose the right plan for you...</h1>
+            <h1>Choose yourself...</h1>
             <div className = "payment-container">
                 <PaymentItem
                     styleLabel = {{background: "#00B7FF"}}
