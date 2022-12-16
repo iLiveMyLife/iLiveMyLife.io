@@ -70,7 +70,7 @@ class AppHeader extends Component {
                   <a href="https://www.youtube.com/playlist?list=PLYkUZvRwI3MhnNJGQ12lqXUageAX0sxtt" rel="noopener noreferrer" target="_blank">How-to</a>
               </Menu.Item>,
             <Menu.Item key="payment">
-            <Link to={"./payment"}>Payment</Link>
+            <Link to={"./payment"}>Participate</Link>
             </Menu.Item>,
             <Menu.Item key="/login">
               <a href="https://app.ilivemylife.io/login" rel="noopener noreferrer" target="_blank">Login</a>

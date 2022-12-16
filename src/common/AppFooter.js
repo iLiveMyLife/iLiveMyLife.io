@@ -15,7 +15,7 @@ const AppFooter = () => {
                         <Col><a href="https://app.ilivemylife.io/document/0000017af0ef0397-22abe99233a90000" target="_blank" rel="noopener noreferrer">Whitepaper</a></Col>
                         <Col><a href="https://app.ilivemylife.io/item/0000017c75eb8baa-260630ac320d0000" target="_blank" rel="noopener noreferrer">Deck</a></Col>
                         <Col><a href="https://app.ilivemylife.io/graph/000001736056c2cb-2655b2cf545d0001" target="_blank" rel="noopener noreferrer">Graph</a></Col>
-                        <Col><Link to={"./payment"}>Payment</Link></Col>
+                        <Col><Link to={"./payment"}>Participate</Link></Col>
                 </Col>
                 <Col xs={24} xl={12} md={12} sm={12} className="socials-container">
                     <Col>
