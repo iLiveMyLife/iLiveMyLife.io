@@ -21,9 +21,6 @@ const AppFooter = () => {
                     <Col>
                         <a className="socials" href={"mailto: info@ilivemylife.io" }><MailOutlined /> Send email</a>
                     </Col>
-                    <Col>
-                        <a className="socials-icon" href="https://github.com/iLiveMyLife" rel="noopener noreferrer" target="_blank"><GithubOutlined /></a>
-                    </Col>
                 </Col>
             </Row>
         </div>

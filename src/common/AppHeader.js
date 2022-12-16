@@ -72,9 +72,6 @@ class AppHeader extends Component {
             <Menu.Item key="payment">
             <Link to={"./payment"}>Payment</Link>
             </Menu.Item>,
-            <Menu.Item key="/github">
-              <a href="https://github.com/iLiveMyLife" rel="noopener noreferrer" target="_blank"><GithubOutlined style={{ fontSize: '21px' }} /></a>
-            </Menu.Item>,
             <Menu.Item key="/login">
               <a href="https://app.ilivemylife.io/login" rel="noopener noreferrer" target="_blank">Login</a>
             </Menu.Item>,
