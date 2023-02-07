@@ -29,7 +29,7 @@ class Presentation extends Component {
                     </Col>
                     <Col span={20}>
 
-                    <Carousel vertical={true} autoplay dotPosition={"bottom"} ref={node => (this.carousel = node)} >
+                    <Carousel autoplay autoplaySpeed="100" horizontal={true} dotPosition={"bottom"} ref={node => (this.carousel = node)} >
                         {
                             this.state.data.map((item,index) => (
                                 <div className={"carousel-style"} key={index}>

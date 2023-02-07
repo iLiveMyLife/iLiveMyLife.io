@@ -52,8 +52,8 @@ class AppHeader extends Component {
           ];
         } else {
           menuItems = [
-              <Menu.Item key="my-life" title="My Life">
-                  <Link to="/">My Life</Link>
+              <Menu.Item key="Home" title="Home">
+                  <Link to="/">Home</Link>
               </Menu.Item>,
               <SubMenu key="us" title="About us">
                       <Menu.Item key="/whitepaper">
@@ -70,10 +70,10 @@ class AppHeader extends Component {
                       </Menu.Item>
               </SubMenu>,
               <Menu.Item key="/how_to_videos">
-                  <a href="https://www.youtube.com/playlist?list=PLYkUZvRwI3MhnNJGQ12lqXUageAX0sxtt" rel="noopener noreferrer" target="_blank">First steps & How-to</a>
+                  <a href="https://www.youtube.com/playlist?list=PLYkUZvRwI3MhnNJGQ12lqXUageAX0sxtt" rel="noopener noreferrer" target="_blank">Tutorial</a>
               </Menu.Item>,
             <Menu.Item key="payment">
-            <Link to={"./payment"}>Participate</Link>
+            <Link to={"./payment"}>Join us</Link>
             </Menu.Item>
           ];
         }
@@ -82,7 +82,7 @@ class AppHeader extends Component {
           <Header className="app-header">
             <div className="container">
               <div className="app-title" >
-                <Link to="/">iLiveMyLife ...and so do you</Link>
+                <Link to="/"><img src="images/newLogo.png" className="newLogo"></img></Link>
               </div>
               <Navbar items={menuItems} location="this.props.location.pathname"/>
             </div>
