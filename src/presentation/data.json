@@ -41,84 +41,13 @@
     "image":"./slogans/3dGraphFroScanomatic.png",
     "url": "https://app.ilivemylife.io/graph/000001755176ed23-2e335ae7fd300001"
   },
-  {
-    "id":"1",
-    "title":"Collaboration tool on a chain"
-  },
-  {
-    "id":"2",
-    "title":"Distributed Computational Graph"
-  },
-  {
-    "id":"3",
-    "title":"Collective database and Knowledge Graph"
-  },
-  {
-    "id":"4",
-    "title":"Cloud programming interface"
-  },
+  
   {
     "id":"5",
     "title":"Yes, you!! Become a symbiosis of machine learning and your creativity",
     "description":"Possible work for drug addicts? Roughly speaking, the poverty is a supply chain issue, not drug addition or others, sometimes ridiculous, statements.",
-
-    "image":"./slogans/ComputerBrain.jpg"
-  },
-  {
-    "id":"6",
-    "title":"Multi-dimensional todo list? Here you go!"
-  },
-  {
-    "id":"7",
-    "title":"Organize your life in a new type of thought gathering process"
-  },
-  {
-    "id":"8",
-    "title":"Manage teams via individualism, freedom, not corporate structure and hierarchy"
-  },
-  {
-    "id":"9",
-    "title":"We are built on top of hierarchy, the free one!"
-  },
-  {
-    "id":"10",
-    "title":"Open sourcing thoughts"
-  },
-  {
-    "id":"11",
-    "title":"Build things together, brings what you have already built as a resource"
-  },
-  {
-    "id":"12",
-    "title":"Idea mining"
-  },
-  {
-    "id":"13",
-    "title":"Distributed project management"
-  },
-  {
-    "id":"14",
-    "title":"Prognostic problem solving"
-  },
-  {
-    "id":"15",
-    "title":"Crypto communism"
-  },
-  {
-    "id":"16",
-    "title":"It is like a Mendeleev table but better, since you can create a Mendeleev table yourself"
-  },
-  {
-    "id":"17",
-    "title":"We are a global suppliers of webhook links - supplier publishes an event and everyone else listens (including machines who are themselves are data structures)"
-  },
-  {
-    "id":"18",
-    "title":"Is it a dead cat or alife? Let's just handshake that it is a Cat?!!"
-  },
-  {
-    "id":"19",
-    "title":"We can program our cultures on the network and watch it changing online and gradually vote for changes"
+    "image":"./slogans/ComputerBrain.jpg",
+    "url": ""
   }
 ]
 

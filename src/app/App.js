@@ -44,11 +44,15 @@ class App extends Component {
             <Content className="app-content">
                 <div className="container">
                     <Switch>
-                        <Route exact path="/" render={(props) => <Presentation currentUser={this.state.currentUser} />} />
+                        <Route exact path="/" render={(props) => 
+                            <Presentation currentUser={this.state.currentUser} />} 
+                        />
                         <Route path="/demo"
                                render={(props) => <Presentation currentUser={this.state.currentUser} />}>
                         </Route>
+
                         <Route path="/payment" component={Payment}></Route>
+                        
                         <Route component={NotFound} />
                     </Switch>
                 </div>
