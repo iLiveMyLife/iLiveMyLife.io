@@ -9,26 +9,26 @@ const Payment = () => {
             id: '0',
             label: 'Individual',
             features: ['I am the empowered individual', 'I collect knowledge about myself', 'I share my data with whoever I want to'],
-            button: 'Free'
+            button: 'Vote'
         },
         {
             id: '1',
             label: 'Partner',
             features: ['I share my ideas and knowledge with others', 'I run projects and companies together with the community', 'I believe that knowledge should be free'],
-            button: 'Subscribe'
+            button: 'Give'
         },
         {
 
             id: '2',
             label: 'Leader',
             features: ['I care about the community', 'I am an entrepreneur', 'I drive innovation', 'People trust me and appreciate my effort'],
-            button: 'Subscribe'
+            button: 'Claim'
         },
         {
             id: '3',
             label: 'Investor',
             features: ['I am an individual', 'I am a partner', 'I am a leader'],
-            button: 'Subscribe'
+            button: 'Help Building'
         }
     ]
 
