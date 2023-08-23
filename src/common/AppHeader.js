@@ -53,7 +53,7 @@ class AppHeader extends Component {
         } else {
           menuItems = [
               <Menu.Item key="my-life" title="My Life">
-                  <Link to="/">My Life</Link>
+                  <Link to="/my-life">My Life</Link>
               </Menu.Item>,
               <SubMenu key="us" title="About us">
                       <Menu.Item key="/whitepaper">

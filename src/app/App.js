@@ -14,6 +14,7 @@ import AppFooter from '../common/AppFooter';
 
 import { Layout, notification } from 'antd';
 import Payment from '../common/Payment';
+import Introduction from "../introduction/Introduction";
 const { Content, Footer } = Layout;
 
 class App extends Component {
@@ -44,7 +45,8 @@ class App extends Component {
             <Content className="app-content">
                 <div className="container">
                     <Switch>
-                        <Route exact path="/" render={(props) => <Presentation currentUser={this.state.currentUser} />} />
+                        <Route exact path="/" render={(props) => <Introduction currentUser={this.state.currentUser} />} />
+                        <Route exact path="/my-life" render={(props) => <Presentation currentUser={this.state.currentUser} />} />
                         <Route path="/demo"
                                render={(props) => <Presentation currentUser={this.state.currentUser} />}>
                         </Route>
