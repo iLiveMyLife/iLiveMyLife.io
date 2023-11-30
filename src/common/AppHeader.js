@@ -70,10 +70,10 @@ class AppHeader extends Component {
                       </Menu.Item>
               </SubMenu>,
               <Menu.Item key="/how_to_videos">
-                  <a href="https://www.youtube.com/playlist?list=PLYkUZvRwI3MhnNJGQ12lqXUageAX0sxtt" rel="noopener noreferrer" target="_blank">First steps & How-to</a>
+                  <a href="https://www.youtube.com/playlist?list=PLYkUZvRwI3MhnNJGQ12lqXUageAX0sxtt" rel="noopener noreferrer" target="_blank">Tutorial</a>
               </Menu.Item>,
             <Menu.Item key="payment">
-            <Link to={"./payment"}>Participate</Link>
+            <Link to={"./payment"}>Join us</Link>
             </Menu.Item>
           ];
         }
