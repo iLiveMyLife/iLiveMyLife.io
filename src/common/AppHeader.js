@@ -56,24 +56,28 @@ class AppHeader extends Component {
                   <Link to="/my-life">My Life</Link>
               </Menu.Item>,
               <SubMenu key="us" title="About us">
-                      <Menu.Item key="/whitepaper">
-                          <a href="https://app.ilivemylife.io/document/0000017af0ef0397-22abe99233a90000" rel="noopener noreferrer" target="_blank">Whitepaper</a>
-                      </Menu.Item>
-                      <Menu.Item key="/deck">
-                          <a href="https://app.ilivemylife.io/item/0000017c75eb8baa-260630ac320d0000" rel="noopener noreferrer" target="_blank">Deck</a>
-                      </Menu.Item>
-                      <Menu.Item key="/graph">
-                          <a href="https://app.ilivemylife.io/graph/000001736056c2cb-2655b2cf545d0001" rel="noopener noreferrer" target="_blank">Graph</a>
-                      </Menu.Item>
-                      <Menu.Item key="/project">
-                          <a href="https://app.ilivemylife.io/item/000001736056c2cb-2655b2cf545d0001" rel="noopener noreferrer" target="_blank">All the Project</a>
-                      </Menu.Item>
+                  <Menu.Item key="/whitepaper">
+                      <a href="https://app.ilivemylife.io/document/00000189b80973f0-eef90d0aab200000" rel="noopener noreferrer" target="_blank">Our Intro doc node</a>
+                  </Menu.Item>
+                  <Menu.Item key="/roadmap">
+                      <a href="https://app.ilivemylife.io/item/0000017bc1c523b1-962bac6823350000" rel="noopener noreferrer" target="_blank">Our Roadmap node</a>
+                  </Menu.Item>
+                  <Menu.Item key="/deck">
+                      <a href="https://app.ilivemylife.io/item/0000017c75eb8baa-260630ac320d0000" rel="noopener noreferrer" target="_blank">Our Deck node</a>
+                  </Menu.Item>
+                  <Menu.Item key="/project">
+                      <a href="https://app.ilivemylife.io/item/000001736056c2cb-2655b2cf545d0001" rel="noopener noreferrer" target="_blank">Project node</a>
+                  </Menu.Item>
+                  <Menu.Item key="/graph">
+                      <a href="https://app.ilivemylife.io/graph/000001736056c2cb-2655b2cf545d0001" rel="noopener noreferrer" target="_blank">iLiveMyLife as 3D Graph</a>
+                  </Menu.Item>
               </SubMenu>,
               <Menu.Item key="/how_to_videos">
-                  <a href="https://www.youtube.com/playlist?list=PLYkUZvRwI3MhnNJGQ12lqXUageAX0sxtt" rel="noopener noreferrer" target="_blank">Tutorial</a>
+                  <a href="https://www.youtube.com/playlist?list=PLYkUZvRwI3MhnNJGQ12lqXUageAX0sxtt" rel="noopener noreferrer" target="_blank">How to Start</a>
               </Menu.Item>,
             <Menu.Item key="payment">
-            <Link to={"./payment"}>Join us</Link>
+                {/* <Link to="./payment">Join us</Link> */}
+                <a href="https://app.ilivemylife.io/signup" rel="noopener noreferrer" target="_blank">Join us</a>
             </Menu.Item>
           ];
         }
