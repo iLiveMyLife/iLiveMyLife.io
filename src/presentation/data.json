@@ -43,7 +43,9 @@
   },
   {
     "id":"1",
-    "title":"Collaboration tool on a chain"
+    "title":"Collaboration tool on a chain",
+    "image":"./slogans/CollaborationToolOnAChain.jpeg",
+    "description": "iLiveMyLife revolutionizes the way we think about cloud interfaces by turning every node in our knowledge graph into a live API endpoint. This means you can automate interactions with each node and set up sophisticated flows where data and events dynamically travel between nodes. It's designed to be intuitively programmable, allowing users, machines, and algorithms to seamlessly interact with the entire knowledge graph or specific sub-graphs. For example, when a node is updated, subscribers can be notified, triggering webhooks or other actions. This empowers users to create a responsive and interconnected system that's tailored to their individual or organizational needs, making the act of knowledge management and project orchestration as natural as breathing."
   },
   {
     "id":"2",
