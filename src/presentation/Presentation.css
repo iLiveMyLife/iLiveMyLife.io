@@ -14,7 +14,7 @@
 }
 
 .control-column {
-    height: 100vh; /* Full height of the viewport */
+    /* No height property here because it is set via inline styles */
     display: flex;
     align-items: center; /* Centers vertically in the column */
     justify-content: center; /* Centers horizontally in the column */
