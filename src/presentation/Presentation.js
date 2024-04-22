@@ -7,7 +7,8 @@ import {LeftOutlined, RightOutlined} from "@ant-design/icons";
 
 class Presentation extends Component {
     state= {
-        data: slideData
+        data: slideData,
+        columnHeight: 'auto'
     }
 
     constructor(props) {
@@ -17,6 +18,27 @@ class Presentation extends Component {
         this.carousel = React.createRef();
 
     }
+
+    componentDidMount() {
+        this.updateColumnHeight();
+        window.addEventListener('resize', this.updateColumnHeight);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.updateColumnHeight);
+    }
+
+    updateColumnHeight = () => {
+        // Check if the carousel exists and is rendered
+        if (this.carousel && this.carousel.current) {
+            const currentSlide = this.carousel.current.innerSlider.list.querySelector('.slick-active');
+            if (currentSlide) {
+                const height = currentSlide.offsetHeight;
+                this.setState({ columnHeight: `${height}px` });
+            }
+        }
+    };
+
     next() {
         this.carousel.next();
     }
@@ -38,10 +60,12 @@ class Presentation extends Component {
     }
 
     render() {
+        const { columnHeight } = this.state;
+
         return (
             <Row justify="center">
-                <Col span={2} className={'control-buttons'}>
-                    <LeftOutlined onClick={this.previous} />
+                <Col span={2} className={'control-column'} onClick={this.previous} style={{height: columnHeight}}>
+                    <LeftOutlined />
                 </Col>
                 <Col span={20}>
                     <Carousel vertical={false}
@@ -75,8 +99,8 @@ class Presentation extends Component {
                         }
                     </Carousel>
                 </Col>
-                <Col span={2} className={'control-buttons'} >
-                    <RightOutlined onClick={this.next} />
+                <Col span={2} className={"control-column"} onClick={this.next} style={{height: columnHeight}}>
+                    <RightOutlined />
                 </Col>
             </Row>
         );

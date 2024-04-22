@@ -13,9 +13,26 @@
     background-color: #225e96;
 }
 
-.control-buttons {
-    margin-top: auto;
-    margin-bottom: auto;
+.control-column {
+    height: 100vh; /* Full height of the viewport */
+    display: flex;
+    align-items: center; /* Centers vertically in the column */
+    justify-content: center; /* Centers horizontally in the column */
+    cursor: pointer;
+}
+
+.control-column:hover {
+    background-color: rgba(0, 0, 0, 0.01); /* Light background on hover */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); /* Inner shadow for a subtle depth effect */
+}
+
+.control-column .anticon {
+    font-size: 24px; /* Adjust the size of the arrow icons */
+    transition: transform 0.3s ease; /* Smooth transition for transformations */
+}
+
+.control-column:hover .anticon {
+    transform: scale(1.5); /* Slightly enlarge icons on hover */
 }
 
 .carousel-style {
