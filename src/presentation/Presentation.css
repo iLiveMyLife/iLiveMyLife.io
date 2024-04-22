@@ -28,7 +28,11 @@
     color: #000000;
 }
 
-.slogan-pic{
+.slogan-description {
+    white-space: pre-line;
+}
+
+.slogan-pic {
     height: 750px;
     width: 100%;
     object-fit: contain;
@@ -37,7 +41,8 @@
     margin-right: auto;
     text-align: center;
     border-radius: 8px;
- }
+}
+
 @media (max-width: 1024px) {
     .slogan-pic{
         height: 500px;
@@ -54,7 +59,7 @@
     .slogan-pic{
         height: 200px;
     }
-    .description {
+    .slogan-description {
         font-size: 12px;
     }
 }
