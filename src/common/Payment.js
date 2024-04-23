@@ -1,5 +1,5 @@
 import React from "react";
-import PaymentItem from "./PaymentItem";
+import SubscriptionItem from "./SubscriptionItem";
 import "./Payment.css"
 
 const Payment = () => {
@@ -36,29 +36,25 @@ const Payment = () => {
     return (
         <div>
             <h1>Choose yourself...</h1>
-            <div className = "payment-container">
-                <PaymentItem
+            <div className = "subscriptionContainer">
+                <SubscriptionItem
                     styleLabel = {{background: "#00B7FF"}}
-                    styleBtn = {{color: "#00B7FF", border: "1px solid #00B7FF", "--hover-background":"#00B7FF"}}
                     styleFeature = {{"--hover-colorFeature": "#00B7FF"}}
                     {...categories[0]}
                 />
-                <PaymentItem
+                <SubscriptionItem
                     styleLabel = {{background: "#61BD9E"}}
-                    styleBtn = {{color: "#61BD9E", border: "1px solid #61BD9E", "--hover-background":"#61BD9E"}}
                     styleFeature = {{"--hover-colorFeature": "#61BD9E"}}
                     {...categories[1]}
                 />
                 <div className = "line-break"></div>
-                <PaymentItem
+                <SubscriptionItem
                     styleLabel = {{background: "#E09200"}}
-                    styleBtn = {{color: "#E09200", border: "1px solid #E09200", "--hover-background":"#E09200"}}
                     styleFeature = {{"--hover-colorFeature": "#E09200"}}
                     {...categories[2]}
                 />
-                <PaymentItem
+                <SubscriptionItem
                     styleLabel = {{background: "#AE2012"}}
-                    styleBtn = {{color: "#AE2012", border: "1px solid #AE2012", "--hover-background":"#AE2012"}}
                     styleFeature = {{"--hover-colorFeature": "#AE2012"}}
                     {...categories[3]}
                 />

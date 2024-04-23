@@ -1,0 +1,61 @@
+.buttons {
+    text-align: center;
+}
+
+.btnHover {
+    padding: 0.5rem 3rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #fff;
+    cursor: pointer;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    transition: all .8s ease-in-out;
+}
+
+.btnHover.btn0 {
+    background-image: linear-gradient(90deg, #F5626B, #D3FF76, #FFF8B6, #2bb673);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.btnHover.btn1 {
+    background-image: linear-gradient(45deg, #F5626B, #D3FF76, #FFF8B6, #2bb673);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.btnHover.btn2 {
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    transition: all .8s ease-in-out;
+    background-image: linear-gradient(90deg,#FFF8B6, #F5626B, #FDD61B, #F3FDA0,#b43440, #cb8684, #E9A06B, #D3FF76, #a5cd7b);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.btnHover.btn3 {
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    text-align:center;
+    border: none;
+    background-size: 200% 100%;
+    border-radius: 50px;
+    transition: all .8s ease-in-out;
+    background-image: linear-gradient(90deg, #F3FDA0, #D3FF76, #F5626B, #E9A06B, #FDD61B, #FFF8B6, #cb8684, #E9A06B, #a5cd7b, #D3FF76);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.btnHover:hover {
+    background-position: 100% 0;
+    transition: all .8s ease-in-out;
+}

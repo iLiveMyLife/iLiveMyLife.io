@@ -1,4 +1,4 @@
-.payment-card {
+.subscriptionCard {
     width: 250px;
     border-radius: 25px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -10,32 +10,33 @@
     height: 450px;
 }
 
-.payment-card__label {
+.subscriptionCardLabel {
     height: 100px;
     line-height: 100px;
+    text-align: center;
 }
 
-.payment-card h2 {
+.subscriptionCard h2 {
     color: white;
     font-size: 1.5em;
     font-weight: 400 ;
-    
+
 }
 
-.payment-card__description {
+.subscriptionCardDescription {
     padding: 15px;
     height: 55%;
     display: flex;
     align-items: center;
 }
 
-.payment-card__list {
+.subscriptionCardList {
     padding: 0;
     margin: 0;
     text-align: left;
 }
 
-.payment-card__feature {
+.subscriptionCardFeature {
     list-style: none;
     margin: 0;
     padding: 5px 0 0 25px;
@@ -44,7 +45,7 @@
     margin-bottom: 0.5em;
 }
 
-.payment-card__feature::before {
+.subscriptionCardFeature::before {
     content: "\2714";
     color: #1890ff;
     color:var(--hover-colorFeature);
@@ -52,12 +53,13 @@
     left: 0;
 }
 
-.payment-card__subscribe {
+.subscriptionCardSubscribe {
     padding: 15px;
     border-top: 1px solid #eeeeee;
+    text-align: center;
 }
 
-.payment-card a {
+.subscriptionCard a {
     display: inline-block;
     width: 150px;
     margin: 8px auto;
@@ -69,13 +71,13 @@
     font-weight: bold;
 }
 
-.payment-card a:hover {
+.subscriptionCard a:hover {
     background:var(--hover-background);
     color: #ffffff !important;
 }
 
 @media (max-width: 1023px) {
-    .payment-card {
+    .subscriptionCard {
         width: 280px;
     }
 }

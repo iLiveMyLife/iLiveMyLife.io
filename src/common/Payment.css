@@ -1,4 +1,4 @@
-.payment-container {
+.subscriptionContainer {
     display: -webkit-inline-flex;
     flex-direction: row;
     justify-content: center;
@@ -12,7 +12,7 @@ h1 {
 }
 
 @media (max-width: 1023px) {
-    .payment-container {
+    .subscriptionContainer {
         flex-wrap: wrap;
     }
 

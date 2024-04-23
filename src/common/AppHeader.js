@@ -18,9 +18,6 @@ class AppHeader extends Component {
         super(props);
         this.handleMenuClick = this.handleMenuClick.bind(this);
     }
-    handleClick = e => {
-        console.log('click ', e);
-    };
 
     handleMenuClick({ key }) {
       if(key === "logout") {
@@ -55,6 +52,9 @@ class AppHeader extends Component {
               <Menu.Item key="my-life" title="My Life">
                   <Link to="/my-life">My Life</Link>
               </Menu.Item>,
+              <Menu.Item key="payment">
+                  <Link to="./payment">Choose yourself</Link>
+              </Menu.Item>,
               <SubMenu key="us" title="About us">
                   <Menu.Item key="/whitepaper">
                       <a href="https://app.ilivemylife.io/document/00000189b80973f0-eef90d0aab200000" rel="noopener noreferrer" target="_blank">Our Intro doc node</a>
@@ -75,9 +75,8 @@ class AppHeader extends Component {
               <Menu.Item key="/how_to_videos">
                   <a href="https://www.youtube.com/playlist?list=PLYkUZvRwI3MhnNJGQ12lqXUageAX0sxtt" rel="noopener noreferrer" target="_blank">How to Start</a>
               </Menu.Item>,
-            <Menu.Item key="payment">
-                {/* <Link to="./payment">Join us</Link> */}
-                <a href="https://app.ilivemylife.io/signup" rel="noopener noreferrer" target="_blank">Join us</a>
+            <Menu.Item key="signup">
+              <a href="https://app.ilivemylife.io/signup" rel="noopener noreferrer" target="_blank">Join</a>
             </Menu.Item>
           ];
         }
