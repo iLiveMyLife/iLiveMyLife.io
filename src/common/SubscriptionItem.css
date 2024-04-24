@@ -7,7 +7,7 @@
     font-size: 16px;
     color: #555555;
     margin: 1em;
-    height: 450px;
+    height: 770px;
 }
 
 .subscriptionCardLabel {
@@ -25,9 +25,14 @@
 
 .subscriptionCardDescription {
     padding: 15px;
-    height: 55%;
+    height: 30%;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
+}
+
+.subscriptionCardPrice {
+    padding: 15px;
+    display: flex;
 }
 
 .subscriptionCardList {
@@ -57,6 +62,10 @@
     padding: 15px;
     border-top: 1px solid #eeeeee;
     text-align: center;
+}
+
+.borderSeparator {
+    border-top: 1px solid #eeeeee;
 }
 
 .subscriptionCard a {
