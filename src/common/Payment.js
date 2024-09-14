@@ -10,7 +10,7 @@ const Payment = () => {
             label: 'Individual',
             features: ['I am the empowered individual', 'I collect knowledge about myself', 'I share my data with whoever I want to'],
             functionalities: ['Lifebot without context awareness', 'basic AI model'],
-            price: "Free forever",
+            price: "Free",
             button: 'Vote'
         },
         {
