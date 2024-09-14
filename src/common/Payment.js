@@ -33,7 +33,7 @@ const Payment = () => {
             id: '3',
             label: 'Investor',
             features: ['I am an individual', 'I am a partner', 'I am a leader'],
-            functionalities: ['Lifebot with context awareness', 'GTP-4o model', 'establish Contacts with people from the node', 'advanced notifications', 'webhooks', 'personal node with CEO'],
+            functionalities: ['Lifebot with context awareness', 'GTP-4o model', 'establish Contacts with people from the node', 'advanced notifications', 'webhooks', 'intelligence switch', 'personal node with CEO (limited time offer)'],
             price: "$1000 USD yearly",
             button: 'Help Building'
         }
