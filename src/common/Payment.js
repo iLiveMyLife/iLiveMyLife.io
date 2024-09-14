@@ -17,7 +17,7 @@ const Payment = () => {
             id: '1',
             label: 'Partner',
             features: ['I share my ideas and knowledge with others', 'I run projects and companies together with the community', 'I believe that knowledge should be free'],
-            functionalities: ['Lifebot with context awareness', 'chatGTP 3.5 model', 'advanced notifications'],
+            functionalities: ['Lifebot with context awareness', 'GPT-4o mini model', 'advanced notifications'],
             price: "$10 USD monthly",
             button: 'Give'
         },
@@ -25,7 +25,7 @@ const Payment = () => {
             id: '2',
             label: 'Leader',
             features: ['I care about the community', 'I am an entrepreneur', 'I drive innovation', 'People trust me and appreciate my effort'],
-            functionalities: ['Lifebot with context awareness', 'chatGTP 4 model', 'establish Contacts with people from the node', 'advanced notifications', 'webhooks'],
+            functionalities: ['Lifebot with context awareness', 'GTP-4o model', 'establish Contacts with people from the node', 'advanced notifications', 'webhooks'],
             price: "$100 USD monthly",
             button: 'Claim'
         },
@@ -33,7 +33,7 @@ const Payment = () => {
             id: '3',
             label: 'Investor',
             features: ['I am an individual', 'I am a partner', 'I am a leader'],
-            functionalities: ['Lifebot with context awareness', 'chatGTP 4 model', 'establish Contacts with people from the node', 'advanced notifications', 'webhooks', 'personal node with CEO'],
+            functionalities: ['Lifebot with context awareness', 'GTP-4o model', 'establish Contacts with people from the node', 'advanced notifications', 'webhooks', 'personal node with CEO'],
             price: "$1000 USD yearly",
             button: 'Help Building'
         }
