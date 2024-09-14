@@ -9,7 +9,7 @@ const Payment = () => {
             id: '0',
             label: 'Individual',
             features: ['I am the empowered individual', 'I collect knowledge about myself', 'I share my data with whoever I want to'],
-            functionalities: ['Lifebot without context awareness', 'basic AI model'],
+            functionalities: ['Lifebot with some context awareness', 'Basic AI model'],
             price: "Free",
             button: 'Vote'
         },
@@ -17,7 +17,7 @@ const Payment = () => {
             id: '1',
             label: 'Partner',
             features: ['I share my ideas and knowledge with others', 'I run projects and companies together with the community', 'I believe that knowledge should be free'],
-            functionalities: ['Lifebot with context awareness', 'GPT-4o mini model', 'advanced notifications'],
+            functionalities: ['Lifebot with context awareness', 'GPT-4o mini model', 'Advanced notifications'],
             price: "$10 USD monthly",
             button: 'Give'
         },
@@ -25,7 +25,7 @@ const Payment = () => {
             id: '2',
             label: 'Leader',
             features: ['I care about the community', 'I am an entrepreneur', 'I drive innovation', 'People trust me and appreciate my effort'],
-            functionalities: ['Lifebot with context awareness', 'GTP-4o model', 'establish Contacts with people from the node', 'advanced notifications', 'webhooks'],
+            functionalities: ['Lifebot with context awareness', 'GTP-4o model', 'Establish Contacts with people from the node', 'Advanced notifications', 'Webhooks'],
             price: "$100 USD monthly",
             button: 'Claim'
         },
@@ -33,7 +33,7 @@ const Payment = () => {
             id: '3',
             label: 'Investor',
             features: ['I am an individual', 'I am a partner', 'I am a leader'],
-            functionalities: ['Lifebot with context awareness', 'GTP-4o model', 'establish Contacts with people from the node', 'advanced notifications', 'webhooks', 'intelligence switch', 'personal node with CEO (limited time offer)'],
+            functionalities: ['Lifebot with context awareness', 'GTP-4o model', 'Establish Contacts with people from the node', 'Advanced notifications', 'Webhooks', 'Intelligence switch', 'Personal node with CEO (limited time offer)'],
             price: "$1000 USD yearly",
             button: 'Help Building'
         }
