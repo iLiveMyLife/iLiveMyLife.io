@@ -58,7 +58,7 @@
     "image":"./slogans/3dGraphForiLiveMyLife.png",
     "url": "https://app.ilivemylife.io/graph/000001755176ed23-2e335ae7fd300001",
     "type": "CreativeWork",
-    "path": "/experience-in-3d-ar-vr"
+    "path": "/3d-graph-for-ilivemylife"
   },
   {
     "id":"000001755176ed23-2e335ae7fd300001",
@@ -67,7 +67,7 @@
     "image":"./slogans/3dSteamingForScanomatiq.png",
     "url": "https://app.ilivemylife.io/graph/000001755176ed23-2e335ae7fd300001",
     "type": "SoftwareApplication",
-    "path": "/pioneering-ecosystem-with-scanomatiq"
+    "path": "/scanomatiq-3d-graph-technology"
   },
   {
     "id":"000001755176ed23-2e335ae7fd300001",
@@ -76,7 +76,7 @@
     "image":"./slogans/BasicNeedsMe.png",
     "url": "https://app.ilivemylife.io/graph/000001755176ed23-2e335ae7fd300001",
     "type": "SoftwareApplication",
-    "path": "/envisioning-commerce-ecosystem"
+    "path": "/envisioning-a-new-commerce-ecosystem-basicneeds"
   },
   {
     "id":"1",
@@ -124,19 +124,19 @@
     "id":"7",
     "title":"Organize your life in a new type of thought gathering process",
     "type": "SoftwareApplication",
-    "path": "/thought-gathering-process"
+    "path": "/organize-your-life-thought-gathering"
   },
   {
     "id":"8",
     "title":"Manage teams via individualism, freedom, not corporate structure and hierarchy",
     "type": "Organization",
-    "path": "/manage-teams-via-individualism"
+    "path": "/manage-teams-individualism-freedom"
   },
   {
     "id":"9",
     "title":"We are built on top of hierarchy, the free one!",
     "type": "Organization",
-    "path": "/free-hierarchy"
+    "path": "/built-on-top-of-hierarchy-free"
   },
   {
     "id":"10",
@@ -148,7 +148,7 @@
     "id":"11",
     "title":"Build things together, brings what you have already built as a resource",
     "type": "Collection",
-    "path": "/build-together-as-a-resource"
+    "path": "/build-things-together-resource"
   },
   {
     "id":"12",
@@ -178,19 +178,19 @@
     "id":"16",
     "title":"It is like a Mendeleev table but better, since you can create a Mendeleev table yourself",
     "type": "CreativeWork",
-    "path": "/mendeleev-table"
+    "path": "/mendeleev-table-but-better"
   },
   {
     "id":"17",
     "title":"We are a global suppliers of webhook links - supplier publishes an event and everyone else listens (including machines who are themselves are data structures)",
     "type": "Service",
-    "path": "/global-webhook-suppliers"
+    "path": "/global-suppliers-webhook-links"
   },
   {
     "id":"18",
     "title":"Is it a dead cat or alife? Let's just handshake that it is a Cat?!!",
     "type": "CreativeWork",
-    "path": "/dead-or-alive-cat"
+    "path": "/dead-cat-or-alive"
   },
   {
     "id":"19",
