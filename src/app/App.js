@@ -46,11 +46,11 @@ class App extends Component {
                 <div className="container">
                     <Switch>
                         <Route exact path="/" render={(props) => <Introduction currentUser={this.state.currentUser} />} />
-                        <Route exact path="/my-life" render={(props) => <Presentation currentUser={this.state.currentUser} />} />
+                        <Route path="/membership" component={Payment}></Route>
+                        <Route exact path="/:slidePath" render={(props) => <Presentation currentUser={this.state.currentUser} />} />
                         <Route path="/demo"
                                render={(props) => <Presentation currentUser={this.state.currentUser} />}>
                         </Route>
-                        <Route path="/payment" component={Payment}></Route>
                         <Route component={NotFound} />
                     </Switch>
                 </div>

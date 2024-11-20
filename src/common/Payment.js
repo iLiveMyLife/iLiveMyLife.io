@@ -1,6 +1,7 @@
 import React from "react";
 import SubscriptionItem from "./SubscriptionItem";
 import "./Payment.css"
+import {Helmet} from "react-helmet";
 
 const Payment = () => {
 
@@ -41,6 +42,10 @@ const Payment = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>iLiveMyLife Membership and Subscription Options</title>
+                <meta name="description" content="Choose the membership plan that best suits your role. Explore our Individual, Partner, Leader, and Investor subscription packages." />
+            </Helmet>
             <h1>Choose yourself...</h1>
             <div className = "subscriptionContainer">
                 <SubscriptionItem

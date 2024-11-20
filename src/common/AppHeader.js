@@ -52,8 +52,8 @@ class AppHeader extends Component {
               <Menu.Item key="my-life" title="My Life">
                   <Link to="/my-life">My Life</Link>
               </Menu.Item>,
-              <Menu.Item key="payment">
-                  <Link to="./payment">Choose yourself</Link>
+              <Menu.Item key="membership">
+                  <Link to="/membership">Choose yourself</Link>
               </Menu.Item>,
               <SubMenu key="us" title="About us">
                   <Menu.Item key="/whitepaper">

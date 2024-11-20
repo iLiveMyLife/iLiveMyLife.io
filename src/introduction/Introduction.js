@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import './Introduction.css';
 import { GlobalOutlined } from '@ant-design/icons';
+import {Helmet} from "react-helmet";
 
 class Introduction extends Component {
     state={}
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (
             <div className="container">
+                <Helmet>
+                    <title>iLiveMyLife - Life Management with Interactive Knowledge Graph</title>
+                    <meta name="description" content="Dive into iLiveMyLife and discover the possibilities of an interactive knowledge graph for project and personal life management." />
+                </Helmet>
                 <div className="introduction-header">
                     <h2>
                         <GlobalOutlined /> Welcome to <strong>iLiveMyLife</strong> &mdash; Embark on a Journey of Discovery with Our Interactive Knowledge Graph! <GlobalOutlined />
