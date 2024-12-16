@@ -18,7 +18,7 @@ const Payment = () => {
             id: '1',
             label: 'Partner',
             features: ['I share my ideas and knowledge with others', 'I run projects and companies together with the community', 'I believe that knowledge should be free'],
-            functionalities: ['Lifebot with context awareness', 'GPT-4o mini model', 'Advanced notifications'],
+            functionalities: ['Lifebot with context awareness', 'Cheaper AI model', 'Basic notifications'],
             price: "$10 USD monthly",
             button: 'Give'
         },
@@ -26,7 +26,7 @@ const Payment = () => {
             id: '2',
             label: 'Leader',
             features: ['I care about the community', 'I am an entrepreneur', 'I drive innovation', 'People trust me and appreciate my effort'],
-            functionalities: ['Lifebot with context awareness', 'GTP-4o model', 'Establish Contacts with people from the node', 'Advanced notifications', 'Webhooks'],
+            functionalities: ['Lifebot with context awareness', 'Smarter AI model', 'Advanced notifications', 'Intelligence switch', 'Establish Contacts with people from the node'],
             price: "$100 USD monthly",
             button: 'Claim'
         },
@@ -34,7 +34,7 @@ const Payment = () => {
             id: '3',
             label: 'Investor',
             features: ['I am an individual', 'I am a partner', 'I am a leader'],
-            functionalities: ['Lifebot with context awareness', 'GTP-4o model', 'Establish Contacts with people from the node', 'Advanced notifications', 'Webhooks', 'Intelligence switch', 'Personal node with CEO (limited time offer)'],
+            functionalities: ['Lifebot with context awareness', 'Smarter AI model', 'Advanced notifications', 'Intelligence switch', 'Establish Contacts with people from the node', 'Webhooks', 'Personal node with CEO (limited time offer)'],
             price: "$1000 USD yearly",
             button: 'Help Building'
         }
