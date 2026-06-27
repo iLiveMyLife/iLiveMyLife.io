@@ -3,9 +3,10 @@ frontend:
   phases:
     preBuild:
       commands:
-        # Match the locally-verified Node version.
-        # react-scripts 3.4.4 (webpack 4) builds on Node 18 with the openssl flag below.
+        # puppeteer 25 needs Node >= 18; the image's default Node is older.
+        # Switching Node via nvm loses the global `yarn`, so reinstall it.
         - nvm install 18 && nvm use 18
+        - npm install -g yarn
         # System libraries that Chromium (puppeteer) needs to run headless during
         # the prerender step (scripts/prerender.js runs as `postbuild`).
         - yum install -y atk at-spi2-atk cups-libs gtk3 libXcomposite libXcursor libXdamage libXext libXi libXtst pango alsa-lib libXScrnSaver libXrandr nss || true
