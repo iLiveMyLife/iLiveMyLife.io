@@ -1,0 +1,152 @@
+[
+  {
+    "source": "/membership",
+    "target": "/membership/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/my-life",
+    "target": "/my-life/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/evolving-knowledge-through-collaboration",
+    "target": "/evolving-knowledge-through-collaboration/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/crypto-communism-and-nasdaq-of-ideas",
+    "target": "/crypto-communism-and-nasdaq-of-ideas/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/collaboration-on-the-context",
+    "target": "/collaboration-on-the-context/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/lifebot",
+    "target": "/lifebot/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/metaverse-of-formats",
+    "target": "/metaverse-of-formats/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/3d-graph-for-ilivemylife",
+    "target": "/3d-graph-for-ilivemylife/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/scanomatiq-3d-graph-technology",
+    "target": "/scanomatiq-3d-graph-technology/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/envisioning-a-new-commerce-ecosystem-basicneeds",
+    "target": "/envisioning-a-new-commerce-ecosystem-basicneeds/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/collaboration-tool-on-a-chain",
+    "target": "/collaboration-tool-on-a-chain/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/distributed-computational-graph",
+    "target": "/distributed-computational-graph/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/collective-database-and-knowledge-graph",
+    "target": "/collective-database-and-knowledge-graph/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/cloud-programming-interface",
+    "target": "/cloud-programming-interface/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/symbiosis-of-machine-learning-and-creativity",
+    "target": "/symbiosis-of-machine-learning-and-creativity/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/multi-dimensional-todo-list",
+    "target": "/multi-dimensional-todo-list/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/organize-your-life-thought-gathering",
+    "target": "/organize-your-life-thought-gathering/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/manage-teams-individualism-freedom",
+    "target": "/manage-teams-individualism-freedom/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/built-on-top-of-hierarchy-free",
+    "target": "/built-on-top-of-hierarchy-free/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/open-sourcing-thoughts",
+    "target": "/open-sourcing-thoughts/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/build-things-together-resource",
+    "target": "/build-things-together-resource/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/idea-mining",
+    "target": "/idea-mining/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/distributed-project-management",
+    "target": "/distributed-project-management/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/prognostic-problem-solving",
+    "target": "/prognostic-problem-solving/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/crypto-communism",
+    "target": "/crypto-communism/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/mendeleev-table-but-better",
+    "target": "/mendeleev-table-but-better/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/global-suppliers-webhook-links",
+    "target": "/global-suppliers-webhook-links/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/dead-cat-or-alive",
+    "target": "/dead-cat-or-alive/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/programming-cultures-online",
+    "target": "/programming-cultures-online/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/<*>",
+    "target": "/index.html",
+    "status": "200"
+  }
+]

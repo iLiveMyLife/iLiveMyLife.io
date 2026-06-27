@@ -1,3 +1,117 @@
+# iLiveMyLife landing — the whole site is meant to be read by humans, search
+# engines AND AI assistants.
+#
+# NOTE: "User-agent: *  /  Allow: /" below ALREADY permits every crawler on
+# Earth (Baidu, Yandex, Naver, AI bots, all of them). The named blocks that
+# follow do NOT grant extra access — they are an explicit "you are welcome"
+# signal. This matters mainly for AI/LLM crawlers, which many sites block by
+# default; naming them as Allowed future-proofs us against a restrictive
+# default and makes the intent unambiguous.
+
 User-agent: *
 Allow: /
+
+# ── AI / LLM crawlers (the meaningful part — explicitly welcomed) ──────────
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# ── Regional / global search engines (already covered by *, listed as a welcome) ──
+# Russia
+User-agent: YandexBot
+Allow: /
+
+User-agent: Mail.RU_Bot
+Allow: /
+
+# China
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Sogou web spider
+Allow: /
+
+User-agent: 360Spider
+Allow: /
+
+User-agent: PetalBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# Korea
+User-agent: Yeti
+Allow: /
+
+User-agent: Daumoa
+Allow: /
+
+# Czechia / EU
+User-agent: SeznamBot
+Allow: /
+
+User-agent: Qwantify
+Allow: /
+
+# Global
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
 Sitemap: https://www.ilivemylife.io/sitemap.xml

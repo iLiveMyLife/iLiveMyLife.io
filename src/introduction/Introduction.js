@@ -12,6 +12,17 @@ class Introduction extends Component {
                 <Helmet>
                     <title>iLiveMyLife - Life Management with Interactive Knowledge Graph</title>
                     <meta name="description" content="Dive into iLiveMyLife and discover the possibilities of an interactive knowledge graph for project and personal life management." />
+                    <link rel="canonical" href="https://www.ilivemylife.io/" />
+                    <meta property="og:type" content="website" />
+                    <meta property="og:site_name" content="iLiveMyLife" />
+                    <meta property="og:title" content="iLiveMyLife - Life Management with Interactive Knowledge Graph" />
+                    <meta property="og:description" content="Dive into iLiveMyLife and discover the possibilities of an interactive knowledge graph for project and personal life management." />
+                    <meta property="og:url" content="https://www.ilivemylife.io/" />
+                    <meta property="og:image" content="https://www.ilivemylife.io/images/apple-touch-icon.png" />
+                    <meta name="twitter:card" content="summary" />
+                    <meta name="twitter:title" content="iLiveMyLife - Life Management with Interactive Knowledge Graph" />
+                    <meta name="twitter:description" content="Dive into iLiveMyLife and discover the possibilities of an interactive knowledge graph for project and personal life management." />
+                    <meta name="twitter:image" content="https://www.ilivemylife.io/images/apple-touch-icon.png" />
                 </Helmet>
                 <div className="introduction-header">
                     <h2>

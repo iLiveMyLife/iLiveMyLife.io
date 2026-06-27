@@ -1,0 +1,24 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        # Match the locally-verified Node version.
+        # react-scripts 3.4.4 (webpack 4) builds on Node 18 with the openssl flag below.
+        - nvm install 18 && nvm use 18
+        # System libraries that Chromium (puppeteer) needs to run headless during
+        # the prerender step (scripts/prerender.js runs as `postbuild`).
+        - yum install -y atk at-spi2-atk cups-libs gtk3 libXcomposite libXcursor libXdamage libXext libXi libXtst pango alsa-lib libXScrnSaver libXrandr nss || true
+        - yarn install
+    build:
+      commands:
+        # --openssl-legacy-provider: webpack 4 needs it on Node 17+.
+        # `yarn build` also triggers the postbuild prerender of every route.
+        - NODE_OPTIONS=--openssl-legacy-provider yarn build
+  artifacts:
+    baseDirectory: build
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*

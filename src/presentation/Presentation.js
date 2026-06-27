@@ -7,6 +7,11 @@ import slideData from './data.json';
 import {LeftOutlined, RightOutlined} from "@ant-design/icons";
 import {useHistory, useParams} from "react-router-dom";
 
+// True only while the page is being prerendered by Puppeteer (see scripts/prerender.js).
+// In that mode we disable autoplay so each URL is snapshotted on its own slide,
+// keeping title/canonical deterministic. Live visitors are unaffected.
+const isPrerender = typeof navigator !== 'undefined' && /Prerender/i.test(navigator.userAgent);
+
 const Presentation = () => {
     const { slidePath } = useParams();
     const history = useHistory();
@@ -98,13 +103,31 @@ const Presentation = () => {
         };
     }
 
+    const current = slideData[currentIndex] || slideData[0];
+    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://www.ilivemylife.io';
+    const canonicalUrl = `${origin}${current.path}`;
+    const metaDesc = (current.description || '')
+        .replace(/[#*_>`]/g, '').replace(/\s+/g, ' ').trim().slice(0, 160);
+    const ogImage = current.image
+        ? `${origin}/${current.image.replace(/^\.?\//, '')}`
+        : `${origin}/favicon.png`;
+
     return (
         <>
             <Helmet>
-                <title>{slideData[currentIndex]?.title || "iLiveMyLife app"}</title>
-                <meta name="description" content={slideData[currentIndex]?.description || "Dive into iLiveMyLife and discover the possibilities"} />
-                {/* Unique keywords for each slide <meta name="keywords" content="Crypto Communism, iLiveMyLife, Ideas, Collaboration, Job market, Creative economy" /> */}
-                {/* Add more meta tags as needed */}
+                <title>{current.title || "iLiveMyLife app"}</title>
+                <meta name="description" content={metaDesc} />
+                <link rel="canonical" href={canonicalUrl} />
+                <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="iLiveMyLife" />
+                <meta property="og:title" content={current.title} />
+                <meta property="og:description" content={metaDesc} />
+                <meta property="og:url" content={canonicalUrl} />
+                <meta property="og:image" content={ogImage} />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={current.title} />
+                <meta name="twitter:description" content={metaDesc} />
+                <meta name="twitter:image" content={ogImage} />
             </Helmet>
             <Row justify="center">
                 <Col span={2} className={'control-column'} onClick={previous} style={{height: columnHeight}}>
@@ -112,7 +135,7 @@ const Presentation = () => {
                 </Col>
                 <Col span={20}>
                     <Carousel vertical={false}
-                              autoplay
+                              autoplay={!isPrerender}
                               pauseOnHover={true}
                               pauseOnDotsHover={true}
                               dotPosition={"bottom"}
