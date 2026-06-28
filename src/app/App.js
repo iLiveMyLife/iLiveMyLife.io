@@ -22,6 +22,9 @@ import Automation from "../features/Automation";
 import Lifebot from "../features/Lifebot";
 import Chat from "../features/Chat";
 import Tags from "../features/Tags";
+import Markers from "../features/Markers";
+import References from "../features/References";
+import RichContent from "../features/RichContent";
 const { Content, Footer } = Layout;
 
 class App extends Component {
@@ -61,6 +64,9 @@ class App extends Component {
                         <Route exact path="/lifebot-ai" component={Lifebot}></Route>
                         <Route exact path="/chat" component={Chat}></Route>
                         <Route exact path="/tags" component={Tags}></Route>
+                        <Route exact path="/markers" component={Markers}></Route>
+                        <Route exact path="/references" component={References}></Route>
+                        <Route exact path="/rich-content" component={RichContent}></Route>
                         <Route exact path="/:slidePath" render={(props) => <Presentation currentUser={this.state.currentUser} />} />
                         <Route path="/demo"
                                render={(props) => <Presentation currentUser={this.state.currentUser} />}>

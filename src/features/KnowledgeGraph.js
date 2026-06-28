@@ -13,10 +13,10 @@ const history = [
 ];
 
 const structure = [
-    { icon: "◷", title: "Markers", body: "Give any node a status — In work, Urgent, Needs clarification, Done — and track progress like a board." },
-    { icon: "#", title: "Tags", body: "Tags change how a node behaves: private, wallet (hidden even from AI), KYC, AI-assist, colors and markers." },
-    { icon: "↗", title: "References", body: "The same node can live in many places at once — link it as a reference instead of copying." },
-    { icon: "◫", title: "Rich content", body: "Text, files, images, checklists, due dates — and a chat — all attached to the node itself." },
+    { icon: "◷", title: "Markers", to: "/markers/", body: "Give any node a status — In work, Urgent, Needs clarification, Done — and track progress like a board." },
+    { icon: "#", title: "Tags", to: "/tags/", body: "Tags change how a node behaves: private, wallet (hidden even from AI), KYC, AI-assist, colors and markers." },
+    { icon: "↗", title: "References", to: "/references/", body: "The same node can live in many places at once — link it as a reference instead of copying." },
+    { icon: "◫", title: "Rich content", to: "/rich-content/", body: "Text, files, images, checklists, due dates — and a chat — all attached to the node itself." },
 ];
 
 const KnowledgeGraph = () => (
@@ -86,11 +86,12 @@ const KnowledgeGraph = () => (
             </div>
             <div className="ilml-grid">
                 {structure.map((s) => (
-                    <div className="ilml-card accent-cyan" key={s.title}>
+                    <a className="ilml-card accent-cyan ilml-card-link" href={s.to} key={s.title}>
                         <div className="ilml-card-icon ilml-glyph" aria-hidden="true">{s.icon}</div>
                         <h3 className="ilml-card-title">{s.title}</h3>
                         <p className="ilml-card-body">{s.body}</p>
-                    </div>
+                        <span className="ilml-card-more">Learn more →</span>
+                    </a>
                 ))}
             </div>
             <div className="ilml-dev-links">
