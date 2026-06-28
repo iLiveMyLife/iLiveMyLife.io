@@ -267,12 +267,14 @@ const Introduction = () => (
   "trigger": "every monday 09:00",
   "scope": "node: My Projects"
 }`} />
-                    <CopyBlock label="…and its code — SDK already wired in" code={
-`import { graph } from '@ilivemylife/graph-sdk'
-
-// this node is the program — runs on its own trigger
-const answer = await graph.askLifebot('Summarize my projects this week')
-await graph.addItem({ parent: 'My Life', title: 'Weekly digest', body: answer })`} />
+                    <CopyBlock label="…and its code — the SDK is already wired in" code={
+`// runs inside the node: 'graph' is connected, 'node' is this node's id
+export default async ({ graph, node }) => {
+  const answer = await graph.askLifebot(node, 'Summarize my projects this week')
+  await graph.addMessage(node, answer)   // → post into this node's chat
+  // or spawn a child node:
+  // await graph.addItem({ itemId: node, title: 'Weekly digest', description: answer })
+}`} />
                 </div>
                 <p className="ilml-contract-cap">
                     Ask Lifebot to generate it, or create the contract-node by hand — it calls Lifebot,
