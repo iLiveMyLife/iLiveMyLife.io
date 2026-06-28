@@ -93,6 +93,9 @@ const KnowledgeGraph = () => (
                     </div>
                 ))}
             </div>
+            <div className="ilml-dev-links">
+                <a href="/tags/">The full tag reference →</a>
+            </div>
         </section>
 
         {/* 3D */}

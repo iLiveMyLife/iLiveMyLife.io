@@ -111,3 +111,8 @@
 .ilml-msg-who em { color: var(--blue); font-style: normal; font-weight: 600; }
 .ilml-msg-text { font-size: 14.5px; color: var(--ink); }
 .ilml-msg-bot .ilml-msg-text { color: var(--blue-ink); }
+.ilml-chat-assist { margin-left: auto; font-family: 'Sora',sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #2f8f5e; background: rgba(91,184,154,.18); padding: 4px 10px; border-radius: 999px; }
+.ilml-msg-confirm { margin: 2px 16px 16px; padding: 11px 14px; background: var(--soft); border: 1px dashed #c2d4ea; border-radius: 10px; font-size: 13.5px; color: var(--muted); }
+.ilml-msg-confirm strong { color: var(--ink); font-weight: 700; }
+.ilml-msg-confirm em { font-style: normal; }
+.ilml-msg-confirm a { color: var(--blue-ink); }

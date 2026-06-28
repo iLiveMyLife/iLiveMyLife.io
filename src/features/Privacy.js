@@ -92,6 +92,9 @@ const Privacy = () => (
                     </div>
                 ))}
             </div>
+            <div className="ilml-dev-links">
+                <a href="/tags/">See all tags &amp; how to add them →</a>
+            </div>
         </section>
 
         {/* collective + KYC */}

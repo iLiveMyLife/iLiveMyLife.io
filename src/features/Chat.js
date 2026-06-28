@@ -7,9 +7,9 @@ const APP = "https://app.ilivemylife.io";
 
 const chat = [
     { who: "Ilya", c: "cyan", text: "Let’s ship the landing Friday." },
-    { who: "Ruslan", c: "teal", text: "I’ll prep the deploy and the checklist." },
-    { who: "Lifebot", c: "blue", bot: true, text: "Created a “Deploy checklist” node with 4 tasks under Launch. ↗" },
-    { who: "You", c: "orange", text: "Perfect — let’s go 🚀" },
+    { who: "Ruslan", c: "teal", text: "I’ll prep the deploy." },
+    { who: "Ilya", c: "cyan", text: "@Lifebot — draft a deploy checklist in this node." },
+    { who: "Lifebot", c: "blue", bot: true, text: "On it 👇" },
 ];
 
 const Chat = () => (
@@ -47,7 +47,11 @@ const Chat = () => (
                 <h2 className="ilml-h2">A chat that builds your graph.</h2>
             </div>
             <div className="ilml-chat">
-                <div className="ilml-chat-head"><span className="ilml-chat-node">▦ Launch</span><span className="ilml-chat-sub">node chat · 3 people + Lifebot</span></div>
+                <div className="ilml-chat-head">
+                    <span className="ilml-chat-node">▦ Launch</span>
+                    <span className="ilml-chat-sub">node chat · you + 1 · Lifebot</span>
+                    <span className="ilml-chat-assist">assist · on</span>
+                </div>
                 {chat.map((m, i) => (
                     <div className={`ilml-msg${m.bot ? " ilml-msg-bot" : ""}`} key={i}>
                         <span className={`ilml-msg-av gn-${m.c}`} aria-hidden="true">{m.who[0]}</span>
@@ -57,11 +61,27 @@ const Chat = () => (
                         </div>
                     </div>
                 ))}
+                <div className="ilml-msg-confirm">
+                    <span aria-hidden="true">✦</span> New node · <strong>Deploy checklist</strong> <em>+ 4 nodes inside</em> ↗
+                </div>
+            </div>
+        </section>
+
+        {/* assist mechanic */}
+        <section className="ilml-section ilml-section-alt">
+            <div className="ilml-section-head">
+                <span className="ilml-eyebrow ilml-eyebrow-dark">AI that knows its place</span>
+                <h2 className="ilml-h2">Lifebot listens — it doesn’t barge in.</h2>
+                <p className="ilml-section-sub">
+                    Alone in a node, Lifebot is on by default. The moment someone joins, you flip
+                    {" "}<code>assist</code> on yourself — and even then it only speaks when it’s useful, or
+                    when you <code>@Lifebot</code> it directly. No assistant talking over your team.
+                </p>
             </div>
         </section>
 
         {/* collaborate */}
-        <section className="ilml-section ilml-section-alt">
+        <section className="ilml-section">
             <div className="ilml-section-head">
                 <span className="ilml-eyebrow ilml-eyebrow-dark">Like Slack — but it’s yours</span>
                 <h2 className="ilml-h2">Invite, discuss, build — in one place.</h2>
