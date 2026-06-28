@@ -84,3 +84,14 @@
 
 /* text-glyph icon (overrides the font-size:0 used for SVG card icons) */
 .ilml-glyph { font-size: 22px; font-weight: 700; line-height: 1; }
+
+/* who-sees-what matrix (Privacy page) */
+.ilml-matrix-wrap { max-width: 940px; margin: 0 auto; overflow-x: auto; }
+.ilml-matrix { width: 100%; border-collapse: collapse; text-align: left; font-size: 14.5px; min-width: 640px; }
+.ilml-matrix th, .ilml-matrix td { padding: 14px 16px; border-bottom: 1px solid var(--line); }
+.ilml-matrix thead th { font-family: 'Sora',sans-serif; font-size: 12.5px; font-weight: 700; letter-spacing: .04em; color: var(--blue-ink); text-transform: uppercase; border-bottom: 2px solid var(--line); }
+.ilml-matrix tbody th { font-family: 'Sora',sans-serif; font-weight: 700; color: var(--ink); white-space: nowrap; }
+.ilml-matrix tbody th code, .ilml-card-title code { font-family: ui-monospace, Consolas, monospace; font-size: .8em; background: rgba(38,151,255,.1); color: #0a4f8c; padding: 1px 6px; border-radius: 5px; font-weight: 600; }
+.ilml-matrix td { color: var(--muted); }
+.ilml-matrix td.ilml-m-strong { color: var(--maroon); font-weight: 600; background: rgba(165,33,33,.05); }
+.ilml-matrix-note { max-width: 720px; margin: 20px auto 0; text-align: center; font-size: 15px; color: var(--ink); font-weight: 500; }
