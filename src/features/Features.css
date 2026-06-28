@@ -9,7 +9,7 @@
 .ilml-back {
     display: flex; align-items: center; gap: 6px;
     width: fit-content; margin: 0 auto 32px;       /* own line, centered, clearly above the eyebrow */
-    font-family: 'Sora', sans-serif; font-weight: 600; font-size: 13.5px;
+    font-family: 'Inter', sans-serif; font-weight: 600; font-size: 13.5px;
     color: var(--muted); text-decoration: none;
     padding: 7px 15px; border: 1px solid var(--line); border-radius: 999px;
     transition: color .15s ease, border-color .15s ease, background .15s ease;
@@ -30,7 +30,7 @@
 .ilml-dev-3 { max-width: 940px; grid-template-columns: 1fr 1fr; }
 
 /* natural-language "just ask" list */
-.ilml-ask-lead { text-align: center; margin: 38px 0 18px; font-family: 'Sora',sans-serif; font-weight: 600; color: var(--ink); font-size: 17px; }
+.ilml-ask-lead { text-align: center; margin: 38px 0 18px; font-family: 'Inter',sans-serif; font-weight: 600; color: var(--ink); font-size: 17px; }
 .ilml-ask-list { max-width: 760px; margin: 0 auto; list-style: none; padding: 0; display: grid; gap: 12px; text-align: left; }
 .ilml-ask-list li { background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--blue); border-radius: 12px; padding: 15px 20px; font-size: 16px; color: var(--ink); font-style: italic; }
 .ilml-ask-q { color: var(--blue); font-style: normal; font-weight: 700; }
@@ -39,7 +39,7 @@
 
 /* full CLI command reference (grouped, by interestingness) */
 .ilml-cli-ref { max-width: 940px; margin: 0 auto 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 40px; text-align: left; align-items: start; }
-.ilml-cli-group-title { font-family: 'Sora',sans-serif; font-size: 12.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--blue-ink); margin: 14px 0 4px; }
+.ilml-cli-group-title { font-family: 'Inter',sans-serif; font-size: 12.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--blue-ink); margin: 14px 0 4px; }
 .ilml-cli-list { margin: 0; }
 .ilml-cli-row { display: flex; flex-direction: column; gap: 2px; padding: 8px 0; border-bottom: 1px solid var(--line); }
 .ilml-cli-row dt code { font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace; font-size: 13.5px; color: var(--ink); background: none; padding: 0; }
@@ -54,7 +54,7 @@
 .ilml-term-dots i:nth-child(1) { background: #ff5f56; }
 .ilml-term-dots i:nth-child(2) { background: #ffbd2e; }
 .ilml-term-dots i:nth-child(3) { background: #27c93f; }
-.ilml-term-title { font-family: 'Sora',sans-serif; font-size: 12.5px; color: #9db4d4; }
+.ilml-term-title { font-family: 'Inter',sans-serif; font-size: 12.5px; color: #9db4d4; }
 .ilml-term-body { padding: 16px 18px 18px; font-family: ui-monospace,'SFMono-Regular',Consolas,monospace; font-size: 13.5px; line-height: 1.5; overflow-x: auto; }
 .ilml-term-cat { color: #f0a95f; font-weight: 600; margin: 15px 0 5px; }
 .ilml-term-group:first-child .ilml-term-cat { margin-top: 0; }
@@ -67,7 +67,7 @@
 
 /* callout box (e.g. multi-account tip) */
 .ilml-callout { max-width: 880px; margin: 0 auto 22px; display: flex; gap: 14px; align-items: flex-start; background: #eef6ff; border: 1px solid #d4e6fb; border-radius: 14px; padding: 18px 20px; text-align: left; }
-.ilml-callout-tag { flex: none; font-family: 'Sora',sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #fff; background: var(--blue); padding: 4px 9px; border-radius: 999px; margin-top: 1px; }
+.ilml-callout-tag { flex: none; font-family: 'Inter',sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #fff; background: var(--blue); padding: 4px 9px; border-radius: 999px; margin-top: 1px; }
 .ilml-callout p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--ink); }
 .ilml-callout code { font-family: ui-monospace, Consolas, monospace; font-size: .88em; background: rgba(38,151,255,.12); color: #0a4f8c; padding: 1px 6px; border-radius: 5px; }
 
@@ -77,9 +77,9 @@
 .ilml-log-dot { width: 9px; height: 9px; border-radius: 50%; }
 .ilml-log .gn-blue { background: var(--blue); } .ilml-log .gn-cyan { background: var(--cyan); }
 .ilml-log .gn-teal { background: var(--teal); } .ilml-log .gn-orange { background: var(--orange); } .ilml-log .gn-maroon { background: var(--maroon); }
-.ilml-log-who { font-family: 'Sora',sans-serif; font-weight: 700; font-size: 14px; color: var(--ink); }
+.ilml-log-who { font-family: 'Inter',sans-serif; font-weight: 700; font-size: 14px; color: var(--ink); }
 .ilml-log-what { font-size: 14.5px; color: var(--muted); }
-.ilml-log-when { font-size: 13px; color: #9bb0cc; font-family: 'Sora',sans-serif; }
+.ilml-log-when { font-size: 13px; color: #9bb0cc; font-family: 'Inter',sans-serif; }
 @media (max-width: 560px) { .ilml-log-row { grid-template-columns: auto 1fr; row-gap: 2px; } .ilml-log-when { grid-column: 2; justify-self: start; } }
 
 /* text-glyph icon (overrides the font-size:0 used for SVG card icons) */
@@ -89,8 +89,8 @@
 .ilml-matrix-wrap { max-width: 940px; margin: 0 auto; overflow-x: auto; }
 .ilml-matrix { width: 100%; border-collapse: collapse; text-align: left; font-size: 14.5px; min-width: 640px; }
 .ilml-matrix th, .ilml-matrix td { padding: 14px 16px; border-bottom: 1px solid var(--line); }
-.ilml-matrix thead th { font-family: 'Sora',sans-serif; font-size: 12.5px; font-weight: 700; letter-spacing: .04em; color: var(--blue-ink); text-transform: uppercase; border-bottom: 2px solid var(--line); }
-.ilml-matrix tbody th { font-family: 'Sora',sans-serif; font-weight: 700; color: var(--ink); white-space: nowrap; }
+.ilml-matrix thead th { font-family: 'Inter',sans-serif; font-size: 12.5px; font-weight: 700; letter-spacing: .04em; color: var(--blue-ink); text-transform: uppercase; border-bottom: 2px solid var(--line); }
+.ilml-matrix tbody th { font-family: 'Inter',sans-serif; font-weight: 700; color: var(--ink); white-space: nowrap; }
 .ilml-matrix tbody th code, .ilml-card-title code { font-family: ui-monospace, Consolas, monospace; font-size: .8em; background: rgba(38,151,255,.1); color: #0a4f8c; padding: 1px 6px; border-radius: 5px; font-weight: 600; }
 .ilml-matrix td { color: var(--muted); }
 .ilml-matrix td.ilml-m-strong { color: var(--maroon); font-weight: 600; background: rgba(165,33,33,.05); }
@@ -99,19 +99,19 @@
 /* chat mockup (Chat page) */
 .ilml-chat { max-width: 560px; margin: 0 auto; background: #fff; border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 24px 54px -34px rgba(22,35,59,.5); overflow: hidden; text-align: left; }
 .ilml-chat-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; padding: 16px 20px; border-bottom: 1px solid var(--line); background: var(--soft); }
-.ilml-chat-node { font-family: 'Sora',sans-serif; font-weight: 700; color: var(--ink); }
+.ilml-chat-node { font-family: 'Inter',sans-serif; font-weight: 700; color: var(--ink); }
 .ilml-chat-sub { font-size: 12.5px; color: var(--muted); }
 .ilml-msg { display: flex; gap: 12px; padding: 14px 20px; align-items: flex-start; }
 .ilml-msg-bot { background: rgba(38,151,255,.05); }
-.ilml-msg-av { flex: none; width: 30px; height: 30px; border-radius: 50%; color: #fff; font-family: 'Sora',sans-serif; font-weight: 700; font-size: 13px; display: grid; place-items: center; }
+.ilml-msg-av { flex: none; width: 30px; height: 30px; border-radius: 50%; color: #fff; font-family: 'Inter',sans-serif; font-weight: 700; font-size: 13px; display: grid; place-items: center; }
 .ilml-chat .gn-cyan { background: var(--cyan); } .ilml-chat .gn-teal { background: var(--teal); }
 .ilml-chat .gn-blue { background: var(--blue); } .ilml-chat .gn-orange { background: var(--orange); }
 .ilml-msg-body { display: flex; flex-direction: column; gap: 2px; }
-.ilml-msg-who { font-family: 'Sora',sans-serif; font-weight: 700; font-size: 13.5px; color: var(--ink); }
+.ilml-msg-who { font-family: 'Inter',sans-serif; font-weight: 700; font-size: 13.5px; color: var(--ink); }
 .ilml-msg-who em { color: var(--blue); font-style: normal; font-weight: 600; }
 .ilml-msg-text { font-size: 14.5px; color: var(--ink); }
 .ilml-msg-bot .ilml-msg-text { color: var(--blue-ink); }
-.ilml-chat-assist { margin-left: auto; font-family: 'Sora',sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #2f8f5e; background: rgba(91,184,154,.18); padding: 4px 10px; border-radius: 999px; }
+.ilml-chat-assist { margin-left: auto; font-family: 'Inter',sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #2f8f5e; background: rgba(91,184,154,.18); padding: 4px 10px; border-radius: 999px; }
 .ilml-msg-confirm { margin: 2px 16px 16px; padding: 11px 14px; background: var(--soft); border: 1px dashed #c2d4ea; border-radius: 10px; font-size: 13.5px; color: var(--muted); }
 .ilml-msg-confirm strong { color: var(--ink); font-weight: 700; }
 .ilml-msg-confirm em { font-style: normal; }
@@ -119,13 +119,13 @@
 
 /* status chips (Markers page) */
 .ilml-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 30px; }
-.ilml-chip { font-family: 'Sora',sans-serif; font-size: 13.5px; font-weight: 600; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 8px 15px; box-shadow: 0 2px 8px -4px rgba(22,35,59,.15); }
+.ilml-chip { font-family: 'Inter',sans-serif; font-size: 13.5px; font-weight: 600; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 8px 15px; box-shadow: 0 2px 8px -4px rgba(22,35,59,.15); }
 
 /* numbered steps */
 .ilml-steps { max-width: 760px; margin: 0 auto; display: grid; gap: 16px; text-align: left; }
 .ilml-step { display: flex; gap: 18px; align-items: flex-start; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 22px 24px; box-shadow: 0 16px 40px -30px rgba(22,35,59,.4); }
-.ilml-step-n { flex: none; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; font-family: 'Sora',sans-serif; font-weight: 700; color: #fff; background: var(--grad); }
-.ilml-step-title { font-family: 'Sora',sans-serif; font-size: 18px; font-weight: 700; margin: 3px 0 6px; color: var(--ink); }
+.ilml-step-n { flex: none; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; font-family: 'Inter',sans-serif; font-weight: 700; color: #fff; background: var(--grad); }
+.ilml-step-title { font-family: 'Inter',sans-serif; font-size: 18px; font-weight: 700; margin: 3px 0 6px; color: var(--ink); }
 .ilml-step-body { margin: 0; font-size: 15px; color: var(--muted); line-height: 1.55; }
 
 /* 2x2 card grid (Rich content) */

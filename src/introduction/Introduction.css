@@ -14,13 +14,13 @@
     --line:   #e7eef7;
     --soft:   #f4f8fd;
 
-    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     color: var(--ink);
     text-align: left;
     line-height: 1.6;
 }
 .ilml-landing h1, .ilml-landing h2, .ilml-landing h3 {
-    font-family: 'Sora', 'DM Sans', sans-serif;
+    font-family: 'Inter', 'Inter', sans-serif;
     letter-spacing: -0.02em;
     margin: 0;
     text-wrap: balance;
@@ -41,7 +41,7 @@
 /* shared bits ------------------------------------------------ */
 .ilml-eyebrow {
     display: inline-block;
-    font-family: 'Sora', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 13px; font-weight: 600;
     letter-spacing: 0.16em; text-transform: uppercase;
     color: var(--blue-ink);
@@ -70,7 +70,7 @@
 
 /* buttons ---------------------------------------------------- */
 .ilml-btn {
-    display: inline-block; font-family: 'Sora', sans-serif;
+    display: inline-block; font-family: 'Inter', sans-serif;
     font-weight: 600; font-size: 16px; padding: 14px 28px;
     border-radius: 999px; text-decoration: none;
     transition: transform .18s ease, box-shadow .18s ease;
@@ -109,7 +109,7 @@
 .ilml-hero-copy { animation: ilmlUp .7s cubic-bezier(.2,.7,.2,1) both; }
 .ilml-lead { max-width: 540px; margin: 24px 0 0; font-size: clamp(17px, 1.6vw, 20px); color: var(--muted); }
 .ilml-cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
-.ilml-tagline { margin-top: 26px; font-size: 17px; color: var(--muted); font-family: 'Sora',sans-serif; }
+.ilml-tagline { margin-top: 26px; font-size: 17px; color: var(--muted); font-family: 'Inter',sans-serif; }
 .ilml-tagline em { color: var(--blue); font-style: italic; }
 .ilml-hero-visual { display: flex; justify-content: center; animation: ilmlUp .9s .1s cubic-bezier(.2,.7,.2,1) both; }
 
@@ -124,8 +124,8 @@
 .ilml-gnode circle { filter: drop-shadow(0 6px 14px rgba(22,35,59,.16)); }
 .gn-blue { fill: var(--blue); } .gn-cyan { fill: var(--cyan); } .gn-teal { fill: var(--teal); }
 .gn-orange { fill: var(--orange); } .gn-maroon { fill: var(--maroon); }
-.ilml-gnode-root { fill: #fff; font-family: 'Sora',sans-serif; font-weight: 700; font-size: 15px; text-anchor: middle; }
-.ilml-gnode-label { fill: var(--ink); font-family: 'Sora',sans-serif; font-weight: 600; font-size: 13px; text-anchor: middle; }
+.ilml-gnode-root { fill: #fff; font-family: 'Inter',sans-serif; font-weight: 700; font-size: 15px; text-anchor: middle; }
+.ilml-gnode-label { fill: var(--ink); font-family: 'Inter',sans-serif; font-weight: 600; font-size: 13px; text-anchor: middle; }
 
 /* ── Band ──────────────────────────────────────────────────── */
 .ilml-band { background: #fff; padding: clamp(58px, 8vw, 94px) 24px; }
@@ -168,7 +168,7 @@
 .ilml-usecase { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 28px; transition: transform .2s ease, box-shadow .2s ease; }
 .ilml-usecase:hover { transform: translateY(-4px); box-shadow: 0 22px 44px -26px rgba(22,35,59,.4); }
 .ilml-usecase-tag {
-    display: inline-block; font-family:'Sora',sans-serif; font-size: 12px; font-weight: 600;
+    display: inline-block; font-family:'Inter',sans-serif; font-size: 12px; font-weight: 600;
     letter-spacing: .08em; text-transform: uppercase; color: #0a5cb8;
     background: #e6f0fb; padding: 4px 11px; border-radius: 999px; margin-bottom: 14px;
 }
@@ -187,7 +187,7 @@
 .ilml-diff-text { margin: 22px auto 30px; max-width: 660px; font-size: 19px; color: #cdd9ee; }
 .ilml-diff-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
 .ilml-diff-chips span {
-    font-family: 'Sora', sans-serif; font-size: 14px; font-weight: 500; color: #eaf2ff;
+    font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: #eaf2ff;
     padding: 9px 18px; border-radius: 999px; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.06);
 }
 
@@ -199,7 +199,7 @@
     display: flex; flex-direction: column; gap: 5px;
 }
 .ilml-tier:hover { transform: translateY(-5px); box-shadow: 0 20px 40px -18px rgba(22,35,59,.5); color:#fff; }
-.ilml-tier-name { font-family:'Sora',sans-serif; font-weight: 700; font-size: 19px; }
+.ilml-tier-name { font-family:'Inter',sans-serif; font-weight: 700; font-size: 19px; }
 .ilml-tier-price { font-size: 15px; opacity: .95; }
 .ilml-tier-note { font-size: 13px; opacity: .94; margin-top: 2px; }
 /* exact /membership plan colors — solid (the membership cards are flat, not gradient) */
@@ -282,7 +282,7 @@
     display: flex; align-items: center; justify-content: space-between; gap: 16px;
     background: #fff; border: 1px solid var(--line); border-radius: 14px;
     padding: 18px 22px; text-decoration: none; color: var(--ink);
-    font-family: 'Sora', sans-serif; font-weight: 600; font-size: 16px;
+    font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px;
     transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, color .18s ease;
 }
 .ilml-deep-link:hover { transform: translateX(4px); border-color: var(--blue); box-shadow: 0 14px 30px -22px rgba(22,35,59,.5); color: var(--blue-ink); }
@@ -293,7 +293,7 @@
 /* ── Use-case cards as links ── */
 .ilml-usecase { text-decoration: none; color: inherit; display: flex; flex-direction: column; }
 .ilml-usecase:hover { border-color: #dbe7f5; }
-.ilml-usecase-cta { margin-top: auto; padding-top: 16px; font-family: 'Sora',sans-serif; font-weight: 600; font-size: 14px; color: var(--blue-ink); display: inline-flex; align-items: center; gap: 6px; }
+.ilml-usecase-cta { margin-top: auto; padding-top: 16px; font-family: 'Inter',sans-serif; font-weight: 600; font-size: 14px; color: var(--blue-ink); display: inline-flex; align-items: center; gap: 6px; }
 .ilml-usecase-cta span { transition: transform .18s ease; }
 .ilml-usecase:hover .ilml-usecase-cta span { transform: translateX(3px); }
 .ilml-usecase:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
@@ -303,21 +303,21 @@
 .ilml-dev { max-width: 880px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .ilml-code { background: #0f1b2e; border: 1px solid #21344f; border-radius: 14px; overflow: hidden; box-shadow: 0 20px 46px -30px rgba(15,27,46,.9); text-align: left; }
 .ilml-code-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px 10px 16px; background: #14233b; border-bottom: 1px solid #21344f; }
-.ilml-code-label { font-family: 'Sora',sans-serif; font-size: 12.5px; font-weight: 600; color: #9db4d4; }
-.ilml-code-copy { font-family: 'Sora',sans-serif; font-size: 12px; font-weight: 600; color: #cfe0f7; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); border-radius: 7px; padding: 5px 12px; cursor: pointer; transition: background .15s ease; white-space: nowrap; }
+.ilml-code-label { font-family: 'Inter',sans-serif; font-size: 12.5px; font-weight: 600; color: #9db4d4; }
+.ilml-code-copy { font-family: 'Inter',sans-serif; font-size: 12px; font-weight: 600; color: #cfe0f7; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); border-radius: 7px; padding: 5px 12px; cursor: pointer; transition: background .15s ease; white-space: nowrap; }
 .ilml-code-copy:hover { background: rgba(255,255,255,.18); }
 .ilml-code-copy:focus-visible { outline: 2px solid #5fb4ff; outline-offset: 2px; }
 .ilml-code-pre { margin: 0; padding: 16px 18px; overflow-x: auto; }
 .ilml-code-pre code { font-family: ui-monospace, 'SFMono-Regular', 'Cascadia Code', Consolas, monospace; font-size: 13.5px; line-height: 1.75; color: #d7e6fb; white-space: pre; }
 .ilml-dev-links { max-width: 880px; margin: 26px auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 28px; }
-.ilml-dev-links a { font-family: 'Sora',sans-serif; font-weight: 600; font-size: 15px; color: var(--blue-ink); text-decoration: none; }
+.ilml-dev-links a { font-family: 'Inter',sans-serif; font-weight: 600; font-size: 15px; color: var(--blue-ink); text-decoration: none; }
 .ilml-dev-links a:hover { text-decoration: underline; }
 @media (max-width: 700px) { .ilml-dev { grid-template-columns: 1fr; } }
 
 /* ── Contract showcase (a node that runs itself) ── */
 .ilml-contract { max-width: 880px; margin: 42px auto 0; background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 24px; box-shadow: 0 22px 52px -34px rgba(22,35,59,.5); position: relative; text-align: left; overflow: hidden; }
 .ilml-contract::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--orange); }
-.ilml-contract-head { display: flex; align-items: center; gap: 11px; font-family: 'Sora',sans-serif; font-weight: 700; font-size: 16px; color: var(--ink); margin-bottom: 18px; }
+.ilml-contract-head { display: flex; align-items: center; gap: 11px; font-family: 'Inter',sans-serif; font-weight: 700; font-size: 16px; color: var(--ink); margin-bottom: 18px; }
 .ilml-contract-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 4px rgba(232,155,44,.18); flex: none; }
 .ilml-contract-body { display: grid; grid-template-columns: 1fr 1.3fr; gap: 16px; align-items: start; }
 .ilml-contract-cap { margin: 18px 0 0; font-size: 14.5px; color: var(--muted); line-height: 1.55; }
@@ -328,5 +328,5 @@
 /* ── Capability card that links to a feature page ── */
 .ilml-card-link { text-decoration: none; color: inherit; display: flex; flex-direction: column; cursor: pointer; }
 .ilml-card-link:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
-.ilml-card-more { margin-top: auto; padding-top: 14px; font-family: 'Sora',sans-serif; font-weight: 600; font-size: 13.5px; color: var(--blue-ink); }
+.ilml-card-more { margin-top: auto; padding-top: 14px; font-family: 'Inter',sans-serif; font-weight: 600; font-size: 13.5px; color: var(--blue-ink); }
 .ilml-card-link:hover .ilml-card-more { text-decoration: underline; }

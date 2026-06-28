@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './AppHeader.css';
 import { MenuOutlined, CloseOutlined } from '@ant-design/icons';
@@ -16,7 +16,18 @@ const about = [
 // <details> element; only the mobile hamburger needs state.
 const AppHeader = () => {
     const [open, setOpen] = useState(false);
+    const aboutRef = useRef(null);
     const close = () => setOpen(false);
+    // close the <details> "About us" dropdown when clicking outside it
+    useEffect(() => {
+        const onDocClick = (e) => {
+            if (aboutRef.current && aboutRef.current.open && !aboutRef.current.contains(e.target)) {
+                aboutRef.current.open = false;
+            }
+        };
+        document.addEventListener('click', onDocClick);
+        return () => document.removeEventListener('click', onDocClick);
+    }, []);
     return (
         <header className="app-header">
             <div className="container app-header-inner">
@@ -27,7 +38,7 @@ const AppHeader = () => {
                 <nav className={`app-nav${open ? " open" : ""}`}>
                     <Link className="app-navlink" to="/my-life" onClick={close}>My Life</Link>
                     <Link className="app-navlink" to="/membership" onClick={close}>Choose yourself</Link>
-                    <details className="app-about">
+                    <details className="app-about" ref={aboutRef}>
                         <summary className="app-navlink">About us</summary>
                         <div className="app-about-menu">
                             {about.map((a) => (
