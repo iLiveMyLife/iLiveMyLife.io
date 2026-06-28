@@ -1,28 +1,290 @@
-.introduction-header {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color: #007bff;
+/* ============================================================
+   iLiveMyLife landing — clarity-first, brand palette from /membership
+   ============================================================ */
+.ilml-landing {
+    --blue:   #2697ff;
+    --blue-ink: #0a6fd6;   /* AA-safe blue for small text */
+    --cyan:   #29abe2;
+    --teal:   #5bb89a;
+    --orange: #e89b2c;
+    --maroon: #a52121;
+    --grad:   linear-gradient(95deg, #f9743f 0%, #f59f3a 45%, #c3d72e 100%);
+    --ink:    #16233b;
+    --muted:  #56678a;
+    --line:   #e7eef7;
+    --soft:   #f4f8fd;
+
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--ink);
+    text-align: left;
+    line-height: 1.6;
 }
-.cta-button {
+.ilml-landing h1, .ilml-landing h2, .ilml-landing h3 {
+    font-family: 'Sora', 'DM Sans', sans-serif;
+    letter-spacing: -0.02em;
+    margin: 0;
+    text-wrap: balance;
+}
+
+/* full-bleed sections that escape the parent .container (scrollbar-safe) */
+.ilml-hero, .ilml-band, .ilml-section, .ilml-diff, .ilml-final {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    margin-left: -50vw;
+    box-sizing: border-box;
+}
+@supports (width: 100dvw) { /* dvw avoids scrollbar over-count where supported */
+    .ilml-hero, .ilml-band, .ilml-section, .ilml-diff, .ilml-final { width: 100dvw; margin-left: -50dvw; }
+}
+
+/* shared bits ------------------------------------------------ */
+.ilml-eyebrow {
     display: inline-block;
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
+    font-family: 'Sora', sans-serif;
+    font-size: 13px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--blue-ink);
+    margin-bottom: 22px;
 }
-h2 {
-    color: #333;
+.ilml-eyebrow-dark { color: #0e76ad; }
+.ilml-h1 {
+    font-size: clamp(30px, 5.4vw, 60px);
+    font-weight: 800; line-height: 1.06; color: var(--ink);
 }
-h3 {
-    color: #007bff;
-    margin-top: 20px;
+.ilml-h2 {
+    font-size: clamp(27px, 3.7vw, 42px);
+    font-weight: 700; line-height: 1.14; color: var(--ink);
 }
-ul, ol {
-    margin-left: 20px;
-    margin-bottom: 20px;
+.ilml-h2-light { color: #fff; }
+.ilml-blue { color: var(--blue); }
+.ilml-grad-text {
+    color: #df5f1c;                  /* readable solid fallback */
+    background: linear-gradient(92deg, #ef5f1c 0%, #e98a1c 100%);  /* warm, no washed-out lime on white */
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
-p {
-    margin-bottom: 20px;
+@media (forced-colors: active) {
+    .ilml-grad-text { -webkit-text-fill-color: currentColor; background: none; color: currentColor; }
 }
+
+/* buttons ---------------------------------------------------- */
+.ilml-btn {
+    display: inline-block; font-family: 'Sora', sans-serif;
+    font-weight: 600; font-size: 16px; padding: 14px 28px;
+    border-radius: 999px; text-decoration: none;
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+/* same shimmering gradient as the /membership pay buttons (Ilmlbutton): multi-stop
+   gradient at 300% width that slides on hover */
+.ilml-btn-primary {
+    color: #fff;
+    background-image: linear-gradient(45deg, #F5626B, #D3FF76, #FFF8B6, #2bb673);
+    background-size: 300% 100%;
+    background-position: 0 0;
+    box-shadow: 0 8px 22px -8px rgba(245,98,107,.5);
+    transition: background-position .8s ease-in-out, transform .18s ease, box-shadow .18s ease;
+}
+.ilml-btn-primary:hover { background-position: 100% 0; transform: translateY(-2px); box-shadow: 0 14px 30px -8px rgba(245,98,107,.6); color: #fff; }
+.ilml-btn-ghost { color: var(--blue-ink); background: #fff; border: 1.5px solid var(--line); }
+.ilml-btn-ghost:hover { transform: translateY(-2px); border-color: var(--blue); }
+.ilml-btn-lg { padding: 17px 38px; font-size: 18px; }
+.ilml-btn:focus-visible, .ilml-tier:focus-visible, .ilml-deep-link:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+
+/* ── Hero (2-column) ───────────────────────────────────────── */
+.ilml-hero {
+    background: radial-gradient(120% 130% at 82% -15%, #eaf4ff 0%, #f7fbff 45%, #ffffff 100%);
+    padding: clamp(56px, 8vw, 110px) 24px clamp(56px, 8vw, 100px);
+    overflow: hidden;
+}
+.ilml-hero-glow {
+    position: absolute; top: -160px; right: 4%; width: 540px; height: 540px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(38,151,255,.16), transparent 65%); pointer-events: none;
+}
+.ilml-hero-inner {
+    position: relative; max-width: 1180px; margin: 0 auto;
+    display: grid; grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr);
+    align-items: center; gap: clamp(28px, 4vw, 64px);
+}
+.ilml-hero-copy { animation: ilmlUp .7s cubic-bezier(.2,.7,.2,1) both; }
+.ilml-lead { max-width: 540px; margin: 24px 0 0; font-size: clamp(17px, 1.6vw, 20px); color: var(--muted); }
+.ilml-cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+.ilml-tagline { margin-top: 26px; font-size: 17px; color: var(--muted); font-family: 'Sora',sans-serif; }
+.ilml-tagline em { color: var(--blue); font-style: italic; }
+.ilml-hero-visual { display: flex; justify-content: center; animation: ilmlUp .9s .1s cubic-bezier(.2,.7,.2,1) both; }
+
+/* graph visual */
+.ilml-graph { width: 100%; max-width: 520px; height: auto; overflow: visible; }
+.ilml-graph-edges line {
+    stroke: rgba(38,151,255,.32); stroke-width: 1.7; stroke-linecap: round;
+    stroke-dasharray: 540; stroke-dashoffset: 540;
+    animation: ilmlDraw 1s ease forwards;
+}
+.ilml-gnode { transform-box: fill-box; transform-origin: center; animation: ilmlPop .55s cubic-bezier(.2,1.3,.4,1) both; }
+.ilml-gnode circle { filter: drop-shadow(0 6px 14px rgba(22,35,59,.16)); }
+.gn-blue { fill: var(--blue); } .gn-cyan { fill: var(--cyan); } .gn-teal { fill: var(--teal); }
+.gn-orange { fill: var(--orange); } .gn-maroon { fill: var(--maroon); }
+.ilml-gnode-root { fill: #fff; font-family: 'Sora',sans-serif; font-weight: 700; font-size: 15px; text-anchor: middle; }
+.ilml-gnode-label { fill: var(--ink); font-family: 'Sora',sans-serif; font-weight: 600; font-size: 13px; text-anchor: middle; }
+
+/* ── Band ──────────────────────────────────────────────────── */
+.ilml-band { background: #fff; padding: clamp(58px, 8vw, 94px) 24px; }
+.ilml-band-inner { max-width: 820px; margin: 0 auto; text-align: center; }
+.ilml-band-text { margin: 22px auto 0; max-width: 680px; font-size: 19px; color: var(--muted); }
+.ilml-band-text strong { font-weight: 600; color: var(--ink); }
+
+/* ── Generic section ───────────────────────────────────────── */
+.ilml-section { padding: clamp(62px, 8vw, 104px) 24px; background: #fff; }
+.ilml-section-alt { background: var(--soft); }
+.ilml-section-head { max-width: 1100px; margin: 0 auto 52px; text-align: center; }
+
+/* capability cards */
+.ilml-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.ilml-card {
+    position: relative; background: #fff; border: 1px solid var(--line);
+    border-radius: 20px; padding: 30px 26px 28px;
+    box-shadow: 0 16px 40px -28px rgba(22,35,59,.4);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    animation: ilmlUp .6s cubic-bezier(.2,.7,.2,1) both; overflow: hidden;
+}
+.ilml-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--blue); }
+.ilml-card:hover { transform: translateY(-6px); box-shadow: 0 26px 50px -24px rgba(22,35,59,.45); border-color: #dbe7f5; }
+.ilml-card.accent-cyan::before   { background: var(--cyan); }
+.ilml-card.accent-teal::before   { background: var(--teal); }
+.ilml-card.accent-blue::before   { background: var(--blue); }
+.ilml-card.accent-orange::before { background: var(--orange); }
+.ilml-card.accent-maroon::before { background: var(--maroon); }
+.ilml-card-icon { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; font-size: 26px; margin-bottom: 18px; }
+.accent-cyan   .ilml-card-icon { background: rgba(41,171,226,.12); }
+.accent-teal   .ilml-card-icon { background: rgba(91,184,154,.14); }
+.accent-blue   .ilml-card-icon { background: rgba(38,151,255,.12); }
+.accent-orange .ilml-card-icon { background: rgba(232,155,44,.14); }
+.accent-maroon .ilml-card-icon { background: rgba(165,33,33,.10); }
+.ilml-card-title { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+.ilml-card-body { font-size: 15.5px; line-height: 1.55; color: var(--muted); margin: 0; }
+
+/* use cases */
+.ilml-usecases { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.ilml-usecase { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 28px; transition: transform .2s ease, box-shadow .2s ease; }
+.ilml-usecase:hover { transform: translateY(-4px); box-shadow: 0 22px 44px -26px rgba(22,35,59,.4); }
+.ilml-usecase-tag {
+    display: inline-block; font-family:'Sora',sans-serif; font-size: 12px; font-weight: 600;
+    letter-spacing: .08em; text-transform: uppercase; color: #0a5cb8;
+    background: #e6f0fb; padding: 4px 11px; border-radius: 999px; margin-bottom: 14px;
+}
+.ilml-usecase-title { font-size: 21px; font-weight: 700; margin-bottom: 8px; }
+.ilml-usecase-body { font-size: 15.5px; line-height: 1.55; color: var(--muted); margin: 0; }
+
+/* ── Differentiator (dark, with constellation) ─────────────── */
+.ilml-diff {
+    background: linear-gradient(135deg, #102a4c 0%, #16233b 60%, #0e1b30 100%);
+    padding: clamp(70px, 9vw, 118px) 24px; text-align: center; overflow: hidden;
+}
+.ilml-constellation { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .12; }
+.ilml-constellation line { stroke: #8fb4ff; stroke-width: 1; }
+.ilml-constellation circle { fill: #cfe0ff; }
+.ilml-diff-inner { position: relative; max-width: 820px; margin: 0 auto; }
+.ilml-diff-text { margin: 22px auto 30px; max-width: 660px; font-size: 19px; color: #cdd9ee; }
+.ilml-diff-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.ilml-diff-chips span {
+    font-family: 'Sora', sans-serif; font-size: 14px; font-weight: 500; color: #eaf2ff;
+    padding: 9px 18px; border-radius: 999px; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.06);
+}
+
+/* ── Tiers ─────────────────────────────────────────────────── */
+.ilml-tiers { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.ilml-tier {
+    text-decoration: none; border-radius: 18px; padding: 26px 18px 24px; text-align: center;
+    color: #fff; transition: transform .2s ease, box-shadow .2s ease;
+    display: flex; flex-direction: column; gap: 5px;
+}
+.ilml-tier:hover { transform: translateY(-5px); box-shadow: 0 20px 40px -18px rgba(22,35,59,.5); color:#fff; }
+.ilml-tier-name { font-family:'Sora',sans-serif; font-weight: 700; font-size: 19px; }
+.ilml-tier-price { font-size: 15px; opacity: .95; }
+.ilml-tier-note { font-size: 13px; opacity: .94; margin-top: 2px; }
+.tier-cyan   { background: linear-gradient(160deg, #2aa6e0, #1483b8); }
+.tier-teal   { background: linear-gradient(160deg, #4aa888, #34795f); }
+.tier-orange { background: linear-gradient(160deg, #d9941f, #ad6711); }
+.tier-maroon { background: linear-gradient(160deg, #bb3232, #8a1818); }
+.ilml-tiers-cta { text-align: center; margin-top: 30px; }
+
+/* ── Final CTA ─────────────────────────────────────────────── */
+.ilml-final { background: radial-gradient(120% 120% at 50% 0%, #eaf4ff, #ffffff 70%); padding: clamp(78px, 11vw, 134px) 24px; text-align: center; }
+.ilml-final-title { font-size: clamp(28px, 4.6vw, 50px); font-weight: 800; color: var(--ink); }
+.ilml-final-text { margin: 18px auto 34px; font-size: 19px; color: var(--muted); }
+
+/* ── Animations ────────────────────────────────────────────── */
+@keyframes ilmlUp   { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@keyframes ilmlDraw { to { stroke-dashoffset: 0; } }
+@keyframes ilmlPop  { 0% { opacity: 0; transform: scale(.4); } 100% { opacity: 1; transform: scale(1); } }
+
+@media (prefers-reduced-motion: reduce) {
+    .ilml-hero-copy, .ilml-hero-visual, .ilml-card { animation: none !important; opacity: 1 !important; transform: none !important; }
+    .ilml-graph-edges line { animation: none !important; stroke-dashoffset: 0 !important; }
+    .ilml-gnode { animation: none !important; opacity: 1 !important; transform: none !important; }
+}
+
+/* ── Anchor scroll ─────────────────────────────────────────── */
+#how { scroll-margin-top: 84px; }
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 960px) {
+    .ilml-hero-inner { grid-template-columns: 1fr; gap: 8px; text-align: center; }
+    .ilml-hero-copy { max-width: 640px; margin: 0 auto; }
+    .ilml-lead { margin-left: auto; margin-right: auto; }
+    .ilml-cta-row { justify-content: center; }
+    .ilml-hero-visual { order: -1; max-width: 420px; margin: 0 auto 8px; }
+    .ilml-grid { grid-template-columns: repeat(2, 1fr); }
+    .ilml-usecases { grid-template-columns: 1fr; }
+    .ilml-tiers { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+    .ilml-grid { grid-template-columns: 1fr; }
+    .ilml-tiers { grid-template-columns: 1fr; }
+    .ilml-cta-row { flex-direction: column; }
+    .ilml-btn { text-align: center; }
+    .ilml-h1 br { display: none; }
+}
+
+/* ── Polish round 2: line-icons, graph depth, final-CTA bookend ── */
+.ilml-ic { display: block; }
+.ilml-card-icon { font-size: 0; }              /* icon is an SVG now */
+.accent-cyan   .ilml-card-icon { color: #1f93c9; }
+.accent-teal   .ilml-card-icon { color: #46977c; }
+.accent-blue   .ilml-card-icon { color: var(--blue-ink); }
+.accent-orange .ilml-card-icon { color: #c9821f; }
+.accent-maroon .ilml-card-icon { color: var(--maroon); }
+
+.ilml-graph-wrap { width: 100%; max-width: 520px; animation: ilmlFloat 8s ease-in-out infinite; }
+.ilml-avatars circle { fill: #fff; stroke: rgba(22,35,59,.22); stroke-width: 1.2; }
+
+.ilml-hero-glow-2 {
+    top: auto; bottom: -130px; right: 14%; left: auto;
+    width: 360px; height: 360px;
+    background: radial-gradient(circle, rgba(91,184,154,.16), transparent 65%);
+}
+
+.ilml-constellation-edges line { stroke: #8fb4ff; stroke-width: 1; }
+
+.ilml-graph-root { display: block; width: 210px; height: auto; margin: 0 auto 22px; }
+.ilml-root-edges line { stroke: rgba(38,151,255,.32); stroke-width: 1.5; stroke-linecap: round; }
+.ilml-root-core { fill: var(--blue); filter: drop-shadow(0 0 16px rgba(38,151,255,.55)); }
+.ilml-graph-root circle.gn-cyan, .ilml-graph-root circle.gn-teal,
+.ilml-graph-root circle.gn-orange, .ilml-graph-root circle.gn-maroon { opacity: .9; }
+
+@keyframes ilmlFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+@media (prefers-reduced-motion: reduce) { .ilml-graph-wrap { animation: none !important; } }
+
+/* ── Dive deeper (links to slide pages) ── */
+.ilml-deep-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.ilml-deep-link {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    background: #fff; border: 1px solid var(--line); border-radius: 14px;
+    padding: 18px 22px; text-decoration: none; color: var(--ink);
+    font-family: 'Sora', sans-serif; font-weight: 600; font-size: 16px;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, color .18s ease;
+}
+.ilml-deep-link:hover { transform: translateX(4px); border-color: var(--blue); box-shadow: 0 14px 30px -22px rgba(22,35,59,.5); color: var(--blue-ink); }
+.ilml-deep-arrow { color: var(--blue); font-size: 18px; transition: transform .18s ease; }
+.ilml-deep-link:hover .ilml-deep-arrow { transform: translateX(3px); }
+@media (max-width: 700px) { .ilml-deep-grid { grid-template-columns: 1fr; } }

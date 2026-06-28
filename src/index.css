@@ -1,3 +1,9 @@
+html {
+  overflow-x: clip; /* lets landing full-bleed sections (100vw) span the screen without horizontal scroll */
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
 body {
   margin: 0;
   padding: 0;
