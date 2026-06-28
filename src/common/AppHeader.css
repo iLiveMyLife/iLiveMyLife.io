@@ -20,8 +20,9 @@
 .app-title a {
     text-decoration: none;
     font-family: 'Sora', -apple-system, sans-serif;
-    font-weight: 700;
-    font-size: 20px;
+    font-weight: 600;
+    font-size: 17px;
+    letter-spacing: -0.01em;
     color: #2697ff;
     white-space: nowrap;
 }
@@ -43,7 +44,7 @@
     border: none;
     white-space: nowrap;
 }
-.app-navlink:hover { color: #0a6fd6; background: #f4f8fd; }
+.app-navlink:not(.app-navlink-cta):hover { color: #0a6fd6; background: #f4f8fd; }
 
 .app-navlink-cta {
     color: #fff;
