@@ -202,10 +202,11 @@
 .ilml-tier-name { font-family:'Sora',sans-serif; font-weight: 700; font-size: 19px; }
 .ilml-tier-price { font-size: 15px; opacity: .95; }
 .ilml-tier-note { font-size: 13px; opacity: .94; margin-top: 2px; }
-.tier-cyan   { background: linear-gradient(160deg, #2aa6e0, #1483b8); }
-.tier-teal   { background: linear-gradient(160deg, #4aa888, #34795f); }
-.tier-orange { background: linear-gradient(160deg, #d9941f, #ad6711); }
-.tier-maroon { background: linear-gradient(160deg, #bb3232, #8a1818); }
+/* exact /membership plan colors (Individual / Partner / Leader / Investor) */
+.tier-cyan   { background: linear-gradient(160deg, #00B7FF, #0098d6); }
+.tier-teal   { background: linear-gradient(160deg, #61BD9E, #4a9c80); }
+.tier-orange { background: linear-gradient(160deg, #E09200, #bd7c00); }
+.tier-maroon { background: linear-gradient(160deg, #AE2012, #8a190e); }
 .ilml-tiers-cta { text-align: center; margin-top: 30px; }
 
 /* ── Final CTA ─────────────────────────────────────────────── */
