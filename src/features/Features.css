@@ -1,0 +1,35 @@
+/* ============================================================
+   Feature deep-dive pages (e.g. /developers) — builds on the
+   landing's design tokens in Introduction.css.
+   ============================================================ */
+.ilml-feature-hero {
+    position: relative; max-width: 880px; margin: 0 auto; text-align: center;
+    animation: ilmlUp .7s cubic-bezier(.2,.7,.2,1) both;
+}
+.ilml-back {
+    display: inline-block; margin-bottom: 22px;
+    font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px;
+    color: var(--blue-ink); text-decoration: none;
+}
+.ilml-back:hover { text-decoration: underline; }
+.ilml-feature-hero .ilml-h1 { margin: 0 auto; }
+.ilml-feature-lead { margin: 24px auto 0; }
+
+/* inline code in prose (scoped so it never touches the dark code blocks) */
+.ilml-feature-lead code, .ilml-section-sub code {
+    font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+    font-size: .9em; background: rgba(38,151,255,.1); color: #0a4f8c;
+    padding: 1px 6px; border-radius: 5px;
+}
+
+/* code-block grids per step */
+.ilml-dev-1 { max-width: 640px; grid-template-columns: 1fr; }
+.ilml-dev-3 { max-width: 940px; grid-template-columns: 1fr 1fr; }
+
+/* natural-language "just ask" list */
+.ilml-ask-lead { text-align: center; margin: 38px 0 18px; font-family: 'Sora',sans-serif; font-weight: 600; color: var(--ink); font-size: 17px; }
+.ilml-ask-list { max-width: 760px; margin: 0 auto; list-style: none; padding: 0; display: grid; gap: 12px; text-align: left; }
+.ilml-ask-list li { background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--blue); border-radius: 12px; padding: 15px 20px; font-size: 16px; color: var(--ink); font-style: italic; }
+.ilml-ask-q { color: var(--blue); font-style: normal; font-weight: 700; }
+
+@media (max-width: 700px) { .ilml-dev-3 { grid-template-columns: 1fr; } }

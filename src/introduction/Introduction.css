@@ -324,3 +324,9 @@
 .ilml-contract-cap a { color: var(--blue-ink); font-weight: 600; text-decoration: none; white-space: nowrap; }
 .ilml-contract-cap a:hover { text-decoration: underline; }
 @media (max-width: 700px) { .ilml-contract-body { grid-template-columns: 1fr; } }
+
+/* ── Capability card that links to a feature page ── */
+.ilml-card-link { text-decoration: none; color: inherit; display: flex; flex-direction: column; cursor: pointer; }
+.ilml-card-link:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.ilml-card-more { margin-top: auto; padding-top: 14px; font-family: 'Sora',sans-serif; font-weight: 600; font-size: 13.5px; color: var(--blue-ink); }
+.ilml-card-link:hover .ilml-card-more { text-decoration: underline; }

@@ -63,7 +63,8 @@ const capabilities = [
     { accent: "orange", icon: "auto",   title: "Automation that programs itself",
       body: "Turn any node into automation that runs itself: it can call your tools, ask Lifebot, decide, and even spawn more automation to watch your projects — all under your authorization." },
     { accent: "maroon", icon: "code",   title: "SDK · CLI · MCP",
-      body: "Open SDK, CLI and MCP. External AIs like Claude and Kimi work directly inside your graph — and anyone can build plugins." },
+      body: "Open SDK, CLI and MCP. External AIs like Claude and Kimi work directly inside your graph — and anyone can build plugins.",
+      href: "/developers", more: "Install & examples" },
     { accent: "cyan",   icon: "shield", title: "Private, collective, yours",
       body: "Share a node with your team, or lock it down. Private nodes and wallets stay secret — even from the AI. KYC proves who’s human." },
 ];
@@ -209,13 +210,21 @@ const Introduction = () => (
                 <h2 className="ilml-h2">One graph. Things no note app can do.</h2>
             </div>
             <div className="ilml-grid">
-                {capabilities.map((c, i) => (
-                    <div className={`ilml-card accent-${c.accent}`} key={c.title} style={{ animationDelay: `${i * 60}ms` }}>
-                        <div className="ilml-card-icon"><Icon name={c.icon} /></div>
-                        <h3 className="ilml-card-title">{c.title}</h3>
-                        <p className="ilml-card-body">{c.body}</p>
-                    </div>
-                ))}
+                {capabilities.map((c, i) => {
+                    const inner = (
+                        <>
+                            <div className="ilml-card-icon"><Icon name={c.icon} /></div>
+                            <h3 className="ilml-card-title">{c.title}</h3>
+                            <p className="ilml-card-body">{c.body}</p>
+                            {c.more && <span className="ilml-card-more">{c.more} →</span>}
+                        </>
+                    );
+                    return c.href ? (
+                        <a className={`ilml-card accent-${c.accent} ilml-card-link`} href={c.href} key={c.title} style={{ animationDelay: `${i * 60}ms` }}>{inner}</a>
+                    ) : (
+                        <div className={`ilml-card accent-${c.accent}`} key={c.title} style={{ animationDelay: `${i * 60}ms` }}>{inner}</div>
+                    );
+                })}
             </div>
         </section>
 
