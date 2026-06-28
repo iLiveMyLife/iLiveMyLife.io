@@ -15,7 +15,7 @@ const Navbar = (props) => (
                 defaultOpenKeys={['about']}
             >
                 {(onLinkClick) =>
-                    <Menu>
+                    <Menu disabledOverflow>
                         {props.items}
                     </Menu>
                 }
