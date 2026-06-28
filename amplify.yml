@@ -8,6 +8,10 @@ frontend:
         # System libraries Chromium (puppeteer) needs to run headless in the prerender step:
         - yum install -y nss atk at-spi2-atk cups-libs libdrm libXcomposite libXdamage libXext libXfixes libXrandr mesa-libgbm libxkbcommon pango alsa-lib libXScrnSaver gtk3 libxshmfence || true
         - yarn install
+        # Chrome lives in ~/.cache/puppeteer (not node_modules), so the cached
+        # node_modules can skip puppeteer's postinstall download. Install it
+        # explicitly every build so the prerender step always has a browser.
+        - npx puppeteer browsers install chrome
     build:
       commands:
         # react-scripts 5 (webpack 5) — no openssl-legacy-provider needed.
