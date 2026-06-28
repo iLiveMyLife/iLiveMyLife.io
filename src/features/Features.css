@@ -95,3 +95,19 @@
 .ilml-matrix td { color: var(--muted); }
 .ilml-matrix td.ilml-m-strong { color: var(--maroon); font-weight: 600; background: rgba(165,33,33,.05); }
 .ilml-matrix-note { max-width: 720px; margin: 20px auto 0; text-align: center; font-size: 15px; color: var(--ink); font-weight: 500; }
+
+/* chat mockup (Chat page) */
+.ilml-chat { max-width: 560px; margin: 0 auto; background: #fff; border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 24px 54px -34px rgba(22,35,59,.5); overflow: hidden; text-align: left; }
+.ilml-chat-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; padding: 16px 20px; border-bottom: 1px solid var(--line); background: var(--soft); }
+.ilml-chat-node { font-family: 'Sora',sans-serif; font-weight: 700; color: var(--ink); }
+.ilml-chat-sub { font-size: 12.5px; color: var(--muted); }
+.ilml-msg { display: flex; gap: 12px; padding: 14px 20px; align-items: flex-start; }
+.ilml-msg-bot { background: rgba(38,151,255,.05); }
+.ilml-msg-av { flex: none; width: 30px; height: 30px; border-radius: 50%; color: #fff; font-family: 'Sora',sans-serif; font-weight: 700; font-size: 13px; display: grid; place-items: center; }
+.ilml-chat .gn-cyan { background: var(--cyan); } .ilml-chat .gn-teal { background: var(--teal); }
+.ilml-chat .gn-blue { background: var(--blue); } .ilml-chat .gn-orange { background: var(--orange); }
+.ilml-msg-body { display: flex; flex-direction: column; gap: 2px; }
+.ilml-msg-who { font-family: 'Sora',sans-serif; font-weight: 700; font-size: 13.5px; color: var(--ink); }
+.ilml-msg-who em { color: var(--blue); font-style: normal; font-weight: 600; }
+.ilml-msg-text { font-size: 14.5px; color: var(--ink); }
+.ilml-msg-bot .ilml-msg-text { color: var(--blue-ink); }
