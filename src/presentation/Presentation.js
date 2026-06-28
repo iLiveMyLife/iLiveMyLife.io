@@ -17,6 +17,9 @@ const Presentation = () => {
     const history = useHistory();
     const initialIndex = slideData.findIndex(slide => slide.path === `/${slidePath}`);
     const [currentIndex, setCurrentIndex] = useState(initialIndex === -1 ? 0 : initialIndex);
+    // Autoplay only when the visitor arrived WITHOUT a specific slide (browse/discovery).
+    // If they deep-linked to one slide (e.g. from the landing), keep it still so they can read it.
+    const [autoplayOnEntry] = useState(initialIndex === -1);
     //const currentSlide = slideData[currentIndex] || slideData[0]; // Default to first slide
     const [data, setData] = useState(slideData);
     const [columnHeight, setColumnHeight] = useState('auto');
@@ -135,7 +138,7 @@ const Presentation = () => {
                 </Col>
                 <Col span={20}>
                     <Carousel vertical={false}
-                              autoplay={!isPrerender}
+                              autoplay={!isPrerender && autoplayOnEntry}
                               pauseOnHover={true}
                               pauseOnDotsHover={true}
                               dotPosition={"bottom"}
