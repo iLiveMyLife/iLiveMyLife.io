@@ -69,10 +69,14 @@ const capabilities = [
 ];
 
 const useCases = [
-    { tag: "Commerce", title: "A shop on your account", body: "BasicNeeds runs on your iLiveMyLife login — every product has its own chat between buyers, sellers and AI." },
-    { tag: "Identity", title: "Digital clones", body: "DigitalTwins.team gives companies and people living pages — a digital twin that represents you and works for you." },
-    { tag: "Automation", title: "Apply to jobs, as you", body: "The LinkedIn plugin answers application forms in your voice — Lifebot replies from a node that knows your résumé and goals." },
-    { tag: "Economy", title: "Knowledge becomes value", body: "As your graph grows, projects gain worth — back and fund the ones you believe in, right on the graph." },
+    { tag: "Commerce", title: "A shop on your account", body: "BasicNeeds runs on your iLiveMyLife login — every product has its own chat between buyers, sellers and AI.",
+      href: "https://basicneeds.me", cta: "basicneeds.me", external: true },
+    { tag: "Identity", title: "Digital clones", body: "DigitalTwins.team gives companies and people living pages — a digital twin that represents you and works for you.",
+      href: "https://digitaltwins.team", cta: "digitaltwins.team", external: true },
+    { tag: "Automation", title: "Apply to jobs, as you", body: "The LinkedIn plugin installs into your ilml CLI and answers application forms in your voice — Lifebot replies from a node that knows your résumé.",
+      href: "https://www.npmjs.com/package/ilml-plugin-linkedin", cta: "npm: ilml-plugin-linkedin", external: true },
+    { tag: "Economy", title: "Knowledge becomes value", body: "As your graph grows, projects gain worth — back and fund the ones you believe in, right on the graph.",
+      href: "/crypto-communism-and-nasdaq-of-ideas", cta: "Read the vision" },
 ];
 
 const tiers = [
@@ -93,6 +97,23 @@ const deepDives = [
     { path: "/crypto-communism-and-nasdaq-of-ideas", title: "Crypto communism & a NASDAQ of ideas" },
     { path: "/envisioning-a-new-commerce-ecosystem-basicneeds", title: "A new commerce ecosystem" },
 ];
+
+/* copyable command block (copy works after hydration; code is in the prerendered HTML) */
+const CopyBlock = ({ label, code }) => (
+    <div className="ilml-code">
+        <div className="ilml-code-bar">
+            <span className="ilml-code-label">{label}</span>
+            <button type="button" className="ilml-code-copy" aria-label={`Copy: ${label}`}
+                onClick={(e) => {
+                    const btn = e.currentTarget;
+                    if (navigator.clipboard) { navigator.clipboard.writeText(code); }
+                    btn.textContent = "Copied ✓";
+                    setTimeout(() => { btn.textContent = "Copy"; }, 1600);
+                }}>Copy</button>
+        </div>
+        <pre className="ilml-code-pre"><code>{code}</code></pre>
+    </div>
+);
 
 const Introduction = () => (
     <div className="ilml-landing">
@@ -206,12 +227,58 @@ const Introduction = () => (
             </div>
             <div className="ilml-usecases">
                 {useCases.map((u) => (
-                    <div className="ilml-usecase" key={u.title}>
+                    <a className="ilml-usecase" key={u.title} href={u.href}
+                       {...(u.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
                         <span className="ilml-usecase-tag">{u.tag}</span>
                         <h3 className="ilml-usecase-title">{u.title}</h3>
                         <p className="ilml-usecase-body">{u.body}</p>
-                    </div>
+                        <span className="ilml-usecase-cta">{u.cta} <span aria-hidden="true">→</span></span>
+                    </a>
                 ))}
+            </div>
+        </section>
+
+        {/* ───────────── For developers ───────────── */}
+        <section className="ilml-section" id="developers">
+            <div className="ilml-section-head">
+                <span className="ilml-eyebrow ilml-eyebrow-dark">For developers</span>
+                <h2 className="ilml-h2">Your graph — from the command line, and from your AI.</h2>
+                <p className="ilml-section-sub">Open SDK, CLI and MCP server. Script your graph, or let Claude, Cursor and Windsurf work inside it directly.</p>
+            </div>
+            <div className="ilml-dev">
+                <CopyBlock label="1 · Install the CLI + SDK" code={"npm install -g @ilivemylife/graph-sdk\nilml login"} />
+                <CopyBlock label="2 · Plug your graph into Claude Code (MCP)" code={"claude mcp add --scope user ilml -- npx -y @ilivemylife/graph-sdk"} />
+            </div>
+            <div className="ilml-dev-links">
+                <a href="https://www.npmjs.com/package/@ilivemylife/graph-sdk" target="_blank" rel="noopener noreferrer">npm: @ilivemylife/graph-sdk →</a>
+                <a href="https://www.npmjs.com/package/ilml-plugin-linkedin" target="_blank" rel="noopener noreferrer">Plugin: ilml-plugin-linkedin →</a>
+            </div>
+
+            {/* a contract = a node that runs itself */}
+            <div className="ilml-contract">
+                <div className="ilml-contract-head">
+                    <span className="ilml-contract-dot" aria-hidden="true" />
+                    A contract is a node that runs itself
+                </div>
+                <div className="ilml-contract-body">
+                    <CopyBlock label="the node’s settings — JSON" code={
+`{
+  "contract": "weekly-digest",
+  "trigger": "every monday 09:00",
+  "scope": "node: My Projects"
+}`} />
+                    <CopyBlock label="…and its code — SDK already wired in" code={
+`import { graph } from '@ilivemylife/graph-sdk'
+
+// this node is the program — runs on its own trigger
+const answer = await graph.askLifebot('Summarize my projects this week')
+await graph.addItem({ parent: 'My Life', title: 'Weekly digest', body: answer })`} />
+                </div>
+                <p className="ilml-contract-cap">
+                    Ask Lifebot to generate it, or create the contract-node by hand — it calls Lifebot,
+                    waits for the answer, and writes it back as a new node or message.
+                    {" "}<a href="/cloud-programming-interface">How node-contracts work →</a>
+                </p>
             </div>
         </section>
 
