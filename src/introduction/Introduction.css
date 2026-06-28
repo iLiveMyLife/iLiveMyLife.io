@@ -86,8 +86,8 @@
     transition: background-position .8s ease-in-out, transform .18s ease, box-shadow .18s ease;
 }
 .ilml-btn-primary:hover { background-position: 100% 0; transform: translateY(-2px); box-shadow: 0 14px 30px -8px rgba(245,98,107,.6); color: #fff; }
-.ilml-btn-ghost { color: var(--blue-ink); background: #fff; border: 1.5px solid var(--line); }
-.ilml-btn-ghost:hover { transform: translateY(-2px); border-color: var(--blue); }
+.ilml-btn-ghost { color: var(--blue-ink); background: #fff; border: 1.5px solid #bcd2ec; box-shadow: 0 2px 10px -4px rgba(22,35,59,.14); }
+.ilml-btn-ghost:hover { transform: translateY(-2px); border-color: var(--blue); box-shadow: 0 8px 18px -6px rgba(38,151,255,.32); }
 .ilml-btn-lg { padding: 17px 38px; font-size: 18px; }
 .ilml-btn:focus-visible, .ilml-tier:focus-visible, .ilml-deep-link:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
 

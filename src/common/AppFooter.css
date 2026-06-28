@@ -77,3 +77,13 @@ li {
         font-size: 20px;
     }
 }
+
+/* compact, mobile-friendly footer */
+.footer-title { font-size: 24px; font-weight: 700; line-height: 1.25; }
+.footer-links a { display: inline-block; padding: 4px 0; font-size: 15px; line-height: 1.4; }
+@media (max-width: 575px) {
+    .footer-title { font-size: 19px; margin-bottom: 14px; }
+    .footer-links a { font-size: 14px; padding: 5px 0; }
+    .footer-style { padding-left: 18px !important; padding-right: 18px !important; }
+    .socials-container { margin-top: 10px; }
+}
