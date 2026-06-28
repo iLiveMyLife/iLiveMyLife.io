@@ -49,6 +49,47 @@ console.log(reply.content)` },
 const hits = await graph.searchMessages(project.id, 'deadline')` },
 ];
 
+/* the full ilml CLI command set, grouped by interestingness (not alphabetical) */
+const cliGroups = [
+    { group: "Explore", items: [
+        ["ilml tree", "your whole graph, as a tree"],
+        ["ilml items <node>", "a node and its children"],
+        ["ilml itemHistory <node>", "every change — who, what, when"],
+        ["ilml search <node> \"text\"", "search a node’s chat"],
+        ["ilml messages <node>", "read a node’s chat"],
+        ["ilml itemUsers <node>", "who has access"],
+        ["ilml itemSettings <node>", "a node’s AI / notification settings"],
+    ]},
+    { group: "Ask the AI", items: [
+        ["ilml ask <node> \"question\"", "ask Lifebot, in the node’s context"],
+        ["ilml send <node> \"message\"", "post a message (optionally trigger AI)"],
+        ["ilml editSettings <node>", "switch AI provider / smart model per node"],
+    ]},
+    { group: "Create & reorganize", items: [
+        ["ilml addItem <parent> --title …", "create a node"],
+        ["ilml editItem <node> --title/--desc/--tags", "edit a node"],
+        ["ilml moveItem <node> <from> <to>", "move to another parent"],
+        ["ilml reorderChild <parent> <from> <to>", "reorder children"],
+        ["ilml setPosition <node> <parent> <n>", "move to a position"],
+        ["ilml archiveItem / unarchiveItem <node>", "archive / restore"],
+        ["ilml upload <node> ./file", "attach a file"],
+    ]},
+    { group: "Collaborate", items: [
+        ["ilml request-access <node>", "ask to enter a private node"],
+    ]},
+    { group: "Plugins", items: [
+        ["ilml plugin install <name>", "add a plugin (e.g. linkedin)"],
+        ["ilml plugin list / update / remove", "manage installed plugins"],
+        ["ilml <plugin> <command>", "run a plugin command"],
+    ]},
+    { group: "Setup", items: [
+        ["ilml login [--local]", "sign in — global or per-project"],
+        ["ilml doctor", "verify your setup"],
+        ["ilml config set <key> <value>", "configure"],
+        ["ilml logout", "sign out"],
+    ]},
+];
+
 const Developers = () => (
     <div className="ilml-landing">
         <Helmet>
@@ -99,17 +140,28 @@ const Developers = () => (
             <div className="ilml-section-head">
                 <span className="ilml-eyebrow ilml-eyebrow-dark">In your terminal · CLI</span>
                 <h2 className="ilml-h2">Drive your graph with <code>ilml</code>.</h2>
-                <p className="ilml-section-sub">The same install gives you a full command set — read, write, ask Lifebot, replay history, attach files, add plugins.</p>
+                <p className="ilml-section-sub">The full command set — and every command speaks text or <code>--json</code>, reads from stdin or files, and pipes into shell scripts.</p>
+            </div>
+            <div className="ilml-cli-ref">
+                {cliGroups.map((g) => (
+                    <div className="ilml-cli-group" key={g.group}>
+                        <h3 className="ilml-cli-group-title">{g.group}</h3>
+                        <dl className="ilml-cli-list">
+                            {g.items.map(([cmd, desc]) => (
+                                <div className="ilml-cli-row" key={cmd}>
+                                    <dt><code>{cmd}</code></dt>
+                                    <dd>{desc}</dd>
+                                </div>
+                            ))}
+                        </dl>
+                    </div>
+                ))}
             </div>
             <div className="ilml-dev ilml-dev-1">
-                <CopyBlock label="common commands" code={
-`ilml tree                              # your whole graph as a tree
-ilml items <nodeId>                    # a node and its children
-ilml ask <nodeId> "what's left here?"  # ask Lifebot inside a node
-ilml search <nodeId> "deadline"        # search a node's chat
-ilml itemHistory <nodeId>              # who changed what, and when
-ilml upload <nodeId> ./spec.pdf        # attach a file
-ilml plugin install linkedin           # add the LinkedIn plugin`} />
+                <CopyBlock label="text or JSON — composable in shell scripts" code={
+`ilml tree --json | jq '.[].title'              # machine-readable → jq
+ilml items <node> --json > backup.json          # snapshot your graph
+cat notes.md | ilml editItem <node> --desc -    # pipe content straight in`} />
             </div>
         </section>
 

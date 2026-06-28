@@ -7,11 +7,14 @@
     animation: ilmlUp .7s cubic-bezier(.2,.7,.2,1) both;
 }
 .ilml-back {
-    display: inline-block; margin-bottom: 22px;
-    font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px;
-    color: var(--blue-ink); text-decoration: none;
+    display: flex; align-items: center; gap: 6px;
+    width: fit-content; margin: 0 auto 32px;       /* own line, centered, clearly above the eyebrow */
+    font-family: 'Sora', sans-serif; font-weight: 600; font-size: 13.5px;
+    color: var(--muted); text-decoration: none;
+    padding: 7px 15px; border: 1px solid var(--line); border-radius: 999px;
+    transition: color .15s ease, border-color .15s ease, background .15s ease;
 }
-.ilml-back:hover { text-decoration: underline; }
+.ilml-back:hover { color: var(--blue-ink); border-color: var(--blue); background: #f4f9ff; }
 .ilml-feature-hero .ilml-h1 { margin: 0 auto; }
 .ilml-feature-lead { margin: 24px auto 0; }
 
@@ -33,3 +36,12 @@
 .ilml-ask-q { color: var(--blue); font-style: normal; font-weight: 700; }
 
 @media (max-width: 700px) { .ilml-dev-3 { grid-template-columns: 1fr; } }
+
+/* full CLI command reference (grouped, by interestingness) */
+.ilml-cli-ref { max-width: 940px; margin: 0 auto 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 40px; text-align: left; align-items: start; }
+.ilml-cli-group-title { font-family: 'Sora',sans-serif; font-size: 12.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--blue-ink); margin: 14px 0 4px; }
+.ilml-cli-list { margin: 0; }
+.ilml-cli-row { display: flex; flex-direction: column; gap: 2px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.ilml-cli-row dt code { font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace; font-size: 13.5px; color: var(--ink); background: none; padding: 0; }
+.ilml-cli-row dd { margin: 0; font-size: 13px; color: var(--muted); }
+@media (max-width: 760px) { .ilml-cli-ref { grid-template-columns: 1fr; } }
