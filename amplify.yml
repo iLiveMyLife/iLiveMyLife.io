@@ -4,15 +4,15 @@ frontend:
     preBuild:
       commands:
         # Requires the Amazon Linux 2023 build image (_CUSTOM_IMAGE=amplify:al2023),
-        # whose default Node 18 + yarn satisfy both react-scripts 3.4.4 and puppeteer 25.
+        # whose default Node 18 + yarn satisfy both react-scripts 5 and puppeteer.
         # System libraries Chromium (puppeteer) needs to run headless in the prerender step:
         - yum install -y nss atk at-spi2-atk cups-libs libdrm libXcomposite libXdamage libXext libXfixes libXrandr mesa-libgbm libxkbcommon pango alsa-lib libXScrnSaver gtk3 libxshmfence || true
         - yarn install
     build:
       commands:
-        # --openssl-legacy-provider: webpack 4 (react-scripts 3.4.4) needs it on Node 17+.
-        # `yarn build` also triggers the postbuild prerender of every route.
-        - NODE_OPTIONS=--openssl-legacy-provider yarn build
+        # react-scripts 5 (webpack 5) — no openssl-legacy-provider needed.
+        # `yarn build` (craco build) also triggers the postbuild prerender of every route.
+        - yarn build
   artifacts:
     baseDirectory: build
     files:
