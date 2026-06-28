@@ -142,20 +142,39 @@ const Developers = () => (
                 <h2 className="ilml-h2">Drive your graph with <code>ilml</code>.</h2>
                 <p className="ilml-section-sub">The full command set — and every command speaks text or <code>--json</code>, reads from stdin or files, and pipes into shell scripts.</p>
             </div>
-            <div className="ilml-cli-ref">
-                {cliGroups.map((g) => (
-                    <div className="ilml-cli-group" key={g.group}>
-                        <h3 className="ilml-cli-group-title">{g.group}</h3>
-                        <dl className="ilml-cli-list">
-                            {g.items.map(([cmd, desc]) => (
-                                <div className="ilml-cli-row" key={cmd}>
-                                    <dt><code>{cmd}</code></dt>
-                                    <dd>{desc}</dd>
-                                </div>
-                            ))}
-                        </dl>
-                    </div>
-                ))}
+            <div className="ilml-term">
+                <div className="ilml-term-bar">
+                    <span className="ilml-term-dots"><i /><i /><i /></span>
+                    <span className="ilml-term-title">ilml — command reference</span>
+                </div>
+                <div className="ilml-term-body">
+                    {cliGroups.map((g) => (
+                        <div className="ilml-term-group" key={g.group}>
+                            <div className="ilml-term-cat"># {g.group}</div>
+                            {g.items.map(([cmd, desc]) => {
+                                const sp = cmd.indexOf(' ');
+                                const kw = sp === -1 ? cmd : cmd.slice(0, sp);
+                                const rest = sp === -1 ? '' : cmd.slice(sp);
+                                return (
+                                    <div className="ilml-term-line" key={cmd}>
+                                        <span className="ilml-term-cmd"><span className="ilml-term-prompt">$ </span><b>{kw}</b>{rest}</span>
+                                        <span className="ilml-term-desc"># {desc}</span>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="ilml-callout">
+                <span className="ilml-callout-tag">Pro</span>
+                <p>
+                    <b>One CLI, many accounts.</b> <code>ilml login</code> signs you in globally — every
+                    folder. Run <code>ilml login --local</code> inside a project to use a different account
+                    just there (personal vs work, or a dedicated bot account for an automation). Resolution
+                    order: local config → <code>.env</code> token → global → shell variable.
+                </p>
             </div>
             <div className="ilml-dev ilml-dev-1">
                 <CopyBlock label="text or JSON — composable in shell scripts" code={
