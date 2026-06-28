@@ -64,7 +64,7 @@ const capabilities = [
       body: "Turn any node into automation that runs itself: it can call your tools, ask Lifebot, decide, and even spawn more automation to watch your projects — all under your authorization." },
     { accent: "maroon", icon: "code",   title: "SDK · CLI · MCP",
       body: "Open SDK, CLI and MCP. External AIs like Claude and Kimi work directly inside your graph — and anyone can build plugins.",
-      href: "/developers", more: "Install & examples" },
+      href: "/developers/", more: "Install & examples" },
     { accent: "cyan",   icon: "shield", title: "Private, collective, yours",
       body: "Share a node with your team, or lock it down. Private nodes and wallets stay secret — even from the AI. KYC proves who’s human." },
 ];

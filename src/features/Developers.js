@@ -54,12 +54,12 @@ const Developers = () => (
         <Helmet>
             <title>iLiveMyLife for developers — SDK, CLI &amp; MCP</title>
             <meta name="description" content="Script your iLiveMyLife knowledge graph from the command line, or let Claude, Cursor and Windsurf work inside it through MCP. Install the open SDK + CLI, read and write nodes, ask Lifebot, replay change history, build plugins." />
-            <link rel="canonical" href="https://www.ilivemylife.io/developers" />
+            <link rel="canonical" href="https://www.ilivemylife.io/developers/" />
             <meta property="og:type" content="website" />
             <meta property="og:site_name" content="iLiveMyLife" />
             <meta property="og:title" content="iLiveMyLife for developers — SDK, CLI & MCP" />
             <meta property="og:description" content="Open SDK, CLI and MCP server for the iLiveMyLife knowledge graph. Script your graph, or let your AI work inside it." />
-            <meta property="og:url" content="https://www.ilivemylife.io/developers" />
+            <meta property="og:url" content="https://www.ilivemylife.io/developers/" />
             <meta property="og:image" content="https://www.ilivemylife.io/images/apple-touch-icon.png" />
             <meta name="twitter:card" content="summary_large_image" />
         </Helmet>
@@ -85,8 +85,8 @@ const Developers = () => (
         {/* step 1 — install */}
         <section className="ilml-section">
             <div className="ilml-section-head">
-                <span className="ilml-eyebrow ilml-eyebrow-dark">Step 1</span>
-                <h2 className="ilml-h2">Install the CLI + SDK</h2>
+                <span className="ilml-eyebrow ilml-eyebrow-dark">First · Install</span>
+                <h2 className="ilml-h2">One package — CLI, SDK and MCP.</h2>
                 <p className="ilml-section-sub">Node 18+. One global install gives you the <code>ilml</code> command and the SDK.</p>
             </div>
             <div className="ilml-dev ilml-dev-1">
@@ -94,10 +94,29 @@ const Developers = () => (
             </div>
         </section>
 
+        {/* the CLI */}
+        <section className="ilml-section">
+            <div className="ilml-section-head">
+                <span className="ilml-eyebrow ilml-eyebrow-dark">In your terminal · CLI</span>
+                <h2 className="ilml-h2">Drive your graph with <code>ilml</code>.</h2>
+                <p className="ilml-section-sub">The same install gives you a full command set — read, write, ask Lifebot, replay history, attach files, add plugins.</p>
+            </div>
+            <div className="ilml-dev ilml-dev-1">
+                <CopyBlock label="common commands" code={
+`ilml tree                              # your whole graph as a tree
+ilml items <nodeId>                    # a node and its children
+ilml ask <nodeId> "what's left here?"  # ask Lifebot inside a node
+ilml search <nodeId> "deadline"        # search a node's chat
+ilml itemHistory <nodeId>              # who changed what, and when
+ilml upload <nodeId> ./spec.pdf        # attach a file
+ilml plugin install linkedin           # add the LinkedIn plugin`} />
+            </div>
+        </section>
+
         {/* step 2 — MCP */}
         <section className="ilml-section ilml-section-alt">
             <div className="ilml-section-head">
-                <span className="ilml-eyebrow ilml-eyebrow-dark">Step 2</span>
+                <span className="ilml-eyebrow ilml-eyebrow-dark">In your AI · MCP</span>
                 <h2 className="ilml-h2">Plug your graph into your AI.</h2>
                 <p className="ilml-section-sub">One command connects the MCP server to Claude Code (Cursor, Windsurf and Claude Desktop are the same idea).</p>
             </div>
@@ -115,29 +134,39 @@ const Developers = () => (
         {/* step 3 — SDK */}
         <section className="ilml-section">
             <div className="ilml-section-head">
-                <span className="ilml-eyebrow ilml-eyebrow-dark">Step 3</span>
+                <span className="ilml-eyebrow ilml-eyebrow-dark">In your code · SDK</span>
                 <h2 className="ilml-h2">Or script it yourself.</h2>
-                <p className="ilml-section-sub">Read and write nodes, ask Lifebot, upload files, replay every change — all typed.</p>
+                <p className="ilml-section-sub">Typed TypeScript SDK (ESM + CommonJS): read and write nodes, ask Lifebot, upload files, replay every change, subscribe to live updates.</p>
             </div>
             <div className="ilml-dev ilml-dev-3">
                 {sdkExamples.map((e) => <CopyBlock key={e.label} label={e.label} code={e.code} />)}
+            </div>
+            <div className="ilml-dev-links">
+                <a href={SDK_NPM} target="_blank" rel="noopener noreferrer">11 runnable examples + full API on npm →</a>
             </div>
         </section>
 
         {/* plugins */}
         <section className="ilml-section ilml-section-alt">
             <div className="ilml-section-head">
-                <span className="ilml-eyebrow ilml-eyebrow-dark">Extend it</span>
-                <h2 className="ilml-h2">Plugins run inside the CLI.</h2>
+                <span className="ilml-eyebrow ilml-eyebrow-dark">Extend it · Plugins</span>
+                <h2 className="ilml-h2">Install a plugin — or build your own.</h2>
                 <p className="ilml-section-sub">
-                    Domain-specific automation installs into your <code>ilml</code> CLI as a package.
-                    The reference plugin keeps a local mirror of your LinkedIn data and runs AI-assisted
-                    workflows under your direction.
+                    Plugins install into your <code>ilml</code> CLI as packages. The LinkedIn plugin is the
+                    reference: it keeps a local mirror of your LinkedIn data and runs AI-assisted workflows
+                    under your direction — and doubles as the template for authoring your own.
                 </p>
+            </div>
+            <div className="ilml-dev ilml-dev-1">
+                <CopyBlock label="install one / build your own" code={
+`ilml plugin install linkedin     # from npm:ilml-plugin-linkedin
+ilml plugin list                 # what's installed
+ilml linkedin <command>          # run a plugin command
+# author one → see examples/plugin-author.mjs in the SDK`} />
             </div>
             <div className="ilml-dev-links">
                 <a href={PLUGIN_NPM} target="_blank" rel="noopener noreferrer">npm: ilml-plugin-linkedin →</a>
-                <a href={SDK_NPM} target="_blank" rel="noopener noreferrer">Full SDK docs on npm →</a>
+                <a href={SDK_NPM} target="_blank" rel="noopener noreferrer">Plugin-authoring example on npm →</a>
             </div>
         </section>
 
