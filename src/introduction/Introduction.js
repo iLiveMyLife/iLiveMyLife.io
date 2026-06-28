@@ -55,7 +55,8 @@ const Icon = ({ name }) => (
 
 const capabilities = [
     { accent: "cyan",   icon: "graph",  title: "A living knowledge graph",
-      body: "Every idea, project and person is a node. Connect them, reorganize them together, and keep a full, replayable history of every change." },
+      body: "Every idea, project and person is a node. Connect them, reorganize them together, and keep a full, replayable history of every change.",
+      href: "/knowledge-graph/", more: "Nodes, history & 3D" },
     { accent: "teal",   icon: "chat",   title: "Chat that becomes documentation",
       body: "Every node has its own chat. Discussion and documentation happen at once — decisions live where the work is, not lost in a Slack scroll." },
     { accent: "blue",   icon: "bot",    title: "Lifebot — your AI, in context",
