@@ -118,7 +118,7 @@ if (eventType === 'ItemCreatedEvent') {
                 ))}
             </div>
             <p className="ilml-contract-cap" style={{ textAlign: 'center', maxWidth: 640, margin: '20px auto 0' }}>
-                Today contracts fire on <strong>events</strong> (created · edited · moved · messaged). On a fixed <strong>schedule</strong> — coming.
+                Today contracts fire on <strong>events</strong> (created · edited · moved · messaged). Next: on a <strong>schedule</strong>, by name (<code>@bot</code>), and from full <strong>AI agents</strong> — coming.
             </p>
         </section>
 
@@ -195,7 +195,7 @@ await graph.addMessage(entityId,
             <div className="ilml-section-head">
                 <span className="ilml-eyebrow ilml-eyebrow-dark">The part that feels like magic</span>
                 <h2 className="ilml-h2">It repairs its own automation.</h2>
-                <p className="ilml-section-sub">When the code breaks, the contract pauses and posts the error into its code node’s chat. If that node has <code>assist</code> on, <strong>Lifebot reads the error, fixes the code, and switches the contract back on</strong> — automation that heals itself.</p>
+                <p className="ilml-section-sub">When the code breaks, the contract pauses and posts the error into its code node’s chat. If that node has <code>assist</code> on, <strong>Lifebot reads the error, fixes the code, and switches the contract back on</strong> — automation that heals itself. And no one slips code past you: if someone else edits it, the contract pauses until you re-approve — nothing unreviewed ever runs as you.</p>
             </div>
             <div className="ilml-dev-links">
                 <a href="/lifebot-ai/">How Lifebot acts →</a>
@@ -242,7 +242,7 @@ await graph.addMessage(entityId,
             <div className="ilml-section-head">
                 <span className="ilml-eyebrow ilml-eyebrow-dark">What it’s really for</span>
                 <h2 className="ilml-h2">Build a digital twin of almost anything.</h2>
-                <p className="ilml-section-sub">A graph that mirrors something real — and keeps itself in sync — is a digital clone. The events are its heartbeat; the contracts are its reflexes; Lifebot is its judgment.</p>
+                <p className="ilml-section-sub">Think of the graph as shared folders — like a drive you and your team already know — that keep themselves in sync. A graph that mirrors something real is a digital clone: the events are its heartbeat, the contracts its reflexes, Lifebot its judgment.</p>
             </div>
             <div className="ilml-grid ilml-grid-2x2">
                 <div className="ilml-card accent-cyan">

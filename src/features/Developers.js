@@ -1,7 +1,87 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../introduction/Introduction.css';
 import './Features.css';
 import { Helmet } from 'react-helmet';
+
+/* True only while Puppeteer prerenders (see scripts/prerender.js) — crawlers get the full
+   transcript in the HTML; humans get the typing animation. */
+const isPrerender = typeof navigator !== 'undefined' && /Prerender/i.test(navigator.userAgent);
+
+/* a real ilml session: read who you are → your launch tree → ask the AI → write it back */
+const LIVE = [
+    { cmd: `ilml me`,
+      out: `════════════════════════════════════════\n User: You\n Root node: 000001731b8b…de9ac087\n Source: global config ✓\n════════════════════════════════════════` },
+    { cmd: `ilml tree 000…launch 2`,
+      out: `📁 Launch\n   Ship v1              ✅ Done\n   Landing redesign     🕑 In work\n   Release notes        ❕ Urgent` },
+    { cmd: `ilml ask 000…launch "what's left before we ship?"`,
+      out: `Lifebot ▸ Two things block the release —\n  • “Landing redesign” — still in work\n  • “Release notes” — urgent, unassigned\n  Everything else under Launch is done. ✅` },
+    { cmd: `ilml addItem 000…launch --title "Write release notes" --marker urgent`,
+      out: `✓ Created node\n  app.ilivemylife.io/item/0000019f1ad5…` },
+];
+
+function LiveTerminal() {
+    const ref = useRef(null);
+    const [started, setStarted] = useState(isPrerender);
+    const [st, setSt] = useState({ step: 0, chars: 0, out: false, done: isPrerender });
+
+    // start the animation only when the terminal scrolls into view
+    useEffect(() => {
+        if (isPrerender || started) return undefined;
+        const el = ref.current;
+        if (!el || typeof IntersectionObserver === 'undefined') { setStarted(true); return undefined; }
+        const io = new IntersectionObserver((es) => {
+            if (es.some((e) => e.isIntersecting)) { setStarted(true); io.disconnect(); }
+        }, { threshold: 0.35 });
+        io.observe(el);
+        return () => io.disconnect();
+    }, [started]);
+
+    useEffect(() => {
+        if (isPrerender || !started) return undefined;
+        let s = { step: 0, chars: 0, out: false, done: false };
+        let t;
+        const run = () => {
+            const cur = LIVE[s.step];
+            let delay = 0;
+            if (s.chars < cur.cmd.length) { s = { ...s, chars: Math.min(cur.cmd.length, s.chars + 2) }; delay = 34; }
+            else if (!s.out) { s = { ...s, out: true }; delay = 850; }
+            else if (s.step < LIVE.length - 1) { s = { step: s.step + 1, chars: 0, out: false, done: false }; delay = 500; }
+            else { s = { ...s, done: true }; delay = -1; }
+            setSt(s);
+            if (delay >= 0) t = setTimeout(run, delay);
+        };
+        t = setTimeout(run, 450);
+        return () => clearTimeout(t);
+    }, [started]);
+
+    return (
+        <div className="ilml-live" ref={ref}>
+            <div className="ilml-live-bar">
+                <span className="ilml-live-dots" aria-hidden="true"><i /><i /><i /></span>
+                <span className="ilml-live-title">ilml — your graph, live</span>
+            </div>
+            <div className="ilml-live-body">
+                {LIVE.map((s, i) => {
+                    const past = isPrerender || i < st.step || (i === st.step && st.done);
+                    const cur = !isPrerender && i === st.step && !st.done;
+                    if (!past && !cur) return null;
+                    const cmdText = past ? s.cmd : s.cmd.slice(0, st.chars);
+                    const caret = cur && (st.chars < s.cmd.length || !st.out);
+                    const showOut = past || (cur && st.out);
+                    return (
+                        <div className="ilml-live-step" key={s.cmd}>
+                            <div className="ilml-live-cmd">
+                                <span className="ilml-live-prompt">$</span> {cmdText}
+                                {caret && <span className="ilml-live-caret" aria-hidden="true" />}
+                            </div>
+                            {showOut && <pre className="ilml-live-out">{s.out}</pre>}
+                        </div>
+                    );
+                })}
+            </div>
+        </div>
+    );
+}
 
 const SDK_NPM = "https://www.npmjs.com/package/@ilivemylife/graph-sdk";
 const PLUGIN_NPM = "https://www.npmjs.com/package/ilml-plugin-linkedin";
@@ -121,6 +201,16 @@ const Developers = () => (
                     <a href={PLUGIN_NPM} target="_blank" rel="noopener noreferrer">Plugin: ilml-plugin-linkedin →</a>
                 </div>
             </div>
+        </section>
+
+        {/* live terminal */}
+        <section className="ilml-section">
+            <div className="ilml-section-head">
+                <span className="ilml-eyebrow ilml-eyebrow-dark">See it move</span>
+                <h2 className="ilml-h2">Your graph, live in the terminal.</h2>
+                <p className="ilml-section-sub">Real <code>ilml</code> commands, one flow: read who you are, walk your tree, ask Lifebot what’s left, and write the answer back.</p>
+            </div>
+            <LiveTerminal />
         </section>
 
         {/* step 1 — install */}

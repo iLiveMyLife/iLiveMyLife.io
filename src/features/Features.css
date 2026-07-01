@@ -120,6 +120,25 @@
 /* event-type mono label (Events page) */
 .ilml-ev { font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 12px; font-weight: 600; color: var(--blue-ink); }
 
+/* live animated terminal (Developers · See it move) */
+.ilml-live { max-width: 720px; margin: 0 auto; background: #0d1a2b; border: 1px solid #21344f; border-radius: 14px; overflow: hidden; box-shadow: 0 30px 62px -34px rgba(13,26,43,.95); text-align: left; }
+.ilml-live-bar { display: flex; align-items: center; gap: 12px; padding: 11px 16px; background: #14233b; border-bottom: 1px solid #21344f; }
+.ilml-live-dots { display: inline-flex; gap: 7px; }
+.ilml-live-dots i { width: 11px; height: 11px; border-radius: 50%; display: inline-block; background: #2c435f; }
+.ilml-live-dots i:nth-child(1) { background: #ff5f57; }
+.ilml-live-dots i:nth-child(2) { background: #febc2e; }
+.ilml-live-dots i:nth-child(3) { background: #28c840; }
+.ilml-live-title { font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace; font-size: 12.5px; color: #7f96b5; }
+.ilml-live-body { padding: 18px 20px 22px; min-height: 322px; font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace; font-size: 13.5px; line-height: 1.7; }
+.ilml-live-step { margin-bottom: 15px; }
+.ilml-live-step:last-child { margin-bottom: 0; }
+.ilml-live-cmd { color: #eaf2ff; white-space: pre-wrap; word-break: break-word; }
+.ilml-live-prompt { color: #28c840; font-weight: 700; margin-right: 5px; }
+.ilml-live-out { margin: 7px 0 0; color: #9db4d4; white-space: pre-wrap; word-break: break-word; }
+.ilml-live-caret { display: inline-block; width: 8px; height: 16px; background: #d3ff76; margin-left: 3px; vertical-align: text-bottom; animation: ilml-blink 1.05s steps(1) infinite; }
+@keyframes ilml-blink { 50% { opacity: 0; } }
+@media (max-width: 560px) { .ilml-live-body { font-size: 12.5px; min-height: 340px; } }
+
 /* status chips (Markers page) */
 .ilml-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 30px; }
 .ilml-chip { font-family: 'Inter',sans-serif; font-size: 13.5px; font-weight: 600; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 8px 15px; box-shadow: 0 2px 8px -4px rgba(22,35,59,.15); }
