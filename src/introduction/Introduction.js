@@ -275,25 +275,21 @@ const Introduction = () => (
                     A contract is a node that runs itself
                 </div>
                 <div className="ilml-contract-body">
-                    <CopyBlock label="the node’s settings — JSON" code={
-`{
-  "contract": "weekly-digest",
-  "trigger": "every monday 09:00",
-  "scope": "node: My Projects"
-}`} />
-                    <CopyBlock label="…and its code — the SDK is already wired in" code={
-`// runs inside the node: 'graph' is connected, 'node' is this node's id
-export default async ({ graph, node }) => {
-  const answer = await graph.askLifebot(node, 'Summarize my projects this week')
-  await graph.addMessage(node, answer)   // → post into this node's chat
-  // or spawn a child node:
-  // await graph.addItem({ itemId: node, title: 'Weekly digest', description: answer })
+                    <CopyBlock label="the contract node — title + config (description)" code={
+`title:  {{webhook:…/contracts/sandboxed}}
+config: { "codeNodeId": "<code node>",
+          "nodeId":     "<where to post>" }`} />
+                    <CopyBlock label="…and the code (a sibling node) — runs on each change" code={
+`// injected: eventType, event, entityId, contractConfig, graph
+if (eventType === 'ItemCreatedEvent') {
+  const item = await graph.getItem(entityId)
+  await graph.addMessage(contractConfig.nodeId, \`📋 New: \${item.title}\`)
 }`} />
                 </div>
                 <p className="ilml-contract-cap">
-                    Ask Lifebot to generate it, or create the contract-node by hand — it calls Lifebot,
-                    waits for the answer, and writes it back as a new node or message.
-                    {" "}<a href="/cloud-programming-interface">How node-contracts work →</a>
+                    Watch any node by reference; react with code, Lifebot, or a webhook — and if the code
+                    breaks, Lifebot fixes it and switches the contract back on.
+                    {" "}<a href="/automation/">How contracts work →</a>
                 </p>
             </div>
         </section>

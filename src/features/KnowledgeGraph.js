@@ -76,6 +76,9 @@ const KnowledgeGraph = () => (
                     </div>
                 ))}
             </div>
+            <div className="ilml-dev-links">
+                <a href="/event-sourcing/">Why every change is an event →</a>
+            </div>
         </section>
 
         {/* structure */}
