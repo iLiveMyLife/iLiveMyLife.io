@@ -7,16 +7,14 @@ import { Helmet } from 'react-helmet';
    transcript in the HTML; humans get the typing animation. */
 const isPrerender = typeof navigator !== 'undefined' && /Prerender/i.test(navigator.userAgent);
 
-/* a real ilml session: read who you are → your launch tree → ask the AI → write it back */
+/* a real ilml session — verbatim output shapes captured from the CLI (read-only, real node) */
 const LIVE = [
     { cmd: `ilml me`,
-      out: `════════════════════════════════════════\n User: You\n Root node: 000001731b8b…de9ac087\n Source: global config ✓\n════════════════════════════════════════` },
-    { cmd: `ilml tree 000…launch 2`,
-      out: `📁 Launch\n   Ship v1              ✅ Done\n   Landing redesign     🕑 In work\n   Release notes        ❕ Urgent` },
-    { cmd: `ilml ask 000…launch "what's left before we ship?"`,
-      out: `Lifebot ▸ Two things block the release —\n  • “Landing redesign” — still in work\n  • “Release notes” — urgent, unassigned\n  Everything else under Launch is done. ✅` },
-    { cmd: `ilml addItem 000…launch --title "Write release notes" --marker urgent`,
-      out: `✓ Created node\n  app.ilivemylife.io/item/0000019f1ad5…` },
+      out: `════════════════════════════════════════\n User: Ilya Sorokin\n Root node: 000001731b8b…de9ac087\n Source: global config\n════════════════════════════════════════` },
+    { cmd: `ilml tree 000001736056c2cb-2655b2cf545d0001 2`,
+      out: `📁 iLiveMyLife — Collaborative Knowledge Graph  [000001736056c2cb…]\n├── 📄 Team\n├── 📄 Growth\n├── 📄 Features\n├── 📄 Whitepaper written by Lifebot  [REF]\n├── 📄 Product Roadmap\n└── 📄 Learning Resources\n    … and 16 more` },
+    { cmd: `ilml itemHistory 000001736056c2cb-2655b2cf545d0001 2`,
+      out: `History (2 entries):\n────────────────────────────────────────\n[5/19/2026, 2:08 PM] Ilya Sorokin — subCreated\n  Title: Process: Digital Clone Build-out\n  tags: "" → "assist"\n────────────────────────────────────────\n[5/19/2026, 2:22 PM] Ilya Sorokin — subCreated\n  Title: Principle: Unit-Economics Break-Even` },
 ];
 
 function LiveTerminal() {
@@ -208,7 +206,7 @@ const Developers = () => (
             <div className="ilml-section-head">
                 <span className="ilml-eyebrow ilml-eyebrow-dark">See it move</span>
                 <h2 className="ilml-h2">Your graph, live in the terminal.</h2>
-                <p className="ilml-section-sub">Real <code>ilml</code> commands, one flow: read who you are, walk your tree, ask Lifebot what’s left, and write the answer back.</p>
+                <p className="ilml-section-sub">Real <code>ilml</code> output — read who you are, walk your graph, and replay every change: who, what, when.</p>
             </div>
             <LiveTerminal />
         </section>
