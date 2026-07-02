@@ -36,23 +36,14 @@ const Lifebot = () => (
                 <span className="ilml-eyebrow">Lifebot · your AI, in context</span>
                 <h1 className="ilml-h1">An AI that actually<br /><span className="ilml-grad-text">knows your world.</span></h1>
                 <p className="ilml-lead ilml-feature-lead">
-                    Lifebot lives inside your graph. Ask it in any node and it answers in context — and you
-                    decide how far it looks: this project only, or your whole life.
+                    Lifebot lives inside your graph — the AI behind your chats, your search and your automation.
+                    Ask it in any node and it answers in context, acts with your say-so, and runs on the model you pick.
                 </p>
             </div>
         </section>
 
-        {/* scope */}
-        <section className="ilml-section">
-            <div className="ilml-section-head">
-                <span className="ilml-eyebrow ilml-eyebrow-dark">You set the lens</span>
-                <h2 className="ilml-h2">As narrow, or as wide, as you want.</h2>
-                <p className="ilml-section-sub">Point Lifebot at a single node for a focused answer, or open it up to your whole graph for the big picture. The context is yours to widen or shut.</p>
-            </div>
-        </section>
-
         {/* what it does */}
-        <section className="ilml-section ilml-section-alt">
+        <section className="ilml-section">
             <div className="ilml-section-head">
                 <span className="ilml-eyebrow ilml-eyebrow-dark">What Lifebot does</span>
                 <h2 className="ilml-h2">More than a chatbot.</h2>
@@ -68,12 +59,46 @@ const Lifebot = () => (
             </div>
         </section>
 
+        {/* models */}
+        <section className="ilml-section ilml-section-alt">
+            <div className="ilml-section-head">
+                <span className="ilml-eyebrow ilml-eyebrow-dark">Runs on the model you choose</span>
+                <h2 className="ilml-h2">Four providers. A fast one and a smart one each.</h2>
+                <p className="ilml-section-sub">Lifebot isn’t tied to one vendor. Set a default for the whole app, override it on any node — and flip <strong>intelligence</strong> on where it matters: a fast, cheap model for everyday automation, the flagship model for the hard calls.</p>
+            </div>
+            <div className="ilml-grid ilml-grid-2x2">
+                <div className="ilml-card accent-blue">
+                    <div className="ilml-card-icon ilml-glyph" aria-hidden="true">✦</div>
+                    <h3 className="ilml-card-title">Claude</h3>
+                    <p className="ilml-card-body">Haiku for speed, Sonnet for the hard calls.</p>
+                </div>
+                <div className="ilml-card accent-teal">
+                    <div className="ilml-card-icon ilml-glyph" aria-hidden="true">◇</div>
+                    <h3 className="ilml-card-title">OpenAI</h3>
+                    <p className="ilml-card-body">A fast GPT for volume, the flagship GPT for depth.</p>
+                </div>
+                <div className="ilml-card accent-orange">
+                    <div className="ilml-card-icon ilml-glyph" aria-hidden="true">◐</div>
+                    <h3 className="ilml-card-title">Gemini</h3>
+                    <p className="ilml-card-body">Flash for speed, Pro for depth.</p>
+                </div>
+                <div className="ilml-card accent-maroon">
+                    <div className="ilml-card-icon ilml-glyph" aria-hidden="true">⚙</div>
+                    <h3 className="ilml-card-title">DeepSeek</h3>
+                    <p className="ilml-card-body">An open, low-cost pair — flash and pro.</p>
+                </div>
+            </div>
+            <p className="ilml-contract-cap" style={{ textAlign: 'center', maxWidth: 660, margin: '20px auto 0' }}>
+                Four providers, each with a fast and a smart tier — and any new OpenAI-compatible model (Kimi, Groq, Together…) drops in with a single line. A little <strong>intelligence</strong> indicator shows which tier a node is on.
+            </p>
+        </section>
+
         {/* per-node brain */}
         <section className="ilml-section">
             <div className="ilml-section-head">
                 <span className="ilml-eyebrow ilml-eyebrow-dark">Tunable per node, per person</span>
                 <h2 className="ilml-h2">Pick its brain — and its reach.</h2>
-                <p className="ilml-section-sub">On any node you can override the app-wide default: choose the <strong>provider</strong> (Claude, OpenAI, Gemini, or an OpenAI-compatible model), turn on a <strong>smarter model</strong> where it matters and leave the rest light and cheap, and set how far it may <strong>look</strong> — just this node, out across your graph, or never into your private data. For a shared or sensitive node, keep it to exactly what’s inside.</p>
+                <p className="ilml-section-sub">On any node you can override the app-wide default: choose the <strong>provider</strong> (Claude, OpenAI, Gemini, DeepSeek — or any OpenAI-compatible model), turn on a <strong>smarter model</strong> where it matters and leave the rest light and cheap, and set how far it may <strong>look</strong> — just this node, out across your graph, or never into your private data. For a shared or sensitive node, keep it to exactly what’s inside.</p>
             </div>
             <div className="ilml-callout">
                 <span className="ilml-callout-tag">Yours</span>
