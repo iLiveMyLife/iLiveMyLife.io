@@ -22,39 +22,52 @@ const CopyBlock = ({ label, code }) => (
     </div>
 );
 
-/* every capability maps to a real `ilml linkedin` command (v1.13.1) */
+/* every capability maps to a real `ilml linkedin` command (v1.13.1, verified against ilml-plugin.json) */
 const capabilities = [
-    { accent: "accent-cyan", icon: "⇩", title: "A local copy you own", body: "sync pulls your LinkedIn inbox and contacts into a local database on your machine. Work offline, keep your own history — your data stays yours." },
+    { accent: "accent-cyan", icon: "⇩", title: "A local copy you own", body: "sync pulls your LinkedIn inbox and contacts into a local database on your machine. Analysis runs offline against your own history — your data stays yours." },
     { accent: "accent-teal", icon: "◷", title: "A daily plan — no browser", body: "today reads the synced data and tells you who to reply to and what to do next, prioritized. report prints inbox stats. No LinkedIn tab open." },
-    { accent: "accent-blue", icon: "✎", title: "Reply with your AI", body: "messages runs a draft → review → send loop: your AI writes the replies, you approve, it sends. enrich classifies every thread — recruiter, HM, founder, coach…" },
-    { accent: "accent-orange", icon: "⇉", title: "Find & reach the right people", body: "warm-scan finds your 1st-degree connections at target companies; funnel builds a connection-request queue for recruiters / founders / investors." },
+    { accent: "accent-blue", icon: "✎", title: "Reply with your AI", body: "Your assistant hands over a JSON of drafts (messages --draft-batch); you approve them (--review-drafts); it sends (--push-drafts). enrich classifies every thread — recruiter, HM, founder, coach…" },
+    { accent: "accent-orange", icon: "⇉", title: "Find & reach the right people", body: "warm-scan finds your 1st-degree connections at target companies; funnel builds a quota-tracked connection-request queue for recruiters / founders / investors." },
     { accent: "accent-maroon", icon: "⌕", title: "Show up & get seen", body: "visit walks a queue of profiles so you appear in their “who viewed your profile”; viewers pulls that list back so you can act on it." },
-    { accent: "accent-cyan", icon: "⚡", title: "Jobs — scored, then applied", body: "scout scans jobs from your search URLs and scores them; apply and apply-queue auto-apply to the Easy Apply roles at the top of the list." },
+    { accent: "accent-cyan", icon: "⚡", title: "Jobs — scored, then applied", body: "scout scores jobs from your search URLs; apply and apply-queue auto-apply to the Easy Apply roles at the top — filling each form with Lifebot AI." },
+    { accent: "accent-teal", icon: "◆", title: "Your own profile, audited", body: "enrich-profile <you> --full pulls your full Experience, Skills, Recommendations and Certifications; profile-history tracks how a contact’s profile changed over time." },
+    { accent: "accent-blue", icon: "◇", title: "It lands in your graph", body: "Applications, session reports and post snapshots flow into iLiveMyLife nodes — read-post --save-to-graph captures a post into your graph, ready to automate on." },
 ];
 
 const cliGroups = [
-    { group: "Set up (once)", items: [
+    { group: "Set up & update", items: [
         ["ilml plugin install linkedin", "add the plugin from npm"],
-        ["ilml linkedin login", "open a browser, log in, save cookies"],
-        ["ilml plugin config linkedin", "your search URLs & defaults"],
+        ["ilml linkedin login", "open a browser, log in once, save cookies"],
+        ["ilml plugin config linkedin", "your name, search URLs & graph nodes"],
+        ["ilml plugin update linkedin", "update to the latest version"],
     ]},
     { group: "Every day", items: [
-        ["ilml linkedin sync", "pull new inbox threads into the local DB"],
-        ["ilml linkedin today", "your prioritized action plan — no browser"],
+        ["ilml linkedin sync", "pull new threads   (--full · --dry-run)"],
+        ["ilml linkedin today", "prioritized action plan — no browser"],
         ["ilml linkedin report", "inbox stats & last-session summary"],
     ]},
-    { group: "People & outreach", items: [
-        ["ilml linkedin enrich", "classify every contact & conversation"],
-        ["ilml linkedin warm-scan", "1st-degree connections at target companies"],
-        ["ilml linkedin funnel", "connection-request queue (recruiters / founders…)"],
-        ["ilml linkedin visit", "appear in their “who viewed your profile”"],
-        ["ilml linkedin viewers", "pull who viewed your profile"],
+    { group: "Reply with your AI", items: [
+        ["ilml linkedin messages --draft-batch @replies.json", "AI hands over a JSON of drafts"],
+        ["ilml linkedin messages --review-drafts", "approve / edit / reject them"],
+        ["ilml linkedin messages --push-drafts", "send — with a pre-send freshness re-check"],
+        ["ilml linkedin enrich", "re-classify every contact (offline)"],
     ]},
-    { group: "Messages & jobs", items: [
-        ["ilml linkedin messages", "AI drafts replies → you review → send"],
+    { group: "People & outreach", items: [
+        ["ilml linkedin warm-scan --companies \"…\"", "1st-degree connections at target companies"],
+        ["ilml linkedin funnel", "connection-request queue (quota-tracked)"],
+        ["ilml linkedin visit", "appear in their “who viewed your profile”"],
+        ["ilml linkedin viewers", "pull who viewed you"],
+    ]},
+    { group: "Profiles & posts", items: [
+        ["ilml linkedin enrich-profile <you> --full", "deep-audit your own profile"],
+        ["ilml linkedin profile-history", "how a contact’s profile changed over time"],
+        ["ilml linkedin read-post <url> --save-to-graph <node>", "AI reads a post → into your graph"],
+    ]},
+    { group: "Jobs & the full run", items: [
         ["ilml linkedin scout", "score jobs from your search URLs"],
         ["ilml linkedin apply", "auto-apply to Easy Apply roles"],
-        ["ilml linkedin daily", "the full pipeline, in one command"],
+        ["ilml linkedin apply-queue", "apply to the top-scored queue"],
+        ["ilml linkedin daily", "the whole pipeline, one command"],
     ]},
 ];
 
@@ -145,6 +158,15 @@ const LinkedIn = () => (
                         </div>
                     ))}
                 </div>
+            </div>
+            <div className="ilml-callout">
+                <span className="ilml-callout-tag">Safe</span>
+                <p>
+                    <b>Built to respect LinkedIn.</b> Every command has a cap and a stated ban-risk;
+                    connection requests are weekly-quota-tracked; replies pass a salutation guard and a
+                    pre-send freshness re-check. And the offline commands — <code>today</code>,{" "}
+                    <code>enrich</code>, <code>warm-scan</code>, <code>report</code> — never open a browser at all.
+                </p>
             </div>
         </section>
 
