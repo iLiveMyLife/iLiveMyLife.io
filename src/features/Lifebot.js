@@ -8,7 +8,7 @@ const APP = "https://app.ilivemylife.io";
 const does = [
     { icon: "✦", title: "Answers in context", body: "Ask inside any node and Lifebot answers knowing that node — its chat, children and the scope you allow." },
     { icon: "⌕", title: "Searches your graph", body: "“Where did we decide the pricing?” — it finds the node and the message, across everything you’ve shared with it." },
-    { icon: "+", title: "Creates & edits nodes", body: "Tell it what you need and it can add tasks, restructure a project, or write a node — with your say-so." },
+    { icon: "+", title: "Creates & edits nodes", body: "Tell it what you need and it adds tasks, builds a whole sub-project in one go, or drops a reference link — with your say-so." },
     { icon: "⚙", title: "Runs on its own", body: "Wired into a contract, Lifebot acts on a trigger — summarizing, drafting, watching — not just replying." },
     { icon: "‹›", title: "Stays silent until asked", body: "It won’t butt into every chat. Mention it, or turn it off per message — you decide when it speaks." },
     { icon: "▦", title: "Respects your secrets", body: "Wallet nodes are invisible to it. Lifebot never sees what you’ve marked private to yourself." },
@@ -71,12 +71,20 @@ const Lifebot = () => (
         {/* per-node brain */}
         <section className="ilml-section">
             <div className="ilml-section-head">
-                <span className="ilml-eyebrow ilml-eyebrow-dark">Tunable per node</span>
-                <h2 className="ilml-h2">Pick its brain, node by node.</h2>
-                <p className="ilml-section-sub">Switch the AI provider or turn on a smarter model for the nodes that need it — and leave the rest light and cheap.</p>
+                <span className="ilml-eyebrow ilml-eyebrow-dark">Tunable per node, per person</span>
+                <h2 className="ilml-h2">Pick its brain — and its reach.</h2>
+                <p className="ilml-section-sub">On any node you can override the app-wide default: choose the <strong>provider</strong> (Claude, OpenAI, Gemini, or an OpenAI-compatible model), turn on a <strong>smarter model</strong> where it matters and leave the rest light and cheap, and set how far it may <strong>look</strong> — just this node, out across your graph, or never into your private data. For a shared or sensitive node, keep it to exactly what’s inside.</p>
+            </div>
+            <div className="ilml-callout">
+                <span className="ilml-callout-tag">Yours</span>
+                <p>
+                    <b>Per person, not per node.</b> Because Lifebot runs on the token of whoever asked, each
+                    teammate sets their own model and reach — and it reasons over <em>their</em> tree and replies to{" "}
+                    <em>them</em>. Your settings and your data never cross into someone else’s.
+                </p>
             </div>
             <div className="ilml-dev-links">
-                <a href="/developers/">Call Lifebot from the SDK / CLI →</a>
+                <a href="/developers/">Set it from the SDK / CLI (editSettings) →</a>
                 <a href="/automation/">Put Lifebot inside a contract →</a>
                 <a href="/privacy/">How it respects wallet nodes →</a>
             </div>

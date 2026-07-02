@@ -172,6 +172,18 @@ propagation, event list + event JSON. Cross-linked from `/knowledge-graph`.
 - Possible dedicated spoke pages: self-healing, Lifebot-builds-it, stream-beyond.
 - Interactive/animated `ilml` CLI + MCP demo on `/developers` (real commands, real graph output).
 
+## 12b. Lifebot internals (verified in code — `graphql.iLiveMyLife.io/src/utils/AssistantService.js` + `assistant/FunctionDefinitions.js`)
+
+**Settings resolution (all `node override > app setting > default`):**
+- **Provider** — `itemSettings.artificialIntelligenceProvider || appProvider || DEFAULT_AI_PROVIDER`. Multi-provider: Claude, Gemini, and an OpenAI-compatible registry (OpenAI, DeepSeek, Kimi, Together, Groq…).
+- **Intelligence** — `"enabled"|"disabled"|null` per node; smart model only for **paid customers who enabled intelligence**, else the cheap model. So high-frequency automation stays cheap; hard calls get the strong model.
+- **Reach** — two flags: `hasRootAccess` (may search up to the My Life root vs only the current subtree) and `allowAIPrivateSearch` (may read private data at all). Lock a shared/sensitive node down to exactly what's inside.
+- **Per-user + delegated identity** — settings are per-user-per-node; Lifebot runs on the **token of whoever asked**, so it reasons over *that* person's tree and replies to them. Set via SDK/CLI `editSettings --provider --intelligence --rootAccess` / `editItemSettings`.
+
+**Function calling (the tools Lifebot can invoke):**
+- Actions: `add_node` (title/description/tags, and **`refId` → creates a reference/link node** — how it "points a contract at the data to watch"), `edit_node` (title/description + **`add_tags`/`remove_tags`**, wildcard suffix like `#contract#disabled*` → self-heal, markers, `#contract`, `assist`, `#color#`; **privacy/system tags `wallet/bank/kyc/ask/hidden/non_drop/#txn-*/private` are refused**), `add_nodes` (batch), `add_nodes_within_new_node` (parent + children in one call — build a whole structure).
+- Reasoning: `rate_nodes_importance` (scores candidate nodes 0–10 → how it assembles context = "searches your graph"), `rate_message_importance_for_answer` (in a shared room, decides if the user wants *Lifebot* to answer vs. staying quiet), `generate_title_from_description`.
+
 ## 13. Canonical graph docs (read these before changing the model)
 
 - Webhooks (Smart Contracts) root: `0000017e5bea8218-4a6f58653f360000`
