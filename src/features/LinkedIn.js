@@ -96,7 +96,7 @@ const LinkedIn = () => (
             <div className="ilml-section-head">
                 <span className="ilml-eyebrow ilml-eyebrow-dark">Not a bot that clicks blindly</span>
                 <h2 className="ilml-h2">A copy of your LinkedIn, on your machine.</h2>
-                <p className="ilml-section-sub"><code>sync</code> pulls your inbox and contacts into a local database you own. Everything after that — planning your day, drafting replies, classifying people, choosing who to reach — runs against <strong>your own data</strong>, mostly with no browser open at all.</p>
+                <p className="ilml-section-sub"><code>sync</code> pulls your inbox and contacts into a local database you own. Analysis after that — planning your day, drafting replies, classifying people, choosing who to reach — runs against <strong>your own copy</strong>, no browser needed. And when something does touch LinkedIn itself — a sync, an apply, a connect — the plugin drives the browser <strong>for you</strong>; you never sit in the tab.</p>
             </div>
         </section>
 
