@@ -70,22 +70,22 @@ const Lifebot = () => (
                 <div className="ilml-card accent-blue">
                     <div className="ilml-card-icon ilml-glyph" aria-hidden="true">✦</div>
                     <h3 className="ilml-card-title">Claude</h3>
-                    <p className="ilml-card-body">Haiku for speed, Sonnet for the hard calls.</p>
+                    <p className="ilml-card-body">A fast Claude for the everyday, the flagship for the hard calls.</p>
                 </div>
                 <div className="ilml-card accent-teal">
                     <div className="ilml-card-icon ilml-glyph" aria-hidden="true">◇</div>
                     <h3 className="ilml-card-title">OpenAI</h3>
-                    <p className="ilml-card-body">A fast GPT for volume, the flagship GPT for depth.</p>
+                    <p className="ilml-card-body">A quick GPT for volume, the top model for depth.</p>
                 </div>
                 <div className="ilml-card accent-orange">
                     <div className="ilml-card-icon ilml-glyph" aria-hidden="true">◐</div>
                     <h3 className="ilml-card-title">Gemini</h3>
-                    <p className="ilml-card-body">Flash for speed, Pro for depth.</p>
+                    <p className="ilml-card-body">A light Gemini for speed, the deep one when it counts.</p>
                 </div>
                 <div className="ilml-card accent-maroon">
                     <div className="ilml-card-icon ilml-glyph" aria-hidden="true">⚙</div>
                     <h3 className="ilml-card-title">DeepSeek</h3>
-                    <p className="ilml-card-body">An open, low-cost pair — flash and pro.</p>
+                    <p className="ilml-card-body">An open, low-cost pair — one fast, one deep.</p>
                 </div>
             </div>
             <p className="ilml-contract-cap" style={{ textAlign: 'center', maxWidth: 660, margin: '20px auto 0' }}>
