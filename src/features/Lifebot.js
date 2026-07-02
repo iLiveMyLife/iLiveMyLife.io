@@ -18,7 +18,7 @@ const Lifebot = () => (
     <div className="ilml-landing">
         <Helmet>
             <title>Lifebot — your AI, in context — iLiveMyLife</title>
-            <meta name="description" content="Lifebot is an AI that actually knows your world. Ask it inside any node; it answers in context, searches your graph, creates and edits nodes, and can run on its own as a contract. You control how far it looks — this project only, or your whole life — and wallet nodes stay hidden from it." />
+            <meta name="description" content="Lifebot is an AI that actually knows your world. Ask it inside any node; it answers in context, searches your graph, creates and edits nodes, and can run on its own as a contract. It's also your automation co-pilot: it builds contracts for you (code or prompt), points them at the data to watch, and iterates on the code it wrote when it breaks. You control how far it looks — this project only, or your whole life — and wallet nodes stay hidden from it." />
             <link rel="canonical" href="https://www.ilivemylife.io/lifebot-ai/" />
             <meta property="og:type" content="website" />
             <meta property="og:site_name" content="iLiveMyLife" />
@@ -79,6 +79,41 @@ const Lifebot = () => (
                 <a href="/developers/">Call Lifebot from the SDK / CLI →</a>
                 <a href="/automation/">Put Lifebot inside a contract →</a>
                 <a href="/privacy/">How it respects wallet nodes →</a>
+            </div>
+        </section>
+
+        {/* automation co-pilot */}
+        <section className="ilml-section ilml-section-alt">
+            <div className="ilml-section-head">
+                <span className="ilml-eyebrow ilml-eyebrow-dark">Your automation co-pilot</span>
+                <h2 className="ilml-h2">It writes your automation — and fixes it.</h2>
+                <p className="ilml-section-sub">Lifebot knows how contracts work — the events, the injected variables, the syntax. Describe what you want and it builds the whole thing: the contract node, a reference to the data to watch, and the code (or a plain-language prompt) in a node it creates. When that code breaks, it reads the error, iterates, and switches the contract back on.</p>
+            </div>
+            <div className="ilml-grid ilml-grid-2x2">
+                <div className="ilml-card accent-orange">
+                    <div className="ilml-card-icon ilml-glyph" aria-hidden="true">✎</div>
+                    <h3 className="ilml-card-title">Builds the contract</h3>
+                    <p className="ilml-card-body">Code or prompt — Lifebot creates the contract node, the code node, and wires the config, from a single sentence.</p>
+                </div>
+                <div className="ilml-card accent-cyan">
+                    <div className="ilml-card-icon ilml-glyph" aria-hidden="true">↗</div>
+                    <h3 className="ilml-card-title">Points it at your data</h3>
+                    <p className="ilml-card-body">It drops a reference to the exact nodes you want watched or analyzed, so their events flow up and trigger the contract.</p>
+                </div>
+                <div className="ilml-card accent-teal">
+                    <div className="ilml-card-icon ilml-glyph" aria-hidden="true">⟲</div>
+                    <h3 className="ilml-card-title">Iterates on the code</h3>
+                    <p className="ilml-card-body">Reads the error posted to the code node, rewrites the code, verifies, and re-enables it — a self-healing loop.</p>
+                </div>
+                <div className="ilml-card accent-maroon">
+                    <div className="ilml-card-icon ilml-glyph" aria-hidden="true">‹›</div>
+                    <h3 className="ilml-card-title">Knows the syntax</h3>
+                    <p className="ilml-card-body">Ask it anything about contracts — which events fire, what’s injected, how to call the SDK — it has the docs by heart.</p>
+                </div>
+            </div>
+            <div className="ilml-dev-links">
+                <a href="/automation/">How contracts work →</a>
+                <a href="/event-sourcing/">The event model →</a>
             </div>
         </section>
 
