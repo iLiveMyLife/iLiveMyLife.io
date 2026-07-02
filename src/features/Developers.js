@@ -324,6 +324,7 @@ ilml linkedin <command>          # run a plugin command
 # author one → see examples/plugin-author.mjs in the SDK`} />
             </div>
             <div className="ilml-dev-links">
+                <a href="/linkedin/">See the full LinkedIn plugin →</a>
                 <a href={PLUGIN_NPM} target="_blank" rel="noopener noreferrer">npm: ilml-plugin-linkedin →</a>
                 <a href={SDK_NPM} target="_blank" rel="noopener noreferrer">Plugin-authoring example on npm →</a>
             </div>

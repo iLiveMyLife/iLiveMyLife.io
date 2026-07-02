@@ -26,6 +26,7 @@ import Markers from "../features/Markers";
 import References from "../features/References";
 import RichContent from "../features/RichContent";
 import Events from "../features/Events";
+import LinkedIn from "../features/LinkedIn";
 const { Content, Footer } = Layout;
 
 class App extends Component {
@@ -69,6 +70,7 @@ class App extends Component {
                         <Route exact path="/references" component={References}></Route>
                         <Route exact path="/rich-content" component={RichContent}></Route>
                         <Route exact path="/event-sourcing" component={Events}></Route>
+                        <Route exact path="/linkedin" component={LinkedIn}></Route>
                         <Route exact path="/:slidePath" render={(props) => <Presentation currentUser={this.state.currentUser} />} />
                         <Route path="/demo"
                                render={(props) => <Presentation currentUser={this.state.currentUser} />}>
