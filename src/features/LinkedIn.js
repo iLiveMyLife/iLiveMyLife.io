@@ -22,7 +22,7 @@ const CopyBlock = ({ label, code }) => (
     </div>
 );
 
-/* every capability maps to a real `ilml linkedin` command (v1.13.1, verified against ilml-plugin.json) */
+/* every capability maps to a real `ilml linkedin` command (v1.19.2, verified against ilml-plugin.json) */
 const capabilities = [
     { accent: "accent-cyan", icon: "⇩", title: "A local copy you own", body: "sync pulls your LinkedIn inbox and contacts into a local database on your machine. Analysis runs offline against your own history — your data stays yours." },
     { accent: "accent-teal", icon: "◷", title: "A daily plan — no browser", body: "today reads the synced data and tells you who to reply to and what to do next, prioritized. report prints inbox stats. No LinkedIn tab open." },
@@ -54,7 +54,10 @@ const cliGroups = [
     ]},
     { group: "People & outreach", items: [
         ["ilml linkedin warm-scan --companies \"…\"", "1st-degree connections at target companies"],
-        ["ilml linkedin funnel", "connection-request queue (quota-tracked)"],
+        ["ilml linkedin connect", "curate a connection-request queue, review, send under quota (add · fill · approve · run)"],
+        ["ilml linkedin sync-connections", "find out who accepted your requests → local contacts"],
+        ["ilml linkedin quota", "connection quota left + which outreach actually converts"],
+        ["ilml linkedin funnel", "auto-queue recruiters from the apply pipeline (quota-tracked)"],
         ["ilml linkedin visit", "appear in their “who viewed your profile”"],
         ["ilml linkedin viewers", "pull who viewed you"],
     ]},
